@@ -211,6 +211,8 @@ main ← 작업 브랜치
  ┣ 📂src
  ┃ ┣ 📂assets
  ┃ ┣ 📂components
+ ┃ ┣ 📂hooks
+ ┃ ┣ 📂routes
  ┃ ┃ ┣ 📂activity
  ┃ ┃ ┣ 📂business
  ┃ ┃ ┣ 📂center
@@ -219,19 +221,14 @@ main ← 작업 브랜치
  ┃ ┃ ┣ 📂info
  ┃ ┃ ┣ 📂main
  ┃ ┃ ┗ 📂news
- ┃ ┣ 📂hooks
- ┃ ┣ 📂lib
- ┃ ┣ 📂routes
  ┃ ┣ 📂styles
- ┃ ┣ 📂utils
  ┃ ┣ 📜App.jsx
  ┃ ┗ 📜main.jsx
  ┣ 📜.env
+ ┣ 📜.editorconfig
  ┣ 📜.gitignore
- ┣ 📜.pnp.cjs
  ┣ 📜.prettierrc
  ┣ 📜.stylelintrc
- ┣ 📜.yarnrc.yml
  ┣ 📜eslint.config.js
  ┣ 📜index.html
  ┣ 📜package.json
