@@ -19,6 +19,11 @@
 
 <br>
 
+## 📊 Insights
+![Alt](https://repobeats.axiom.co/api/embed/54bb0b48e49b03ca26bd1983fc445077b71481e4.svg "Repobeats analytics image")
+
+<br>
+
 ## 💻 기술 스택
 
 | **역할**             | **종류**                                                                                                                                                                                                                                                                                                                        | **선정 이유**                                                                |
@@ -26,7 +31,6 @@
 | Library              | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">                                                                                                                                                                                                                            | 컴포넌트 기반 구조로 재사용성과 유지보수성이 높아 개발 효율을 극대화 가능    |
 | Programming Language | <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>                                                                                                                                                                                                                 | 유연한 문법과 활발한 생태계를 통해 빠른 개발 가능                            |
 | Styling              | <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white">                                                                                                                                                                                                      | CSS-in-JS 방식의 컴포넌트 단위 스타일링 방식으로 유지보수가 용이             |
-| Data Fetching        | <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">                                                                                                                                                                                                                            | 직관적인 API 사용법과 자동 JSON 변환 기능으로 비동기 통신이 간편             |
 | Routing              | <img src="https://img.shields.io/badge/ReactRouter-CA4245?style=for-the-badge&logo=ReactRouter&logoColor=white">                                                                                                                                                                                                                | SPA에 최적화된 라우팅 기능 제공, 선언적 방식으로 라우트를 쉽게 구성 가능     |
 | Formatting           | <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-000000?style=for-the-badge&logo=prettier&logoColor=F7B93E"> <img src="https://img.shields.io/badge/stylelint-263238?style=for-the-badge&logo=stylelint&logoColor=white"> | 코드 스타일을 통일하고 잠재적인 오류를 사전에 방지하여 협업 시 효율성을 높임 |
 | Package Manager      | <img src="https://img.shields.io/badge/yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white">                                                                                                                                                                                                                              | 빠른 설치 속도와 안정적인 패키지 관리 기능으로 프로젝트 환경 설정에 용이     |
@@ -196,21 +200,59 @@ main ← 작업 브랜치
 
 <br>
 
+## 👩‍💻 Code Review
+
+### 🫧 리뷰 담당자
+
+```
+서윤 → 서영 → 소연 → 진경 → 진효 → 윤영 → 서윤
+```
+
+<br>
+
+### 📝 Comments
+
+- 파일 최상단에 설명 및 작성자 기록
+- 파일 최상단 제외 주석 작성하지 않기
+
+<br>
+
+**Comment Template**
+```
+/**
+ * [기능 또는 컴포넌트]에 대한 설명입니다.
+ * [해당 기능 또는 컴포넌트가 사용되는 맥락이나 목적에 대해 간단히 서술합니다.]
+ *
+ * @function [함수명] // 함수 또는 훅일 경우
+ * @param {[타입]} [파라미터명] - [설명]
+ * @returns {[타입]} [리턴값에 대한 설명]
+ *
+ * 또는
+ *
+ * @param {[타입]} [prop명] - [prop 설명] // 컴포넌트일 경우
+ * @example
+ * // 사용 예시를 간단히 적어주세요
+ * <ComponentName propA="값" propB={함수} />
+ *
+ * @author [작성자 이름]
+ **/
+
+```
+
+<br>
+
 ## 📂 프로젝트 구조
 
 ```
 📦DS-DET-LAB
  ┣ 📂.github
- ┃ ┣ 📂ISSUE_TEMPLATE
- ┃ ┣ 📂workflows
- ┃ ┗ 📜pull_request_template.md
- ┣ 📂.yarn
  ┣ 📂public
- ┃ ┣ 📂favicons
- ┃ ┗ 📂fonts
+ ┃ ┣ 📂font
+ ┃ ┗ 📜logo.svg
  ┣ 📂src
  ┃ ┣ 📂assets
  ┃ ┣ 📂components
+ ┃ ┣ 📂db
  ┃ ┣ 📂hooks
  ┃ ┣ 📂routes
  ┃ ┃ ┣ 📂activity
@@ -224,7 +266,6 @@ main ← 작업 브랜치
  ┃ ┣ 📂styles
  ┃ ┣ 📜App.jsx
  ┃ ┗ 📜main.jsx
- ┣ 📜.env
  ┣ 📜.editorconfig
  ┣ 📜.gitignore
  ┣ 📜.prettierrc
@@ -238,67 +279,11 @@ main ← 작업 브랜치
 ```
 
 - public
-  - favicons - 파비콘
-  - fonts - 폰트
+  - font - 폰트
 - src
   - assets - 사용되는 모든 에셋
-  - components - 라우팅 페이지 외 모든 기능 및 컴포넌트 및 컴포넌트 스타일
-  - routes - 라우팅 페이지
-  - styles - 글로벌 스타일 및 라우팅 페이지 스타일
-  - utils - 전역으로 사용되는 함수
-
-<br>
-
-## 👩‍💻 코드 리뷰
-
-### 🫧 리뷰 담당자
-
-```
-서윤 → 서영 → 소연 → 진경 → 진효 → 윤영 → 서윤
-```
-
-<br>
-
-## 📝 주석
-
-- 파일 최상단에 설명 및 작성자 기록
-- 파일 최상단 제외 주석 작성하지 않기
-
-```
-/**
- * 어드민 로그인 관련 유틸 함수입니다.
- * 어드민 로그인 상태는 localStorage의 'isAdmin' 키로 관리됩니다.
- * 각 함수는 로그인 상태 체크, 로그인 처리, 로그아웃 처리 기능을 제공합니다.
- *
- * @function isAdminLoggedIn
- * @returns {boolean} 어드민 로그인 상태 여부 반환
- *
- * @function loginAdmin
- * @param {string} id - 입력한 아이디
- * @param {string} password - 입력한 비밀번호
- * @returns {boolean} 로그인 성공 여부 반환
- *
- * @function logoutAdmin
- * @description localStorage에서 어드민 로그인 정보를 삭제합니다.
- *
- * @author 목소연
- **/
-```
-
-```
-/**
- * 어드민 페이지에서 사용되는 copy 컴포넌트입니다.
- * 어드민 퍼즐 QR 복사에서 사용됩니다.
- *
- * @param {string} title -- title 내용
- * @param {string} text -- text 내용
- * @param {string} size -- 내용 속 폰트 크기
- * @param {boolean} onShowToast -- 복사 토스트 메시지 여부
- * ex) <CopyInform title={"퍼즐 번호"} text={"1"} size="16px" onShowToast={handleShowToast}/>
- *
- * 퍼즐 번호, 장소명은 size="16px",
- * 퍼즐 비밀번호는 size="20px"로 넘기면 됩니다.
- *
- * @author 김서윤
- * **/
-```
+  - components - 공통 컴포넌트
+  - db - json 데이터
+  - routes - 라우팅 페이지 및 페이지 컴포넌트
+  - styles - 글로벌 스타일
+  - hooks - 글로벌 훅
