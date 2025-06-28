@@ -20,7 +20,8 @@
 <br>
 
 ## 📊 Insights
-![Alt](https://repobeats.axiom.co/api/embed/54bb0b48e49b03ca26bd1983fc445077b71481e4.svg "Repobeats analytics image")
+
+![Alt](https://repobeats.axiom.co/api/embed/54bb0b48e49b03ca26bd1983fc445077b71481e4.svg 'Repobeats analytics image')
 
 <br>
 
@@ -218,6 +219,7 @@ main ← 작업 브랜치
 <br>
 
 **Comment Template**
+
 ```
 /**
  * [기능 또는 컴포넌트]에 대한 설명입니다.
@@ -258,11 +260,11 @@ main ← 작업 브랜치
  ┃ ┃ ┣ 📂activity
  ┃ ┃ ┣ 📂business
  ┃ ┃ ┣ 📂center
- ┃ ┃ ┣ 📂data
- ┃ ┃ ┣ 📂faq
- ┃ ┃ ┣ 📂info
- ┃ ┃ ┣ 📂main
- ┃ ┃ ┗ 📂news
+ ┃ ┃ ┣ 📂community
+ ┃ ┃ ┃ ┣ 📂data
+ ┃ ┃ ┃ ┣ 📂info
+ ┃ ┃ ┃ ┗ 📂news
+ ┃ ┃ ┗ 📂main
  ┃ ┣ 📂styles
  ┃ ┣ 📜App.jsx
  ┃ ┗ 📜main.jsx
