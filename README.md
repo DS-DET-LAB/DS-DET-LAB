@@ -2,7 +2,7 @@
 
 # 덕성여자대학교 디지털교육공학센터 사이트
 
-**덕성여자대학교 디지털교육공학센터 사이트 X 덕성여자대학교 멋쟁이사자처럼**
+**덕성여자대학교 디지털교육공학센터 X 덕성여자대학교 멋쟁이사자처럼**
 
 </div>
 <br>
@@ -40,7 +40,9 @@
 
 <br>
 
-## ✅ Package Manager
+<details>
+  <summary><h2>✅ Package Manager</h2></summary>
+  <div markdown="1">
 
 - **yarn 버전**
   - 4.9.2
@@ -60,9 +62,12 @@ yarn add 라이브러리 # 라이브러리 설치
 yarn dev # 실행
 ```
 
-<br>
+  </div>
+</details>
 
-## ⌨️ Code Styling
+<details>
+  <summary><h2>⌨️ Code Styling</h2></summary>
+  <div markdown="1">
 
 - **camelCase**
   - 변수명, 함수명에 적용
@@ -70,9 +75,12 @@ yarn dev # 실행
     - ex- handleDelete
   - 언더바 사용 X (클래스명은 허용)
 
-<br>
+  </div>
+</details>
 
-## 🔗 Git Convention
+<details>
+  <summary><h2>🔗 Git Convention</h2></summary>
+  <div markdown="1">
 
 ### 💫 Git Flow
 
@@ -162,7 +170,7 @@ main ← 작업 브랜치
 
 <br>
 
-## 🔄 Pull Request Convention
+### 🔄 Pull Request Convention
 
 **PR Title 규칙**
 
@@ -199,10 +207,13 @@ main ← 작업 브랜치
 구현한 기능이 모두 결과물에 포함되도록 자유롭게 첨부해주세요 (스크린샷, gif, 동영상, 배포링크 등)
 ```
 
-<br>
+  </div>
+</details>
 
-## 👩‍💻 Code Review
-
+<details>
+  <summary><h2>👩‍💻 Code Review</h2></summary>
+  <div markdown="1">
+    
 ### 🫧 리뷰 담당자
 
 ```
@@ -241,9 +252,13 @@ main ← 작업 브랜치
 
 ```
 
-<br>
 
-## 📂 프로젝트 구조
+  </div>
+</details>
+
+<details>
+  <summary><h2>📂 프로젝트 구조</h2></summary>
+  <div markdown="1">
 
 ```
 📦DS-DET-LAB
@@ -289,3 +304,6 @@ main ← 작업 브랜치
   - hooks - 글로벌 훅
   - routes - 라우팅 페이지 및 페이지 컴포넌트
   - styles - 글로벌 스타일
+
+  </div>
+</details>
