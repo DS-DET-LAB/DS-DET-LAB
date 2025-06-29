@@ -15,6 +15,7 @@ export default defineConfig({
       { find: '@hooks', replacement: '/src/hooks' },
       { find: '@routes', replacement: '/src/routes' },
       { find: '@styles', replacement: '/src/styles' },
+      { find: '@db', replacement: '/src/db' },
       { find: '@activity', replacement: '/src/routes/activity' },
       { find: '@business', replacement: '/src/routes/business' },
       { find: '@center', replacement: '/src/routes/center' },
