@@ -1,10 +1,9 @@
 ---
 name: "\U0001F5E8️ 이슈 템플릿"
 about: 작업 시작 전에 반드시 이슈를 생성해주세요.
-title: "[태그] 작업 요약"
+title: '[태그] 작업 요약'
 labels: ''
 assignees: ''
-
 ---
 
 ## 📄 About

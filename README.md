@@ -2,7 +2,7 @@
 
 # 덕성여자대학교 디지털교육공학센터 사이트
 
-**덕성여자대학교 디지털교육공학센터 사이트 X 덕성여자대학교 멋쟁이사자처럼**
+**덕성여자대학교 디지털교육공학센터 X 덕성여자대학교 멋쟁이사자처럼**
 
 </div>
 <br>
@@ -19,26 +19,35 @@
 
 <br>
 
-## 💻 기술 스택
+## 📊 Insights
+
+![Alt](https://repobeats.axiom.co/api/embed/54bb0b48e49b03ca26bd1983fc445077b71481e4.svg 'Repobeats analytics image')
+
+<br>
+
+<details>
+  <summary><h2>💻 기술 스택</h2></summary>
+  <div markdown="1">
 
 | **역할**             | **종류**                                                                                                                                                                                                                                                                                                                        | **선정 이유**                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Library              | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">                                                                                                                                                                                                                            | 컴포넌트 기반 구조로 재사용성과 유지보수성이 높아 개발 효율을 극대화 가능    |
 | Programming Language | <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>                                                                                                                                                                                                                 | 유연한 문법과 활발한 생태계를 통해 빠른 개발 가능                            |
 | Styling              | <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white">                                                                                                                                                                                                      | CSS-in-JS 방식의 컴포넌트 단위 스타일링 방식으로 유지보수가 용이             |
-| Data Fetching        | <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">                                                                                                                                                                                                                            | 직관적인 API 사용법과 자동 JSON 변환 기능으로 비동기 통신이 간편             |
 | Routing              | <img src="https://img.shields.io/badge/ReactRouter-CA4245?style=for-the-badge&logo=ReactRouter&logoColor=white">                                                                                                                                                                                                                | SPA에 최적화된 라우팅 기능 제공, 선언적 방식으로 라우트를 쉽게 구성 가능     |
 | Formatting           | <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-000000?style=for-the-badge&logo=prettier&logoColor=F7B93E"> <img src="https://img.shields.io/badge/stylelint-263238?style=for-the-badge&logo=stylelint&logoColor=white"> | 코드 스타일을 통일하고 잠재적인 오류를 사전에 방지하여 협업 시 효율성을 높임 |
 | Package Manager      | <img src="https://img.shields.io/badge/yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white">                                                                                                                                                                                                                              | 빠른 설치 속도와 안정적인 패키지 관리 기능으로 프로젝트 환경 설정에 용이     |
 | Deployment           | <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">                                                                                                                                                                                                                          | 쉽고 빠른 배포 및 자동 CI/CD 지원                                            |
 | Bundler              | <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white">                                                                                                                                                                                                                              | 빠른 서버 시작과 모듈 번들링 성능으로 개발 생산성을 향상                     |
 
-<br>
+  </div>
+</details>
 
-## ✅ Package Manager
+<details>
+  <summary><h2>✅ Package Manager</h2></summary>
+  <div markdown="1">
 
 - **yarn 버전**
-
   - 4.9.2
     > 반드시 버전 통일 확인 후 작업해주세요!
 
@@ -56,9 +65,12 @@ yarn add 라이브러리 # 라이브러리 설치
 yarn dev # 실행
 ```
 
-<br>
+  </div>
+</details>
 
-## ⌨️ Code Styling
+<details>
+  <summary><h2>⌨️ Code Styling</h2></summary>
+  <div markdown="1">
 
 - **camelCase**
   - 변수명, 함수명에 적용
@@ -66,9 +78,12 @@ yarn dev # 실행
     - ex- handleDelete
   - 언더바 사용 X (클래스명은 허용)
 
-<br>
+  </div>
+</details>
 
-## 🔗 Git Convention
+<details>
+  <summary><h2>🔗 Git Convention</h2></summary>
+  <div markdown="1">
 
 ### 💫 Git Flow
 
@@ -84,7 +99,6 @@ main ← 작업 브랜치
 ### 🔥 Commit Message Convention
 
 - **커밋 유형**
-
   - 🎉 Init: 프로젝트 세팅
   - ✨ Feat: 새로운 기능 추가
   - 🐛 Fix : 버그 수정
@@ -107,7 +121,6 @@ main ← 작업 브랜치
 **Branch Naming 규칙**
 
 - **브랜치 종류**
-
   - `init`: 프로젝트 세팅
   - `feat`: 새로운 기능 추가
   - `fix` : 버그 수정 / feat 머지 이후 수정 작업
@@ -125,7 +138,6 @@ main ← 작업 브랜치
 **Issue Title 규칙**
 
 - **태그 목록**:
-
   - `Init`: 프로젝트 세팅
   - `Feat`: 새로운 기능 추가
   - `Fix` : 버그 수정
@@ -161,12 +173,11 @@ main ← 작업 브랜치
 
 <br>
 
-## 🔄 Pull Request Convention
+### 🔄 Pull Request Convention
 
 **PR Title 규칙**
 
 - **태그 목록**:
-
   - `Init`: 프로젝트 세팅
   - `Feat`: 새로운 기능 추가
   - `Fix` : 버그 수정
@@ -199,44 +210,86 @@ main ← 작업 브랜치
 구현한 기능이 모두 결과물에 포함되도록 자유롭게 첨부해주세요 (스크린샷, gif, 동영상, 배포링크 등)
 ```
 
+  </div>
+</details>
+
+<details>
+  <summary><h2>👩‍💻 Code Review</h2></summary>
+  <div markdown="1">
+    
+### 🫧 리뷰 담당자
+
+```
+서윤 → 서영 → 소연 → 진경 → 진효 → 윤영 → 서윤
+```
+
 <br>
 
-## 📂 프로젝트 구조
+### 📝 Comments
+
+- 파일 최상단에 설명 및 작성자 기록
+- 파일 최상단 제외 주석 작성하지 않기
+
+<br>
+
+**Comment Template**
+
+```
+/**
+ * [기능 또는 컴포넌트]에 대한 설명입니다.
+ * [해당 기능 또는 컴포넌트가 사용되는 맥락이나 목적에 대해 간단히 서술합니다.]
+ *
+ * @function [함수명] // 함수 또는 훅일 경우
+ * @param {[타입]} [파라미터명] - [설명]
+ * @returns {[타입]} [리턴값에 대한 설명]
+ *
+ * 또는
+ *
+ * @param {[타입]} [prop명] - [prop 설명] // 컴포넌트일 경우
+ * @example
+ * // 사용 예시를 간단히 적어주세요
+ * <ComponentName propA="값" propB={함수} />
+ *
+ * @author [작성자 이름]
+ **/
+
+```
+
+
+  </div>
+</details>
+
+<details>
+  <summary><h2>📂 프로젝트 구조</h2></summary>
+  <div markdown="1">
 
 ```
 📦DS-DET-LAB
  ┣ 📂.github
- ┃ ┣ 📂ISSUE_TEMPLATE
- ┃ ┣ 📂workflows
- ┃ ┗ 📜pull_request_template.md
- ┣ 📂.yarn
  ┣ 📂public
- ┃ ┣ 📂favicons
- ┃ ┗ 📂fonts
+ ┃ ┣ 📂font
+ ┃ ┗ 📜logo.svg
  ┣ 📂src
  ┃ ┣ 📂assets
  ┃ ┣ 📂components
+ ┃ ┣ 📂db
+ ┃ ┣ 📂hooks
+ ┃ ┣ 📂routes
  ┃ ┃ ┣ 📂activity
  ┃ ┃ ┣ 📂business
  ┃ ┃ ┣ 📂center
- ┃ ┃ ┣ 📂data
- ┃ ┃ ┣ 📂faq
- ┃ ┃ ┣ 📂info
- ┃ ┃ ┣ 📂main
- ┃ ┃ ┗ 📂news
- ┃ ┣ 📂hooks
- ┃ ┣ 📂lib
- ┃ ┣ 📂routes
+ ┃ ┃ ┣ 📂community
+ ┃ ┃ ┃ ┣ 📂data
+ ┃ ┃ ┃ ┣ 📂info
+ ┃ ┃ ┃ ┗ 📂news
+ ┃ ┃ ┗ 📂main
  ┃ ┣ 📂styles
- ┃ ┣ 📂utils
  ┃ ┣ 📜App.jsx
  ┃ ┗ 📜main.jsx
- ┣ 📜.env
+ ┣ 📜.editorconfig
  ┣ 📜.gitignore
- ┣ 📜.pnp.cjs
  ┣ 📜.prettierrc
  ┣ 📜.stylelintrc
- ┣ 📜.yarnrc.yml
  ┣ 📜eslint.config.js
  ┣ 📜index.html
  ┣ 📜package.json
@@ -246,67 +299,14 @@ main ← 작업 브랜치
 ```
 
 - public
-  - favicons - 파비콘
-  - fonts - 폰트
+  - font - 폰트
 - src
   - assets - 사용되는 모든 에셋
-  - components - 라우팅 페이지 외 모든 기능 및 컴포넌트 및 컴포넌트 스타일
-  - routes - 라우팅 페이지
-  - styles - 글로벌 스타일 및 라우팅 페이지 스타일
-  - utils - 전역으로 사용되는 함수
+  - components - 공통 컴포넌트
+  - db - json 데이터
+  - hooks - 글로벌 훅
+  - routes - 라우팅 페이지 및 페이지 컴포넌트
+  - styles - 글로벌 스타일
 
-<br>
-
-## 👩‍💻 코드 리뷰
-
-### 🫧 리뷰 담당자
-
-```
-서윤 → 서영 → 소연 → 진경 → 진효 → 윤영 → 서윤
-```
-
-<br>
-
-## 📝 주석
-
-- 파일 최상단에 설명 및 작성자 기록
-- 파일 최상단 제외 주석 작성하지 않기
-
-```
-/**
- * 어드민 로그인 관련 유틸 함수입니다.
- * 어드민 로그인 상태는 localStorage의 'isAdmin' 키로 관리됩니다.
- * 각 함수는 로그인 상태 체크, 로그인 처리, 로그아웃 처리 기능을 제공합니다.
- *
- * @function isAdminLoggedIn
- * @returns {boolean} 어드민 로그인 상태 여부 반환
- *
- * @function loginAdmin
- * @param {string} id - 입력한 아이디
- * @param {string} password - 입력한 비밀번호
- * @returns {boolean} 로그인 성공 여부 반환
- *
- * @function logoutAdmin
- * @description localStorage에서 어드민 로그인 정보를 삭제합니다.
- *
- * @author 목소연
- **/
-```
-
-```
-/**
- * 어드민 페이지에서 사용되는 copy 컴포넌트입니다.
- * 어드민 퍼즐 QR 복사에서 사용됩니다.
- *
- * @param {string} title -- title 내용
- * @param {string} text -- text 내용
- * @param {string} size -- 내용 속 폰트 크기
- * @param {boolean} onShowToast -- 복사 토스트 메시지 여부
- * ex) <CopyInform title={"퍼즐 번호"} text={"1"} size="16px" onShowToast={handleShowToast}/>
- *
- * 퍼즐 번호, 장소명은 size="16px",
- * 퍼즐 비밀번호는 size="20px"로 넘기면 됩니다.
- *
- * @author 김서윤
- * **/
-```
+  </div>
+</details>
