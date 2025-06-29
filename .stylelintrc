@@ -49,14 +49,7 @@
         "groupName": "Typography",
         "emptyLineBefore": "never",
         "noEmptyLineBetween": true,
-        "properties": [
-          "color",
-          "font",
-          "font-size",
-          "font-weight",
-          "line-height",
-          "text-align"
-        ]
+        "properties": ["color", "font", "font-size", "font-weight", "line-height", "text-align"]
       }
     ],
     "no-empty-source": null,

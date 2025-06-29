@@ -1,4 +1,4 @@
-import * as N from "@news/NewsStyle";
+import * as N from '@news/NewsStyle';
 
 function News() {
   return (

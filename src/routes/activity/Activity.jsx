@@ -1,4 +1,4 @@
-import * as A from "@activity/ActivityStyle";
+import * as A from '@activity/ActivityStyle';
 
 function Activity() {
   return (

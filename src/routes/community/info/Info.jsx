@@ -1,4 +1,4 @@
-import * as I from "@info/InfoStyle";
+import * as I from '@info/InfoStyle';
 
 function Info() {
   return (

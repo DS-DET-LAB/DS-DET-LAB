@@ -1,4 +1,4 @@
-import * as D from "@data/DataStyle";
+import * as D from '@data/DataStyle';
 
 function Data() {
   return (

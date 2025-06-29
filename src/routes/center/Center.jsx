@@ -1,4 +1,4 @@
-import * as C from "@center/CenterStyle";
+import * as C from '@center/CenterStyle';
 
 function Center() {
   return (

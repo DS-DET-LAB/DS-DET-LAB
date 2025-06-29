@@ -1,4 +1,4 @@
-import * as B from "@business/BusinessStyle";
+import * as B from '@business/BusinessStyle';
 
 function Business() {
   return (
