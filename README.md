@@ -286,6 +286,6 @@ main ← 작업 브랜치
   - assets - 사용되는 모든 에셋
   - components - 공통 컴포넌트
   - db - json 데이터
+  - hooks - 글로벌 훅
   - routes - 라우팅 페이지 및 페이지 컴포넌트
   - styles - 글로벌 스타일
-  - hooks - 글로벌 훅

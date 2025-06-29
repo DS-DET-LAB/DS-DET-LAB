@@ -4,6 +4,7 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [react(), svgr()],
   server: { port: 3000 },
   resolve: {
@@ -11,6 +12,7 @@ export default defineConfig({
       { find: '@', replacement: '/src' },
       { find: '@assets', replacement: '/src/assets' },
       { find: '@components', replacement: '/src/components' },
+      { find: '@hooks', replacement: '/src/hooks' },
       { find: '@routes', replacement: '/src/routes' },
       { find: '@styles', replacement: '/src/styles' },
       { find: '@activity', replacement: '/src/routes/activity' },
@@ -20,6 +22,7 @@ export default defineConfig({
       { find: '@info', replacement: '/src/routes/community/info' },
       { find: '@main', replacement: '/src/routes/main' },
       { find: '@news', replacement: '/src/routes/community/news' },
+      { find: '@error', replacement: '/src/routes/error' },
     ],
   },
 });
