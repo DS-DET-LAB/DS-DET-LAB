@@ -11,11 +11,11 @@
 
 **덕성여자대학교 멋쟁이사자처럼 13기 운영진**
 
-| <a href="https://github.com/mogg22"><img src="https://avatars.githubusercontent.com/u/126389940?v=4" width="120px;" alt=""/></a>     | <a href="https://github.com/pookey1104"><img src="https://avatars.githubusercontent.com/u/90364700?v=4" width="120px;" alt=""/></a> | <a href="https://github.com/jinhyo0"><img src="https://avatars.githubusercontent.com/u/150879545?v=4" width="120px;" alt=""/></a>  |                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 목소연                                                                                                                               | 김서윤                                                                                                                              | 김진효                                                                                                                             |
-| <a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> | <a href="ttps://github.com/soezng"><img src="https://avatars.githubusercontent.com/u/163408095?v=4" width="120px;" alt=""/></a>     | <a href="https://github.com/mzxxzysy"><img src="https://avatars.githubusercontent.com/u/163836325?v=4" width="120px;" alt=""/></a> | <a href="https://github.com/chldsbdud"><img src="https://avatars.githubusercontent.com/u/142567232?v=4" width="120px;" alt=""/></a> |
-| 노진경                                                                                                                               | 송은지                                                                                                                              | 정서영                                                                                                                             | 최윤영                                                                                                                              |
+| <a href="https://github.com/mogg22"><img src="https://avatars.githubusercontent.com/u/126389940?v=4" width="120px;" alt=""/></a>  | <a href="https://github.com/pookey1104"><img src="https://avatars.githubusercontent.com/u/90364700?v=4" width="120px;" alt=""/></a>  | <a href="https://github.com/seunghyeonKang"><img src="https://avatars.githubusercontent.com/u/101852433?v=4" width="120px;" alt=""/></a> | <a href="ttps://github.com/soezng"><img src="https://avatars.githubusercontent.com/u/163408095?v=4" width="120px;" alt=""/></a>     |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 목소연                                                                                                                            | 김서윤                                                                                                                               | 강승현                                                                                                                                   | 송은지                                                                                                                              |
+| <a href="https://github.com/jinhyo0"><img src="https://avatars.githubusercontent.com/u/150879545?v=4" width="120px;" alt=""/></a> | <a href="https://github.com/yeon-yeon1"><img src="https://avatars.githubusercontent.com/u/158417764?v=4" width="120px;" alt=""/></a> | <a href="https://github.com/mzxxzysy"><img src="https://avatars.githubusercontent.com/u/163836325?v=4" width="120px;" alt=""/></a>       | <a href="https://github.com/chldsbdud"><img src="https://avatars.githubusercontent.com/u/142567232?v=4" width="120px;" alt=""/></a> |
+| 김진효                                                                                                                            | 노진경                                                                                                                               | 정서영                                                                                                                                   | 최윤영                                                                                                                              |
 
 <br>
 
@@ -78,8 +78,8 @@ yarn dev # 실행
     - ex- handleDelete
   - 언더바 사용 X (클래스명은 허용)
 
-  </div>
-</details>
+    </div>
+  </details>
 
 <details>
   <summary><h2>🔗 Git Convention</h2></summary>
@@ -255,7 +255,6 @@ main ← 작업 브랜치
 
 ```
 
-
   </div>
 </details>
 
@@ -308,5 +307,5 @@ main ← 작업 브랜치
   - routes - 라우팅 페이지 및 페이지 컴포넌트
   - styles - 글로벌 스타일
 
-  </div>
-</details>
+    </div>
+  </details>
