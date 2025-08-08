@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from '@hooks/ScrollToTop';
 import GlobalStyle from '@styles/GlobalStyles';
+import Layout from '@components/Layout';
 import Activity from '@activity/Activity';
 import Business from '@business/Business';
 import Center from '@center/Center';
@@ -16,14 +17,16 @@ function App() {
       <ScrollToTop />
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/activity" element={<Activity />} />
-        <Route path="/business" element={<Business />} />
-        <Route path="/center" element={<Center />} />
-        <Route path="/community/data" element={<Data />} />
-        <Route path="/community/info" element={<Info />} />
-        <Route path="/community/news" element={<News />} />
-        <Route path="/*" element={<Error />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path="activity" element={<Activity />} />
+          <Route path="business" element={<Business />} />
+          <Route path="center" element={<Center />} />
+          <Route path="community/data" element={<Data />} />
+          <Route path="community/info" element={<Info />} />
+          <Route path="community/news" element={<News />} />
+          <Route path="*" element={<Error />} />
+        </Route>
       </Routes>
     </>
   );
