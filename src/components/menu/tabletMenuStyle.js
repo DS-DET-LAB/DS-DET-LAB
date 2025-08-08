@@ -1,0 +1,93 @@
+import styled from 'styled-components';
+import palette from '@styles/theme';
+
+export const MenuContainer = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(50% - 100px);
+  height: calc(100dvh - 20px);
+  background: linear-gradient(0deg, rgba(18, 32, 102, 0.1) 0%, rgba(18, 32, 102, 0.1) 100%), #fff;
+  box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 20px 30px 0 70px;
+  z-index: 999;
+`;
+
+export const Close = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+  }
+`;
+
+export const Logo = styled.img`
+  width: 136px;
+  height: auto;
+  margin-top: 50px;
+  cursor: pointer;
+`;
+
+export const MenuList = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 220px);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  margin-top: 30px;
+  padding-bottom: 50px;
+`;
+
+export const MenuTitle = styled.div`
+  padding: 8px 18px;
+  color: ${palette.text.primary};
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  &:hover {
+    border-radius: 10px;
+    background: ${palette.hover.back2};
+  }
+`;
+
+export const MenuSubList = styled.div`
+  margin-bottom: 15px;
+`;
+
+export const SubTitle = styled.div`
+  padding: 8px 18px;
+  color: ${palette.text.primary};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.45px;
+  cursor: pointer;
+  &:hover {
+    border-radius: 10px;
+    background: ${palette.hover.back2};
+  }
+`;
+
+export const Content = styled.div`
+  padding: 8px 36px;
+  color: ${palette.text.body};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.45px;
+  cursor: pointer;
+  &:hover {
+    border-radius: 10px;
+    background: ${palette.hover.back2};
+  }
+`;
