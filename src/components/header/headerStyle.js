@@ -5,8 +5,8 @@ export const HeaderContainer = styled.header`
   --horizontal-padding: clamp(20px, 6vw, 80px);
   --vertical-padding: 16px;
   @media (min-width: 768px) and (max-width: 899px) {
-    --horizontal-padding: 50px;
-    --vertical-padding: 20px;
+    --horizontal-padding: 40px;
+    --vertical-padding: 14px;
   }
   @media (max-width: 767px) {
     --horizontal-padding: 20px;
@@ -27,11 +27,11 @@ export const LeftSection = styled.div`
   img {
     cursor: pointer;
     @media (min-width: 768px) and (max-width: 899px) {
-      width: 211px;
+      width: 241px;
       height: auto;
     }
     @media (max-width: 767px) {
-      width: 76px;
+      width: 66px;
       height: auto;
     }
   }
@@ -88,8 +88,8 @@ export const NavItem = styled.div`
 
 export const MenuBtn = styled.div`
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
