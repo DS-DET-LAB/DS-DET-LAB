@@ -37,6 +37,7 @@ export const Date = styled.p`
 
 export const Content = styled.p`
   color: ${palette.text.body};
+  margin: 0;
 
   font-size: 16px;
   font-weight: 400;

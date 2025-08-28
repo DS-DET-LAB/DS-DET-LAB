@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const InputDiv = styled.div`
-  max-width: 925px;
   width: 100%;
 
   box-sizing: border-box;

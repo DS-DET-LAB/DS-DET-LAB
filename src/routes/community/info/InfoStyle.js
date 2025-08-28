@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const Info = styled.div`
+  box-sizing: border-box;
+
   display: flex;
   justify-content: center;
   gap: 125px;
@@ -10,6 +12,12 @@ export const Info = styled.div`
   width: 100%;
 
   margin: 192px auto 165px;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    max-width: none;
+    padding: 0 80px;
+    margin-top: 70px;
+  }
 `;
 
 export const InfoWrapper = styled.div`

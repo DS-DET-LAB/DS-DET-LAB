@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
+import useMediaQuery from '@hooks/useMediaQuery';
 import InfoData from '@db/info.json';
 
 import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
@@ -14,6 +15,8 @@ function Info() {
   const [search, setSearch] = useState('');
   const [searchedData, setSearchedData] = useState(InfoData);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
 
   const inputRef = useRef(null);
 
@@ -60,7 +63,7 @@ function Info() {
 
   return (
     <I.Info>
-      <I.Community>커뮤니티</I.Community>
+      {!isTablet && <I.Community>커뮤니티</I.Community>}
 
       <I.InfoWrapper ref={inputRef}>
         <I.InfoText>공지사항</I.InfoText>
