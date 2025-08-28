@@ -1,15 +1,41 @@
 import * as N from '@news/NewsStyle';
 import NewsItem from '../components/newsItem';
 import newsData from '@db/community/news/news.json';
+import insta from '@assets/community/logo-insta-navybg-45.svg';
+import external from '@assets/community/ic-external-45.svg';
+// import useMediaQuery from '@hooks/useMediaQuery';
 
 function News() {
+  // const isMobile = useMediaQuery('(max-width: 767px)');
+
   return (
     <N.News>
       <N.Title>센터 소식</N.Title>
-      <N.Group>
+      <N.ItemGroup>
         {newsData?.news?.map((data) => (
-          <NewsItem key={data.id} url={data.url} img={data.img} title={data.title} date={data.date} is150={false} />
+          <NewsItem key={data.id} url={data.url} img={data.img} title={data.title} date={data.date} isInsta={false} />
         ))}
+      </N.ItemGroup>
+      <N.Group>
+        <N.SocialBox href="https://www.instagram.com/ds.digitaledu/">
+          <N.SocialIcon src={insta} />
+          @ds.digitaledu
+          <N.External src={external} />
+        </N.SocialBox>
+        <N.ItemGroup>
+          {newsData?.insta?.map((data) => (
+            <NewsItem key={data.id} url={data.url} img={data.img} title={data.title} date={data.date} isInsta={true} />
+          ))}
+        </N.ItemGroup>
+      </N.Group>
+      <N.Group>
+        <N.SocialBox
+          style={{ width: '314px' }}
+          href="https://www.youtube.com/@DS%EB%94%94%EC%A7%80%ED%84%B8%EA%B5%90%EC%9C%A1%EA%B3%B5%ED%95%99%EC%84%BC%ED%84%B0">
+          <N.SocialIcon src={insta} />
+          @DS디지털교육공학센터
+          <N.External src={external} />
+        </N.SocialBox>
       </N.Group>
     </N.News>
   );

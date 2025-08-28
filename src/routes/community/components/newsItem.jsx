@@ -1,9 +1,12 @@
 import * as N from '../components/newsItemStyle';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-function NewsItem({ url, img, title, date, is150 }) {
+function NewsItem({ url, img, title, date, isInsta }) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
   return (
-    <N.NewsItem href={url} style={is150 ? { width: '150px' } : undefined}>
-      <N.Img src={img} style={is150 ? { height: '150px' } : undefined} />
+    <N.NewsItem href={url}>
+      <N.Img src={img} style={isInsta ? { height: isMobile ? '150px' : '295px' } : undefined} />
       <N.NewsInfo>
         <N.Title>{title}</N.Title>
         <N.Date>{date}</N.Date>

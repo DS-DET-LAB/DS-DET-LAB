@@ -17,6 +17,9 @@ export const Img = styled.img`
   border-radius: 11px;
   height: 166px;
   object-fit: cover;
+  @media (max-width: 767px) {
+    height: 101px;
+  }
 `;
 
 export const NewsInfo = styled.div`
