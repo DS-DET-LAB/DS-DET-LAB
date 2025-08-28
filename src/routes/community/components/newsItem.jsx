@@ -1,13 +1,12 @@
 import * as N from '../components/newsItemStyle';
-import img from '@assets/community/im-newsItem1.jpg';
 
-function NewsItem() {
+function NewsItem({ url, img, title, date, is150 }) {
   return (
-    <N.NewsItem>
+    <N.NewsItem href={url} style={is150 && { width: '150px' }}>
       <N.Img src={img} />
       <N.NewsInfo>
-        <N.Title>덕성여대, ‘2025 찾아가는 학교 컨설팅’ 역량강화 워크숍 개최</N.Title>
-        <N.Date>2025.07.17</N.Date>
+        <N.Title>{title}</N.Title>
+        <N.Date>{date}</N.Date>
       </N.NewsInfo>
     </N.NewsItem>
   );
