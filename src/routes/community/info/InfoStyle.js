@@ -8,8 +8,8 @@ export const Info = styled.div`
 
   max-width: 1234px;
   width: 100%;
-  margin: 0 auto;
-  margin-top: 192px;
+
+  margin: 192px auto 165px;
 `;
 
 export const InfoWrapper = styled.div`
@@ -71,5 +71,30 @@ export const Count = styled.div`
   span {
     color: ${palette.text.primary};
     font-weight: 600;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  gap: 15px;
+  padding: 10px 0;
+`;
+
+export const Pagenation = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: ${palette.mainNavy.navy80};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `;

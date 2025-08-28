@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import InfoData from '@db/info.json';
+
+import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
+import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
 
 import Input from '@routes/community/components/Input';
 import InfoCard from '@routes/community/components/InfoCard';
@@ -10,6 +13,14 @@ import * as I from '@info/InfoStyle';
 function Info() {
   const [search, setSearch] = useState('');
   const [searchedData, setSearchedData] = useState(InfoData);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const inputRef = useRef(null);
+
+  const itemsPerPage = 5;
+  const lastItemIdx = currentPage * itemsPerPage;
+  const firstItemIdx = lastItemIdx - itemsPerPage;
+  const currentItems = searchedData.slice(firstItemIdx, lastItemIdx);
 
   const handleSearch = () => {
     const trimmedSearch = search.trim().toLowerCase();
@@ -24,6 +35,8 @@ function Info() {
         ),
       );
     }
+
+    setCurrentPage(1);
   };
 
   const handleKeyDown = (e) => {
@@ -32,11 +45,24 @@ function Info() {
     }
   };
 
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    const maxPage = Math.ceil(searchedData.length / itemsPerPage);
+    if (currentPage < maxPage) setCurrentPage((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [currentPage]);
+
   return (
     <I.Info>
       <I.Community>커뮤니티</I.Community>
 
-      <I.InfoWrapper>
+      <I.InfoWrapper ref={inputRef}>
         <I.InfoText>공지사항</I.InfoText>
 
         <Input
@@ -53,14 +79,22 @@ function Info() {
           </I.Count>
 
           <I.InfoCardWrapper>
-            {searchedData.map((info) => (
+            {currentItems.map((info) => (
               <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
             ))}
           </I.InfoCardWrapper>
 
-          <div>
-            <button></button>
-          </div>
+          <I.ButtonWrapper>
+            <I.Pagenation onClick={handlePrevPage} disabled={currentPage === 1}>
+              <ArrowLeft />
+            </I.Pagenation>
+
+            <I.Pagenation
+              onClick={handleNextPage}
+              disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
+              <ArrowRight />
+            </I.Pagenation>
+          </I.ButtonWrapper>
         </I.ContentWrapper>
       </I.InfoWrapper>
     </I.Info>
