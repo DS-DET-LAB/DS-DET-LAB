@@ -9,6 +9,28 @@ import * as I from '@info/InfoStyle';
 
 function Info() {
   const [search, setSearch] = useState('');
+  const [searchedData, setSearchedData] = useState(InfoData);
+
+  const handleSearch = () => {
+    const trimmedSearch = search.trim().toLowerCase();
+
+    if (trimmedSearch === '') {
+      setSearchedData(InfoData);
+    } else {
+      setSearchedData(
+        InfoData.filter(
+          (info) =>
+            info.title.toLowerCase().includes(trimmedSearch) || info.content.toLowerCase().includes(trimmedSearch),
+        ),
+      );
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <I.Info>
@@ -20,19 +42,18 @@ function Info() {
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={() => {
-            console.log(search);
-          }}
+          onKeyDown={handleKeyDown}
+          onClick={handleSearch}
           placeholder="검색어를 입력하세요."
         />
 
         <I.ContentWrapper>
           <I.Count>
-            전체 <span>{InfoData.length}</span>건
+            전체 <span>{searchedData.length}</span>건
           </I.Count>
 
           <I.InfoCardWrapper>
-            {InfoData.map((info) => (
+            {searchedData.map((info) => (
               <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
             ))}
           </I.InfoCardWrapper>
