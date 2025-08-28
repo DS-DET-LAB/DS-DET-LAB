@@ -15,6 +15,8 @@ export const NewsItem = styled.a`
 
 export const Img = styled.img`
   border-radius: 11px;
+  height: 166px;
+  object-fit: cover;
 `;
 
 export const NewsInfo = styled.div`
