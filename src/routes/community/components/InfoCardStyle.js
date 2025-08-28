@@ -12,6 +12,8 @@ export const InfoCard = styled.div`
   border: 1px solid ${palette.hover.back2};
   background: ${palette.background.white};
 
+  cursor: pointer;
+
   @media (max-width: 767px) {
     padding: 20px;
   }
@@ -63,7 +65,7 @@ export const Content = styled.p`
   @media (max-width: 767px) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: ${({ $showAll }) => !$showAll && 1};
     overflow: hidden;
     text-overflow: ellipsis;
   }
