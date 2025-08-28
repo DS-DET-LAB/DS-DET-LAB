@@ -11,6 +11,10 @@ export const InfoCard = styled.div`
   border-radius: 20px;
   border: 1px solid ${palette.hover.back2};
   background: ${palette.background.white};
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
 `;
 
 export const Title = styled.p`
@@ -22,6 +26,11 @@ export const Title = styled.p`
   letter-spacing: -0.5px;
 
   margin: 0;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    letter-spacing: -0.35px;
+  }
 `;
 
 export const Date = styled.p`
@@ -33,6 +42,11 @@ export const Date = styled.p`
   letter-spacing: -0.4px;
 
   margin: 0;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    letter-spacing: -0.35px;
+  }
 `;
 
 export const Content = styled.p`
@@ -45,4 +59,12 @@ export const Content = styled.p`
   letter-spacing: -0.4px;
 
   white-space: pre-wrap;
+
+  @media (max-width: 767px) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;

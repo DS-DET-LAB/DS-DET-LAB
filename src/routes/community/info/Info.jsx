@@ -17,6 +17,7 @@ function Info() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
   const inputRef = useRef(null);
 
@@ -63,7 +64,7 @@ function Info() {
 
   return (
     <I.Info>
-      {!isTablet && <I.Community>커뮤니티</I.Community>}
+      {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
 
       <I.InfoWrapper ref={inputRef}>
         <I.InfoText>공지사항</I.InfoText>

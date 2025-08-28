@@ -18,6 +18,12 @@ export const Info = styled.div`
     padding: 0 80px;
     margin-top: 70px;
   }
+
+  @media (max-width: 767px) {
+    max-width: none;
+    padding: 0 20px;
+    margin-top: 30px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -26,6 +32,10 @@ export const InfoWrapper = styled.div`
   gap: 50px;
 
   flex: 1;
+
+  @media (max-width: 767px) {
+    gap: 20px;
+  }
 `;
 
 export const Community = styled.div`
@@ -52,6 +62,12 @@ export const InfoText = styled.h1`
   letter-spacing: -0.9px;
 
   margin: 0;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -0.4px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -60,6 +76,11 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @media (max-width: 767px) {
+    margin-top: 5px;
+    gap: 20px;
+  }
 `;
 
 export const InfoCardWrapper = styled.div`
@@ -79,6 +100,16 @@ export const Count = styled.div`
   span {
     color: ${palette.text.primary};
     font-weight: 600;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.35px;
+
+    span {
+      font-weight: 500;
+    }
   }
 `;
 

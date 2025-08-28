@@ -1,6 +1,10 @@
+import useMediaQuery from '@hooks/useMediaQuery';
+
 import * as I from './InfoCardStyle';
 
 const InfoCard = ({ title, date, content }) => {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
   const firstSentence = content.split('.')[0].trim();
   const displaySentence = `${firstSentence}.\n...`;
 
@@ -12,7 +16,8 @@ const InfoCard = ({ title, date, content }) => {
       </div>
 
       <div>
-        <I.Content>{displaySentence}</I.Content>
+        {!isMobile && <I.Content>{displaySentence}</I.Content>}
+        {isMobile && <I.Content>{firstSentence}</I.Content>}
       </div>
     </I.InfoCard>
   );

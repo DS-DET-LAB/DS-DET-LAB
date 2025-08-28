@@ -20,6 +20,10 @@ export const InputDiv = styled.div`
   svg {
     cursor: pointer;
   }
+
+  @media (max-width: 767px) {
+    padding: 10px 15px;
+  }
 `;
 
 export const Input = styled.input`
@@ -44,5 +48,17 @@ export const Input = styled.input`
     font-weight: 400;
     line-height: 130%;
     letter-spacing: -0.45px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: -0.3px;
+
+    &::placeholder {
+      font-size: 12px;
+      line-height: 150%;
+      letter-spacing: -0.3px;
+    }
   }
 `;
