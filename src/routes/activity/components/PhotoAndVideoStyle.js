@@ -1,10 +1,9 @@
-// @routes/activity/components/PhotoAndVideo.styled.js
 import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const Wrap = styled.div`
   width: 100%;
-  overflow: visible; /* 3× 확대 시 겹침 허용 */
+  overflow: visible; /* 3× 확대 시 */
 `;
 
 export const Grid = styled.div`
