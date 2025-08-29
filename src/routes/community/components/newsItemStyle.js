@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import palette from '../../../styles/theme';
-// import palette from '@styles/theme';
+import palette from '@styles/theme';
 
 export const NewsItem = styled.a`
   width: 295px;
