@@ -9,7 +9,7 @@ export const ShortcutBar = styled.div`
   padding: 10px 0;
   gap: 40px;
   background-color: ${palette.background.white};
-  box-shadow: 0 4px 4px 0 rgba(18, 32, 102, 0.1);
+  box-shadow: 0 4px 4px 0 ${palette.mainNavy.navy10};
 `;
 
 export const Main = styled.div``;

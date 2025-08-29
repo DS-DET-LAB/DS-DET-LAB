@@ -7,6 +7,7 @@ const palette = {
   mainNavy: {
     navy100: 'rgba(18, 32, 102)',
     navy10: 'rgba(18, 32, 102, 0.1)',
+    navy15: 'rgba(18, 32, 102, 0.15)',
     navy30: 'rgba(18, 32, 102, 0.3)',
     navy80: 'rgba(18, 32, 102, 0.8)',
   },
@@ -21,6 +22,7 @@ const palette = {
     white80: 'rgba(255, 255, 255, 0.8)',
     white50: 'rgba(255, 255, 255, 0.5)',
     white30: 'rgba(255, 255, 255, 0.3)',
+    black30: 'rgba(0, 0, 0, 0.3)',
     black50: 'rgba(0, 0, 0, 0.5)',
     black70: 'rgba(0, 0, 0, 0.7)',
   },
