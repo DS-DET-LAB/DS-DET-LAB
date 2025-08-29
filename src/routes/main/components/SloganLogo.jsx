@@ -4,6 +4,21 @@ import { SLOGAN_TEXTS } from '@main/constants/slogan';
 import LogoSimple from '@assets/logo/logo-simple.svg';
 import LogoKr from '@assets/logo/logo-kr.svg';
 
+/**
+ * SloganLogo 컴포넌트
+ *
+ * 대표 슬로건과 로고를 표시하는 컴포넌트입니다.
+ * 반응형(`mobile`, `tablet`, `desktop`)에 따라 글자 크기, 여백, 로고 크기를 다르게 적용합니다.
+ * 슬로건 문구는 `SLOGAN_TEXTS` 상수에서 관리하며, highlight 여부에 따라 스타일을 분리해 적용합니다.
+ *
+ * @component
+ * @example
+ * // 기본 사용
+ * <SloganLogo />
+ *
+ * @author 김서윤
+ */
+
 function SloganLogo() {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
