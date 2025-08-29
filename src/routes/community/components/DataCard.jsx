@@ -1,8 +1,13 @@
+import useMediaQuery from '@hooks/useMediaQuery';
+
 import DownloadIcon40 from '@assets/community/ic-download-40.svg?react';
+import DownloadIcon24 from '@assets/community/ic-download-24.svg?react';
 
 import * as D from './DataCardStyle';
 
 const DataCard = ({ type, title, date, fileName, file }) => {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = file;
@@ -21,9 +26,12 @@ const DataCard = ({ type, title, date, fileName, file }) => {
         <D.Title>{title}</D.Title>
       </D.SideWrapper>
 
-      <D.Button onClick={handleDownload}>
-        <DownloadIcon40 />
-      </D.Button>
+      {!isMobile && (
+        <D.Button onClick={handleDownload}>
+          <DownloadIcon40 />
+        </D.Button>
+      )}
+      {isMobile && <DownloadIcon24 onClick={handleDownload} />}
     </D.DataCard>
   );
 };

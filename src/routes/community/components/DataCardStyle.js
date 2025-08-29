@@ -9,18 +9,35 @@ export const DataCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (max-width: 767px) {
+    padding: 20px;
+    align-items: flex-end;
+  }
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const SideWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
 `;
 
 export const Type = styled.div`
@@ -37,6 +54,13 @@ export const Type = styled.div`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.4px;
+
+  @media (max-width: 767px) {
+    padding: 3px 8px;
+
+    font-size: 12px;
+    letter-spacing: -0.3px;
+  }
 `;
 
 export const Date = styled.div`
@@ -46,6 +70,11 @@ export const Date = styled.div`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.4px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    letter-spacing: -0.35px;
+  }
 `;
 
 export const Title = styled.p`
@@ -56,6 +85,11 @@ export const Title = styled.p`
   font-weight: 600;
   line-height: 130%;
   letter-spacing: -0.5px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    letter-spacing: -0.35px;
+  }
 `;
 
 export const Button = styled.button`
