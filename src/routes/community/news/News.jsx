@@ -23,7 +23,15 @@ function News() {
         <N.Title>센터 소식</N.Title>
         <N.ItemGroup>
           {newsData?.news?.map((data) => (
-            <NewsItem key={data.id} url={data.url} img={data.img} title={data.title} date={data.date} isInsta={false} />
+            <NewsItem
+              key={data.id}
+              url={data.url}
+              img={data.img}
+              title={data.title}
+              date={data.date}
+              isInsta={false}
+              isYoutube={false}
+            />
           ))}
         </N.ItemGroup>
         <N.Group>
@@ -41,6 +49,7 @@ function News() {
                 title={data.title}
                 date={data.date}
                 isInsta={true}
+                isYoutube={false}
               />
             ))}
           </N.ItemGroup>
@@ -51,6 +60,34 @@ function News() {
             @DS디지털교육공학센터
             {!isMobile && <N.External src={external} />}
           </N.SocialBox>
+          <N.Playlist>2025 찾아가는 학교 컨설팅</N.Playlist>
+          <N.ItemGroup>
+            {newsData?.playlist1?.map((data) => (
+              <NewsItem
+                key={data.id}
+                url={data.url}
+                img={data.img}
+                title={data.title}
+                date={data.date}
+                isInsta={false}
+                isYoutube={true}
+              />
+            ))}
+          </N.ItemGroup>
+          <N.Playlist>2025 디지털새싹</N.Playlist>
+          <N.ItemGroup>
+            {newsData?.playlist2?.map((data) => (
+              <NewsItem
+                key={data.id}
+                url={data.url}
+                img={data.img}
+                title={data.title}
+                date={data.date}
+                isInsta={false}
+                isYoutube={true}
+              />
+            ))}
+          </N.ItemGroup>
         </N.Group>
       </N.News>
     </N.NewsPage>

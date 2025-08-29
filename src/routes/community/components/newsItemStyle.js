@@ -22,6 +22,15 @@ export const Img = styled.img`
   }
 `;
 
+export const Youtube = styled.iframe`
+  border-radius: 11px;
+  height: 166px;
+  object-fit: cover;
+  @media (max-width: 767px) {
+    height: 101px;
+  }
+`;
+
 export const NewsInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,10 +41,12 @@ export const Title = styled.div`
   color: ${palette.text.primary};
   font-size: 20px;
   line-height: 130%;
+  font-weight: 500;
   letter-spacing: -0.5px;
   align-self: stretch;
   @media (max-width: 767px) {
     font-size: 14px;
+    font-weight: 400;
   }
 `;
 
@@ -43,6 +54,7 @@ export const Date = styled.div`
   color: ${palette.text.secondary};
   font-size: 16px;
   line-height: 150%;
+  font-weight: 400;
   letter-spacing: -0.4px;
   align-self: stretch;
   @media (max-width: 767px) {

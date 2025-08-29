@@ -31,9 +31,6 @@ export const ItemGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-
-  width: 100%;
-  overflow: scroll;
 `;
 
 export const Title = styled.div`
@@ -105,4 +102,21 @@ export const External = styled.img`
   width: 45px;
   border: 1px solid ${palette.mainNavy.navy10};
   border-radius: 50px;
+`;
+
+export const Playlist = styled.div`
+  color: ${palette.text.primary};
+  font-size: 24px;
+  line-height: 130%;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  align-self: stretch;
+
+  margin-bottom: 25px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
 `;

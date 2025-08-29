@@ -37,5 +37,23 @@
       "title": "🏫찾학컨 오늘의 컨설팅🏫",
       "date": "2025.02.04"
     }
+  ],
+  "playlist1": [
+    {
+      "id": 9041,
+      "url": "https://www.youtube.com/watch?v=RK3tthOhYw0&list=PLaE7AG_TSWwsU2UFzcklbweT3K8Rzgv2T",
+      "img": "https://www.youtube.com/embed/RK3tthOhYw0?si=veueL0OfoxSexUZW",
+      "title": "2025 디지털 새싹 덕성여자대학교 현장스케치",
+      "date": "2025.08.04"
+    }
+  ],
+  "playlist2": [
+    {
+      "id": 3021,
+      "url": "https://www.youtube.com/watch?v=xnotNij9Qqc&t=329s",
+      "img": "https://www.youtube.com/embed/xnotNij9Qqc?si=PSCDvoBe_6e92_e1",
+      "title": "2025 디지털 새싹 덕성여자대학교 현장스케치",
+      "date": "2025.08.04"
+    }
   ]
 }
