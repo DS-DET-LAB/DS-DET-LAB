@@ -16,8 +16,9 @@ function Data() {
   const [search, setSearch] = useState('');
   const [searchedData, setSearchedData] = useState(DataFiles);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedBusiness, setSelectedBusiness] = useState('전체');
 
-  const businessList = Array.from(new Set(DataFiles.map((data) => data.business)));
+  const businessList = ['전체', ...Array.from(new Set(DataFiles.map((data) => data.business)))];
 
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -35,7 +36,7 @@ function Data() {
     if (trimmedSearch === '') {
       setSearchedData(DataFiles);
     } else {
-      setSearchedData(DataFiles.filter((info) => info.title.toLowerCase().includes(trimmedSearch)));
+      setSearchedData(searchedData.filter((info) => info.title.toLowerCase().includes(trimmedSearch)));
     }
 
     setCurrentPage(1);
@@ -54,6 +55,18 @@ function Data() {
   const handleNextPage = () => {
     const maxPage = Math.ceil(searchedData.length / itemsPerPage);
     if (currentPage < maxPage) setCurrentPage((prev) => prev + 1);
+  };
+
+  const handleFilter = (business) => {
+    setSelectedBusiness(business);
+
+    if (business === '전체') {
+      setSearchedData(DataFiles);
+    } else {
+      setSearchedData(DataFiles.filter((data) => data.business === business));
+    }
+
+    setCurrentPage(1);
   };
 
   useEffect(() => {
@@ -81,9 +94,13 @@ function Data() {
           </I.Count>
 
           <D.BusinessWrapper>
-            <D.Business>전체</D.Business>
-            {businessList.map((business, idx) => (
-              <D.Business key={idx}>{business}</D.Business>
+            {businessList.map((business) => (
+              <D.Business
+                key={business}
+                onClick={() => handleFilter(business)}
+                $isActive={selectedBusiness === business}>
+                {business}
+              </D.Business>
             ))}
           </D.BusinessWrapper>
 

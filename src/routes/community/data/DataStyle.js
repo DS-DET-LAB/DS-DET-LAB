@@ -10,14 +10,14 @@ export const BusinessWrapper = styled.div`
 
 export const Business = styled.div`
   border-radius: 30px;
-  background-color: ${palette.mainNavy.navy100};
+  background-color: ${({ $isActive }) => ($isActive ? palette.mainNavy.navy100 : palette.hover.back2)};
   padding: 8px 20px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: ${palette.background.white};
+  color: ${({ $isActive }) => ($isActive ? palette.background.white : palette.text.primary)};
   font-size: 20px;
   font-weight: 500;
   line-height: 130%;
