@@ -1,11 +1,11 @@
 import useMediaQuery from '@hooks/useMediaQuery';
 import * as M from '@main/MainStyle';
 import Shortcut from '@main/components/Shortcut';
-import IcInsta from '@assets/main/ic-insta.svg?react';
-import IcYoutube from '@assets/main/ic-youtube.svg?react';
-import IcMail from '@assets/main/ic-mail.svg?react';
-import IcPhone from '@assets/main/ic-phone.svg?react';
-import IcDirection from '@assets/main/ic-direction.svg?react';
+import IcInsta from '@assets/main/ic-insta-40.svg?react';
+import IcYoutube from '@assets/main/ic-youtube-40.svg?react';
+import IcMail from '@assets/main/ic-mail-40.svg?react';
+import IcPhone from '@assets/main/ic-phone-40.svg?react';
+import IcDirection from '@assets/main/ic-direction-40.svg?react';
 
 function Main() {
   const isMobile = useMediaQuery('(max-width: 767px)');
