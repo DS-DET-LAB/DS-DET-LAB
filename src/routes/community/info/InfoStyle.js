@@ -77,6 +77,10 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   gap: 30px;
 
+  @media (min-width: 768px) and (max-width: 1279px) {
+    margin-top: -25px;
+  }
+
   @media (max-width: 767px) {
     margin-top: 5px;
     gap: 20px;

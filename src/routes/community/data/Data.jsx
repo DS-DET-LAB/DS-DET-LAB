@@ -93,16 +93,18 @@ function Data() {
             전체 <span>{searchedData.length}</span>건
           </I.Count>
 
-          <D.BusinessWrapper>
-            {businessList.map((business) => (
-              <D.Business
-                key={business}
-                onClick={() => handleFilter(business)}
-                $isActive={selectedBusiness === business}>
-                {business}
-              </D.Business>
-            ))}
-          </D.BusinessWrapper>
+          {!isTablet && !isMobile && (
+            <D.BusinessWrapper>
+              {businessList.map((business) => (
+                <D.Business
+                  key={business}
+                  onClick={() => handleFilter(business)}
+                  $isActive={selectedBusiness === business}>
+                  {business}
+                </D.Business>
+              ))}
+            </D.BusinessWrapper>
+          )}
 
           <I.InfoCardWrapper>
             {currentItems.map((data) => (
