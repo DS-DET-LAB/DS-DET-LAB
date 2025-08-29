@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import useMediaQuery from '@hooks/useMediaQuery';
-import InfoData from '@db/info.json';
+import InfoData from '@db/communityInfo.json';
 
 import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
 import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
