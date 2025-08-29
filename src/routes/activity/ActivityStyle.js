@@ -21,13 +21,15 @@ export const HeaderName = styled.h1`
   font-weight: 600;
 `;
 
-export const ToggleBox = styled.div``;
+export const ToggleBox = styled.div`
+  width: 100%;
+`;
 
 export const ToggleName = styled.div`
   color: ${palette.mainNavy.navy80};
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
   img {
@@ -38,6 +40,7 @@ export const ToggleName = styled.div`
 export const BranchContainer = styled.div`
   display: flex;
   gap: 96px;
+  padding-top: 25px;
 `;
 
 // 분기 별 컴포넌트
