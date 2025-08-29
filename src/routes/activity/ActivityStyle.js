@@ -19,6 +19,7 @@ export const HeaderName = styled.h1`
   color: ${palette.mainNavy.navy100};
   font-size: 36px;
   font-weight: 600;
+  margin: 0;
 `;
 
 export const ToggleBox = styled.div`

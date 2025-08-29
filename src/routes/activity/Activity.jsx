@@ -1,8 +1,9 @@
 import * as A from '@activity/ActivityStyle';
 import ToggleIcon from '@assets/activity/ic-arrow-20.svg';
 import YearTimeline from '@routes/activity/components/YearTimeline';
-import Bungi from '@routes/activity/components/Bungi.jsx';
+import Bungi from '@routes/activity/components/Bungi';
 import FutureActivity from '@routes/activity/components/FutureActivity';
+import Results from '@routes/activity/components/Results';
 function Activity() {
   return (
     <A.Activity>
@@ -52,6 +53,7 @@ function Activity() {
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             완료된 사업 목록
           </A.ToggleName>
+          <Results />
         </A.ToggleBox>
 
         {/* 사진 및 영상 콘텐츠 */}
