@@ -14,17 +14,11 @@ export const NewsPage = styled.div`
   @media (max-width: 767px) {
     padding-top: 30px;
   }
-
-  @media ((max-width: 1000px) and (min-width: 767px)) or (max-width: 520px) {
-    justify-content: start;
-    padding-left: 3vw;
-  }
 `;
 
 export const News = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 70px;
 `;
 
 export const ItemGroup = styled.div`
@@ -34,6 +28,9 @@ export const ItemGroup = styled.div`
 `;
 
 export const Title = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: start;
   color: ${palette.mainNavy.navy100};
 
   font-size: 36px;
@@ -41,14 +38,12 @@ export const Title = styled.div`
   line-height: 150%;
   letter-spacing: -0.9px;
 
-  margin-bottom: -20px;
+  margin-bottom: 30px;
 
   @media (max-width: 767px) {
     font-size: 16px;
     line-height: 130%;
     letter-spacing: -0.4px;
-
-    margin-bottom: -50px;
   }
 `;
 
@@ -118,5 +113,24 @@ export const Playlist = styled.div`
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 20px;
+  }
+`;
+
+export const PageControll = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+  @media (max-width: 767px) {
+    margin: 20px 0;
+  }
+`;
+
+export const PagingIcon = styled.img`
+  width: 40px;
+  @media (max-width: 767px) {
+    width: 20px;
   }
 `;
