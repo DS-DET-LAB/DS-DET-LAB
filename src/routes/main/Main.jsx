@@ -4,7 +4,7 @@ import * as M from '@main/MainStyle';
 import Shortcut from '@main/components/shortcut/Shortcut';
 import SloganLogo from '@main/components/slogan-logo/SloganLogo';
 import InformModal from '@main/components/inform-modal/InformModal';
-import { SHORTCUTS } from '@main/constant/shortcut/Shortcuts';
+import { SHORTCUTS } from '@main/constants/shortcut/Shortcuts';
 
 function Main() {
   const isMobile = useMediaQuery('(max-width: 767px)');
