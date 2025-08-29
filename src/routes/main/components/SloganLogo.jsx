@@ -30,7 +30,7 @@ function SloganLogo() {
         ))}
       </S.Slogan>
 
-      <S.VerticalLine />
+      <S.VerticalLine viewport={viewport} />
 
       <S.Logo>
         <S.LogoMain src={LogoSimple} viewport={viewport} alt="DET" />

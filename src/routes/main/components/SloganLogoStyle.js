@@ -55,7 +55,7 @@ export const Highlight = styled.span`
 
 export const VerticalLine = styled.div`
   width: 1px;
-  height: 150px;
+  height: ${({ viewport }) => (viewport === 'mobile' ? '50px' : '150px')};
   background: linear-gradient(rgba(159, 164, 192, 0) 0%, #9fa4c0 45%, rgba(159, 164, 192, 0) 100%);
 `;
 
