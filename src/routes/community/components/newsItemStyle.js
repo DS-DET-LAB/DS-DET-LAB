@@ -11,6 +11,10 @@ export const NewsItem = styled.a`
   @media (max-width: 767px) {
     width: 180px;
   }
+
+  @media (max-width: 420px) {
+    width: 80vw;
+  }
 `;
 
 export const Img = styled.img`
@@ -20,6 +24,9 @@ export const Img = styled.img`
   @media (max-width: 767px) {
     height: 101px;
   }
+  @media (max-width: 420px) {
+    height: 45vw;
+  }
 `;
 
 export const Youtube = styled.iframe`
@@ -28,6 +35,9 @@ export const Youtube = styled.iframe`
   object-fit: cover;
   @media (max-width: 767px) {
     height: 101px;
+  }
+  @media (max-width: 420px) {
+    height: 45vw;
   }
 `;
 

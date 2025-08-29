@@ -1,11 +1,8 @@
 import * as N from '../components/newsItemStyle';
-import useMediaQuery from '@hooks/useMediaQuery';
 
 function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
-  const isMobile = useMediaQuery('(max-width: 767px)');
-
   return (
-    <N.NewsItem href={url} style={isInsta && isMobile ? { width: '180px' } : undefined}>
+    <N.NewsItem href={url}>
       {isYoutube ? (
         <N.Youtube
           src={img}
@@ -14,7 +11,7 @@ function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></N.Youtube>
       ) : (
-        <N.Img src={img} style={isInsta ? { height: isMobile ? '180px' : '295px' } : undefined} />
+        <N.Img src={img} style={isInsta ? { aspectRatio: 1, height: 'auto' } : undefined} />
       )}
       <N.NewsInfo>
         <N.Title>{title}</N.Title>
