@@ -1,9 +1,166 @@
+import { useRef } from 'react';
+
 import * as C from '@center/CenterStyle';
+import Icon from '@assets/center/triangle.svg';
+import DIcon from '@assets/center/ic-content_dev-64.svg';
+import DIcon2 from '@assets/center/ic-future_edu-64.svg';
+import DIcon3 from '@assets/center/ic-learn_env-64.svg';
+import DIcon4 from '@assets/center/ic-ai_edutech-64.svg';
+import DIcon5 from '@assets/center/ic-edutech_tool-64.svg';
+import OrganizationIcon from '@assets/center/org_chart-450w.png';
+import LineIcon from '@assets/center/line.svg';
+import MailIcon from '@assets/center/ic-mail-filled-24.svg';
+
+import ParkImg from '@assets/center/park.png';
+import KimImg from '@assets/center/Kim.png';
+import BaeImg from '@assets/center/Bae.png';
+import LeeImg from '@assets/center/Lee.png';
+import NamImg from '@assets/center/Nam.png';
+import SonImg from '@assets/center/Son.png';
+import ChoiImg from '@assets/center/Choi.png';
+import HwangImg from '@assets/center/Hwang.png';
+import LimImg from '@assets/center/Lim.png';
+
+import CenterCard from '@center/components/CenterCard';
+import PersonalCard from '@center/components/PersonalCard';
 
 function Center() {
+  const refs = useRef({ greeting: null, roles: null, org: null, contact: null });
+  const setRef = (key) => (el) => {
+    refs.current[key] = el;
+  };
+  const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   return (
     <>
-      <C.Center>센터 소개</C.Center>
+      <C.Wrapper>
+        <C.Sidebar>
+          <C.Center>센터 소개</C.Center>
+          <C.Float type="button" onClick={() => scrollTo('greeting')}>
+            인사말
+          </C.Float>
+          <C.Float type="button" onClick={() => scrollTo('roles')}>
+            역할과 전망
+          </C.Float>
+          <C.Float type="button" onClick={() => scrollTo('org')}>
+            조직도
+          </C.Float>
+          <C.Float type="button" onClick={() => scrollTo('contact')}>
+            담당자
+          </C.Float>
+        </C.Sidebar>
+
+        <C.SectionWrapper>
+          <C.Title ref={setRef('greeting')}>인사말</C.Title>
+          <C.Body>
+            디지털 교육공학센터<C.EngSpan>(Digital Educational Technology Lab, EdTech Lab)</C.EngSpan>는 디지털 기술을
+            활용한 교육 방법, 학습 도구, 그리고 교육 혁신에 대한 연구를 수행하는 기관입니다. 디지털 교육공학센터는 교육
+            공학을 중심으로 교육과 기술의 융합을 통한 실질적인 교육 개선을 목표로 합니다.
+          </C.Body>
+          <C.Title>비전/소개</C.Title>
+          <C.TriIcon src={Icon} alt="소제목" />
+          <C.Body>
+            디지털 전환 시대를 맞아, 덕성여자대학교는 교양대학을 중심으로 디지털 교육 분야의 학제간 융합 연구를
+            선도하고자 디지털 교육공학센터를 설립하였습니다. 본 센터는 지식정보사회에서 요구되는 창의적 지식 생산과 정보
+            활용 능력을 제고하고, 교육 혁신과 학문적 발전을 위한 융합연구 거점으로 기능합니다.
+          </C.Body>
+          <C.Body>
+            2024년에는 교육부와 한국과학창의재단의 『찾아가는 학교 컨설팅』 사업의 운영기관으로 선정되었으며, 이 사업은
+            2025년, 2026년까지 최대 3년간 계속 사업으로 운영될 예정입니다. 2025년에는 교육부와 한국과학창의재단의
+            『디지털 새싹』 사업도 함께 진행하고 있습니다.
+          </C.Body>
+          <C.Body>
+            본 센터는 디지털 교육 분야 교수 및 강사의 연구역량 강화와 학제간 융합연구 활성화를 목표로 하며, 외부 학술
+            연구용역 사업의 수주를 통한 실질적인 연구성과 창출을 지향합니다. 더불어, 본교 재학생들에게는 연구 참여
+            기회를 제공함으로써 실무 역량을 키우고 졸업 후 관련 분야 진출을 위한 진로 모색의 장으로 기능하고자 합니다.
+          </C.Body>
+
+          <C.IconWrapper ref={setRef('roles')}>
+            <C.TriIcon src={Icon} alt="소제목" />
+            <C.SubTitle>역할과 전망</C.SubTitle>
+          </C.IconWrapper>
+
+          <C.WrapWrapper>
+            <C.CardWrapper>
+              <CenterCard src={DIcon} text={['디지털 교육 콘텐츠', '개발 및 실행']} />
+
+              <CenterCard src={DIcon2} text={['디지털 융합 기반 미래 교육', '연구 및 개발']} />
+
+              <CenterCard src={DIcon3} text={['디지털 학습 환경 최적화 및', '맞춤형 교육 지원']} />
+
+              <CenterCard src={DIcon4} text={['빅데이터, AI, VR/AR을 활용한', '혁신적인 교육 방법 연구']} />
+
+              <CenterCard src={DIcon5} text={['에듀테크 기업과 협업하여', '실용적인 학습 도구 개발']} />
+            </C.CardWrapper>
+          </C.WrapWrapper>
+
+          <C.Title ref={setRef('org')}>조직도 및 구성원</C.Title>
+          <C.IconWrapper>
+            <C.TriIcon src={Icon} alt="소제목" />
+            <C.SubTitle>조직 체계</C.SubTitle>
+          </C.IconWrapper>
+
+          <C.OrganiCardWrapper>
+            <C.Card>
+              <C.OrganizationImg src={OrganizationIcon} alt="디지털 아이콘" />
+            </C.Card>
+          </C.OrganiCardWrapper>
+
+          <C.IconWrapper ref={setRef('contact')}>
+            <C.TriIcon src={Icon} alt="소제목" />
+            <C.SubTitle>담당자 정보 및 연락처</C.SubTitle>
+          </C.IconWrapper>
+
+          <C.SubWrapper>
+            <C.LineIcon src={LineIcon} alt="줄" />
+            <C.PWrapper>
+              <C.PSbub>센터 운영 시간 (응대 가능 시간)</C.PSbub>
+              <C.PSbub>
+                평일 <C.SpanExtraSub>09:00 - 17:00</C.SpanExtraSub> (주말 및 공휴일 휴무)
+              </C.PSbub>
+            </C.PWrapper>
+          </C.SubWrapper>
+
+          <C.LabelDiv>
+            <C.LabelP>센터장</C.LabelP>
+          </C.LabelDiv>
+          <C.PersonalCardWrapper>
+            <PersonalCard photoSrc={ParkImg} name={'박주연'} role={'교수님'} phone={'02-901-8785'} />
+          </C.PersonalCardWrapper>
+
+          <C.LabelDiv>
+            <C.LabelP>찾아가는 학교 컨설팅 운영팀</C.LabelP>
+          </C.LabelDiv>
+
+          <C.IconWrapper>
+            <C.MailImg src={MailIcon} alt="메일 아이콘" />
+            <C.LabelP>digitaled.ds@gmail.com</C.LabelP>
+          </C.IconWrapper>
+
+          <C.PersonalCardWrapper>
+            <PersonalCard photoSrc={KimImg} name={'김세진'} role={'팀장'} phone={'02-901-8810'} />
+            <PersonalCard photoSrc={BaeImg} name={'배초롱'} role={'책임연구원'} phone={'02-901-8853'} />
+            <PersonalCard photoSrc={LeeImg} name={'이 정'} role={'연구원'} phone={'02-901-8635'} />
+            <PersonalCard photoSrc={NamImg} name={'남정연'} role={'연구원'} phone={'02-901-8494'} />
+            <PersonalCard photoSrc={SonImg} name={'손승우'} role={'연구원'} phone={'02-901-8495'} />
+          </C.PersonalCardWrapper>
+
+          <C.LabelDiv>
+            <C.LabelP>디지털 새싹 운영팀</C.LabelP>
+          </C.LabelDiv>
+
+          <C.IconWrapper>
+            <C.MailImg src={MailIcon} alt="메일 아이콘" />
+            <C.LabelP>digitalseed.ds@gmail.com</C.LabelP>
+          </C.IconWrapper>
+
+          <C.PersonalCardWrapper>
+            <PersonalCard photoSrc={ChoiImg} name={'최예영'} role={'연구원'} phone={'02-901-8224'} />
+            <PersonalCard photoSrc={HwangImg} name={'황고운'} role={'연구원'} phone={''} />
+            <PersonalCard photoSrc={LimImg} name={'임해랑'} role={'연구원'} phone={''} />
+          </C.PersonalCardWrapper>
+        </C.SectionWrapper>
+      </C.Wrapper>
     </>
   );
 }

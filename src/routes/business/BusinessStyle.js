@@ -1,4 +1,10 @@
 import styled from 'styled-components';
-import palette from '@styles/theme';
 
 export const Business = styled.div``;
+
+export const CardWrapper = styled.div``;
+
+export const VisionSectionWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
