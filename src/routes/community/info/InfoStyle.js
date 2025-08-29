@@ -97,6 +97,8 @@ export const Count = styled.div`
   line-height: 130%;
   letter-spacing: -0.45px;
 
+  margin-left: 20px;
+
   span {
     color: ${palette.text.primary};
     font-weight: 600;

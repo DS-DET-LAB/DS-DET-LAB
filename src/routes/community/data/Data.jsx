@@ -1,10 +1,119 @@
+import { useEffect, useRef, useState } from 'react';
+
+import useMediaQuery from '@hooks/useMediaQuery';
+import DataFiles from '@db/communityData.json';
+
+import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
+import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
+
+import Input from '@routes/community/components/Input';
+import DataCard from '@routes/community/components/DataCard';
+
+import * as I from '@info/InfoStyle';
 import * as D from '@data/DataStyle';
 
 function Data() {
+  const [search, setSearch] = useState('');
+  const [searchedData, setSearchedData] = useState(DataFiles);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const businessList = Array.from(new Set(DataFiles.map((data) => data.business)));
+
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
+  const inputRef = useRef(null);
+
+  const itemsPerPage = 5;
+  const lastItemIdx = currentPage * itemsPerPage;
+  const firstItemIdx = lastItemIdx - itemsPerPage;
+  const currentItems = searchedData.slice(firstItemIdx, lastItemIdx);
+
+  const handleSearch = () => {
+    const trimmedSearch = search.trim().toLowerCase();
+
+    if (trimmedSearch === '') {
+      setSearchedData(DataFiles);
+    } else {
+      setSearchedData(DataFiles.filter((info) => info.title.toLowerCase().includes(trimmedSearch)));
+    }
+
+    setCurrentPage(1);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    const maxPage = Math.ceil(searchedData.length / itemsPerPage);
+    if (currentPage < maxPage) setCurrentPage((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [currentPage]);
+
   return (
-    <>
-      <D.Data>자료실</D.Data>
-    </>
+    <I.Info>
+      {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
+
+      <I.InfoWrapper ref={inputRef}>
+        <I.InfoText>자료실</I.InfoText>
+
+        <Input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onClick={handleSearch}
+          placeholder="검색어를 입력하세요."
+        />
+
+        <I.ContentWrapper>
+          <I.Count>
+            전체 <span>{searchedData.length}</span>건
+          </I.Count>
+
+          <D.BusinessWrapper>
+            <D.Business>전체</D.Business>
+            {businessList.map((business, idx) => (
+              <D.Business key={idx}>{business}</D.Business>
+            ))}
+          </D.BusinessWrapper>
+
+          <I.InfoCardWrapper>
+            {currentItems.map((data) => (
+              <DataCard
+                key={data.id}
+                type={data.type}
+                title={data.title}
+                date={data.date}
+                fileName={data.fileName}
+                file={data.file}
+              />
+            ))}
+          </I.InfoCardWrapper>
+
+          <I.ButtonWrapper>
+            <I.Pagenation onClick={handlePrevPage} disabled={currentPage === 1}>
+              <ArrowLeft />
+            </I.Pagenation>
+
+            <I.Pagenation
+              onClick={handleNextPage}
+              disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
+              <ArrowRight />
+            </I.Pagenation>
+          </I.ButtonWrapper>
+        </I.ContentWrapper>
+      </I.InfoWrapper>
+    </I.Info>
   );
 }
 
