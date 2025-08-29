@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import palette from '@styles/theme';
 
+export const NewsPage = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 125px;
+`;
+
 export const News = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,6 +28,14 @@ export const Title = styled.div`
   letter-spacing: -0.9px;
 
   margin-bottom: -20px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -0.4px;
+
+    margin-bottom: -50px;
+  }
 `;
 
 export const Group = styled.div`
@@ -41,17 +55,29 @@ export const SocialBox = styled.a`
 
   box-shadow: 0 0 15px 0 rgba(18, 32, 102, 0.1);
 
-  width: 228px;
-
+  width: fit-content;
   color: ${palette.mainNavy.navy100};
   font-size: 20px;
   font-weight: 500;
   line-height: 130%;
   letter-spacing: -0.5px;
+
+  @media (max-width: 767px) {
+    gap: 3px;
+    padding: 10px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.3px;
+  }
 `;
 
 export const SocialIcon = styled.img`
   width: 45px;
+  @media (max-width: 767px) {
+    width: 16px;
+  }
 `;
 
 export const External = styled.img`
