@@ -13,6 +13,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 50px;
+  padding: 70px 80px;
 `;
 
 export const HeaderName = styled.h1`

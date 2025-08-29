@@ -4,6 +4,7 @@ import YearTimeline from '@routes/activity/components/YearTimeline';
 import Bungi from '@routes/activity/components/Bungi';
 import FutureActivity from '@routes/activity/components/FutureActivity';
 import Results from '@routes/activity/components/Results';
+import PhotoAndVideo from '@routes/activity/components/PhotoAndVideo';
 function Activity() {
   return (
     <A.Activity>
@@ -60,8 +61,9 @@ function Activity() {
         <A.ToggleBox>
           <A.ToggleName>
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
-            완료된 사업 목록
+            사진 및 영상 콘텐츠
           </A.ToggleName>
+          <PhotoAndVideo />
         </A.ToggleBox>
       </A.Container>
     </A.Activity>

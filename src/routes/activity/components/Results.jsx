@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import palette from '@styles/theme';
-import { BungiContainer } from '../ActivityStyle';
 
 function Results() {
   return (
