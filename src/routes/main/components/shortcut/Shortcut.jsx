@@ -1,4 +1,4 @@
-import * as S from '@main/components/ShortCutStyle';
+import * as S from '@main/components/shortcut/shortCutStyle';
 
 /**
  * Shortcut 컴포넌트

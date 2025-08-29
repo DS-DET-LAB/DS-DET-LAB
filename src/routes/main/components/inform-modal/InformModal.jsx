@@ -1,5 +1,5 @@
-import * as M from '@main/components/InformModalStyle';
-import { INFORM_CONTENT, INFORM_TIME } from '@main/constants/CenterInform';
+import * as M from '@main/components/inform-modal/informModalStyle';
+import { INFORM_CONTENT, INFORM_TIME } from '@main/constants/inform/CenterInform';
 import IcClose from '@assets/common/ic-close-40.svg';
 
 /**

@@ -1,6 +1,6 @@
 import useMediaQuery from '@hooks/useMediaQuery';
-import * as S from '@main/components/SloganLogoStyle';
-import { SLOGAN_TEXTS } from '@main/constants/slogan';
+import * as S from '@main/components/slogan-logo/sloganLogoStyle';
+import { SLOGAN_TEXTS } from '@main/constants/slogan/Slogan';
 import LogoSimple from '@assets/logo/logo-simple.svg';
 import LogoKr from '@assets/logo/logo-kr.svg';
 
