@@ -8,7 +8,7 @@ import { SHORTCUTS } from '@main/constants/Shortcuts';
 
 function Main() {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const [isModalOpen, setIsModalOpen] = useState('메일');
+  const [isModalOpen, setIsModalOpen] = useState('');
 
   return (
     <>
