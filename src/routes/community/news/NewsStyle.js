@@ -5,6 +5,20 @@ export const NewsPage = styled.div`
   display: flex;
   justify-content: center;
   gap: 125px;
+  padding-top: 70px;
+
+  @media (min-width: 1280px) {
+    padding-top: 192px;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 30px;
+  }
+
+  @media ((max-width: 1000px) and (min-width: 767px)) or (max-width: 520px) {
+    justify-content: start;
+    padding-left: 3vw;
+  }
 `;
 
 export const News = styled.div`
@@ -17,6 +31,9 @@ export const ItemGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+
+  width: 100%;
+  overflow: scroll;
 `;
 
 export const Title = styled.div`
@@ -62,6 +79,8 @@ export const SocialBox = styled.a`
   line-height: 130%;
   letter-spacing: -0.5px;
 
+  margin-bottom: 30px;
+
   @media (max-width: 767px) {
     gap: 3px;
     padding: 10px;
@@ -70,6 +89,8 @@ export const SocialBox = styled.a`
     font-weight: 400;
     line-height: 150%;
     letter-spacing: -0.3px;
+
+    margin-bottom: 20px;
   }
 `;
 
