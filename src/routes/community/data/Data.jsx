@@ -17,6 +17,7 @@ function Data() {
   const [searchedData, setSearchedData] = useState(DataFiles);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBusiness, setSelectedBusiness] = useState('전체');
+  const [isPaginated, setIsPaginated] = useState(false);
 
   const businessList = ['전체', ...Array.from(new Set(DataFiles.map((data) => data.business)))];
 
@@ -49,12 +50,18 @@ function Data() {
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+      setIsPaginated(true);
+    }
   };
 
   const handleNextPage = () => {
     const maxPage = Math.ceil(searchedData.length / itemsPerPage);
-    if (currentPage < maxPage) setCurrentPage((prev) => prev + 1);
+    if (currentPage < maxPage) {
+      setCurrentPage((prev) => prev + 1);
+      setIsPaginated(true);
+    }
   };
 
   const handleFilter = (business) => {
@@ -70,8 +77,10 @@ function Data() {
   };
 
   useEffect(() => {
-    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [currentPage]);
+    if (isPaginated) {
+      inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentPage, isPaginated]);
 
   return (
     <I.Info>
@@ -120,15 +129,15 @@ function Data() {
           </I.InfoCardWrapper>
 
           <I.ButtonWrapper>
-            <I.Pagenation onClick={handlePrevPage} disabled={currentPage === 1}>
+            <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
               <ArrowLeft />
-            </I.Pagenation>
+            </I.Pagination>
 
-            <I.Pagenation
+            <I.Pagination
               onClick={handleNextPage}
               disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
               <ArrowRight />
-            </I.Pagenation>
+            </I.Pagination>
           </I.ButtonWrapper>
         </I.ContentWrapper>
       </I.InfoWrapper>

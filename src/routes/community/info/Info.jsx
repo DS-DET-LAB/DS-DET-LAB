@@ -15,6 +15,7 @@ function Info() {
   const [search, setSearch] = useState('');
   const [searchedData, setSearchedData] = useState(InfoData);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isPaginated, setIsPaginated] = useState(false);
 
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -50,17 +51,25 @@ function Info() {
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+      setIsPaginated(true);
+    }
   };
 
   const handleNextPage = () => {
     const maxPage = Math.ceil(searchedData.length / itemsPerPage);
-    if (currentPage < maxPage) setCurrentPage((prev) => prev + 1);
+    if (currentPage < maxPage) {
+      setCurrentPage((prev) => prev + 1);
+      setIsPaginated(true);
+    }
   };
 
   useEffect(() => {
-    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [currentPage]);
+    if (isPaginated) {
+      inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentPage, isPaginated]);
 
   return (
     <I.Info>
@@ -89,15 +98,15 @@ function Info() {
           </I.InfoCardWrapper>
 
           <I.ButtonWrapper>
-            <I.Pagenation onClick={handlePrevPage} disabled={currentPage === 1}>
+            <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
               <ArrowLeft />
-            </I.Pagenation>
+            </I.Pagination>
 
-            <I.Pagenation
+            <I.Pagination
               onClick={handleNextPage}
               disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
               <ArrowRight />
-            </I.Pagenation>
+            </I.Pagination>
           </I.ButtonWrapper>
         </I.ContentWrapper>
       </I.InfoWrapper>

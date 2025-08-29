@@ -127,7 +127,7 @@ export const ButtonWrapper = styled.div`
   padding: 10px 0;
 `;
 
-export const Pagenation = styled.button`
+export const Pagination = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 15px;
