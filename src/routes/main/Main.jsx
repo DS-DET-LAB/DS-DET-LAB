@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
 import * as M from '@main/MainStyle';
 import Shortcut from '@main/components/Shortcut';
+import SloganLogo from '@main/components/SloganLogo';
 import InformModal from '@main/components/InformModal';
 import { SHORTCUTS } from '@main/constants/Shortcuts';
 
@@ -18,7 +19,9 @@ function Main() {
           ))}
         </M.ShortcutBar>
       )}
-      <M.Main>메인</M.Main>
+
+      <SloganLogo />
+
       {isModalOpen && <InformModal shortcut={isModalOpen} onClose={() => setIsModalOpen(false)} />}
     </>
   );

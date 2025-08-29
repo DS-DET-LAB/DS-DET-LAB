@@ -9,6 +9,7 @@ const palette = {
     navy10: 'rgba(18, 32, 102, 0.1)',
     navy15: 'rgba(18, 32, 102, 0.15)',
     navy30: 'rgba(18, 32, 102, 0.3)',
+    navy50: 'rgba(18, 32, 102, 0.5)',
     navy80: 'rgba(18, 32, 102, 0.8)',
   },
   text: {
