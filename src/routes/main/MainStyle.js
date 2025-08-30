@@ -14,23 +14,28 @@ export const ShortcutBar = styled.div`
 
 export const BottomSection = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: ${({ viewport }) => (viewport === 'mobile' ? '30px 20px' : '80px 340px')};
   gap: 15px;
-  flex-wrap: wrap;
   background-color: ${({ isBusiness }) => isBusiness && palette.mainNavy.navy10};
   margin-bottom: ${({ viewport, isBusiness }) => (viewport === 'mobile' && !isBusiness ? '70px' : '0')};
 `;
 
 export const BottomContainer = styled.div`
   width: 100%;
+  min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
+  max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  align-self: stretch;
   flex-wrap: wrap;
+
+  @media (min-width: 1920px) {
+    max-width: 100%;
+  }
 `;
 
 export const MoreButtonSection = styled.div`
