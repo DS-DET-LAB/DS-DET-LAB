@@ -27,7 +27,7 @@ export const Slogan = styled.div`
 export const SloganText = styled.div`
   color: ${palette.mainNavy.navy100};
   font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : viewport === 'tablet' ? '32px' : '44px')};
-  font-weight: 500;
+  font-weight: 400;
   line-height: 150%;
   letter-spacing: ${({ viewport }) =>
     viewport === 'mobile' ? '-0.35px' : viewport === 'tablet' ? '-0.8px' : '-1.1px'};
