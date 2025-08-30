@@ -12,17 +12,18 @@ export const ShortcutBar = styled.div`
   box-shadow: 0 4px 4px 0 ${palette.mainNavy.navy10};
 `;
 
-export const BusinessSection = styled.div`
+export const BottomSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: ${({ viewport }) => (viewport === 'mobile' ? '30px 20px' : '80px 340px')};
   gap: 15px;
   flex-wrap: wrap;
-  background-color: ${palette.mainNavy.navy10};
+  background-color: ${({ isBusiness }) => isBusiness && palette.mainNavy.navy10};
+  margin-bottom: ${({ viewport, isBusiness }) => (viewport === 'mobile' && !isBusiness ? '70px' : '0')};
 `;
 
-export const BusinessContainer = styled.div`
+export const BottomContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;

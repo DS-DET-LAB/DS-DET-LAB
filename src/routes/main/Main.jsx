@@ -30,8 +30,8 @@ function Main() {
 
       <SloganLogo />
 
-      <M.BusinessSection viewport={viewport}>
-        <M.BusinessContainer>
+      <M.BottomSection viewport={viewport} isBusiness={true}>
+        <M.BottomContainer>
           {MAIN_BUSINESS.map((biz, idx) => (
             <BusinessCard
               key={idx}
@@ -41,11 +41,18 @@ function Main() {
               content={biz.content}
             />
           ))}
-        </M.BusinessContainer>
+        </M.BottomContainer>
         <M.MoreButtonSection viewport={viewport}>
           <MoreButton text="사업" path="/business" />
         </M.MoreButtonSection>
-      </M.BusinessSection>
+      </M.BottomSection>
+
+      <M.BottomSection viewport={viewport} isBusiness={false}>
+        <M.BottomContainer></M.BottomContainer>
+        <M.MoreButtonSection viewport={viewport}>
+          <MoreButton text="공지사항" path="/community/info" />
+        </M.MoreButtonSection>
+      </M.BottomSection>
 
       {isModalOpen && <InformModal shortcut={isModalOpen} onClose={() => setIsModalOpen(false)} />}
     </>
