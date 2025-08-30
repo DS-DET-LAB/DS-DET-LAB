@@ -21,9 +21,10 @@ function Main() {
   else if (isTablet) viewport = 'tablet';
 
   const [noticeList] = useState(() => {
-    // id 기준 정렬 후 마지막 4개 slice (최신글)
-    const sorted = [...InfoData].sort((a, b) => Number(a.id) - Number(b.id));
-    return sorted.slice(-4);
+    // id 내림차순 정렬
+    const sorted = [...InfoData].sort((a, b) => Number(b.id) - Number(a.id));
+    // 최신 4개의 공지글
+    return sorted.slice(0, 4);
   });
 
   return (
