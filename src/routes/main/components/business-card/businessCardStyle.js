@@ -5,6 +5,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  flex: ${({ viewport }) => viewport != 'mobile' && '1'};
+  width: ${({ viewport }) => viewport === 'mobile' && '100%'};
   min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   box-sizing: border-box;
@@ -22,6 +24,10 @@ export const Container = styled.div`
 
   &:active {
     background-color: ${palette.hover.back1};
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 100%;
   }
 `;
 

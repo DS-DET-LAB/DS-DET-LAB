@@ -16,8 +16,30 @@ export const BusinessSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${({ isMobile }) => (isMobile ? '30px 20px' : '80px 340px')};
+  padding: ${({ viewport }) => (viewport === 'mobile' ? '30px 20px' : '80px 340px')};
   gap: 15px;
   flex-wrap: wrap;
   background-color: ${palette.mainNavy.navy10};
+`;
+
+export const BusinessContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+  flex-wrap: wrap;
+`;
+
+export const MoreButtonSection = styled.div`
+  width: 100%;
+  min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
+  max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
+  display: flex;
+  justify-content: flex-end;
+
+  @media (min-width: 1920px) {
+    max-width: 100%;
+  }
 `;
