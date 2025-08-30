@@ -8,7 +8,7 @@ import NoticeCard from '@main/components/notice-card/NoticeCard';
 import MoreButton from '@main/components/more-button/MoreButton';
 import InformModal from '@main/components/inform-modal/InformModal';
 import { SHORTCUTS } from '@main/constants/shortcut/Shortcuts';
-import { MAIN_BUSINESS } from '@main/constants/business/MainBusiness';
+import mainBusiness from '@db/mainBusiness.json';
 import InfoData from '@db/communityInfo.json';
 
 function Main() {
@@ -41,7 +41,7 @@ function Main() {
 
       <M.BottomSection viewport={viewport} isBusiness={true}>
         <M.BottomContainer viewport={viewport}>
-          {MAIN_BUSINESS.map((biz, idx) => (
+          {mainBusiness.map((biz, idx) => (
             <BusinessCard
               key={idx}
               category={biz.category}
