@@ -1,15 +1,13 @@
 import * as M from '@main/components/inform-modal/informModalStyle';
-import centerInform from '@db/centerInform.json';
+import { INFORM_CONTENT } from '@main/constants/inform/CenterInform';
 import centerTime from '@db/centerTime.json';
-import IcMailFill from '@assets/main/ic-mail-fill-24.svg';
-import IcPhoneFill from '@assets/main/ic-phone-fill-24.svg';
 import IcClose from '@assets/common/ic-close-40.svg';
 
 /**
  * InformModal 컴포넌트
  *
  * Shortcut(메일, 전화 등) 클릭 시 나타나는 센터 정보 모달 컴포넌트입니다.
- * DB에 저장된 centerInform, centerTime 값을 기반으로 내용을 표시합니다.
+ * DB에 저장된 centerTime 값과 constants에 정의된 INFORM_CONTENT 값을 기반으로 내용을 표시합니다.
  * 메일 또는 전화 정보와 함께 운영 시간을 보여줍니다.
  *
  * @component
@@ -23,13 +21,8 @@ import IcClose from '@assets/common/ic-close-40.svg';
  * @author 김서윤
  */
 
-const ICON_MAP = {
-  'ic-mail-fill-24': IcMailFill,
-  'ic-phone-fill-24': IcPhoneFill,
-};
-
 function InformModal({ shortcut, onClose }) {
-  const data = centerInform[shortcut];
+  const data = INFORM_CONTENT[shortcut];
 
   return (
     <M.Background onClick={onClose}>
@@ -42,7 +35,7 @@ function InformModal({ shortcut, onClose }) {
               <M.CenterFrame key={index}>
                 <M.CenterTitle>{item.title}</M.CenterTitle>
                 <M.CenterDetail>
-                  <M.CenterIcon src={ICON_MAP[data.icon]} alt={shortcut} />
+                  <M.CenterIcon src={data.icon} alt={shortcut} />
                   <M.CenterText>{item.text}</M.CenterText>
                 </M.CenterDetail>
               </M.CenterFrame>
