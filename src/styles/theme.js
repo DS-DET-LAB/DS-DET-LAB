@@ -23,7 +23,7 @@ const palette = {
     white80: 'rgba(255, 255, 255, 0.8)',
     white50: 'rgba(255, 255, 255, 0.5)',
     white30: 'rgba(255, 255, 255, 0.3)',
-    black30: 'rgba(0, 0, 0, 0.3)',
+    black25: 'rgba(0, 0, 0, 0.25)',
     black50: 'rgba(0, 0, 0, 0.5)',
     black70: 'rgba(0, 0, 0, 0.7)',
   },
