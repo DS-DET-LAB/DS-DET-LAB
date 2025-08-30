@@ -1,6 +1,6 @@
 import useMediaQuery from '@hooks/useMediaQuery';
 import * as S from '@main/components/slogan-logo/sloganLogoStyle';
-import { SLOGAN_TEXTS } from '@main/constants/slogan/Slogan';
+import sloganData from '@db/slogan.json';
 import LogoSimple from '@assets/logo/logo-simple.svg';
 import LogoKr from '@assets/logo/logo-kr.svg';
 
@@ -9,7 +9,7 @@ import LogoKr from '@assets/logo/logo-kr.svg';
  *
  * 대표 슬로건과 로고를 표시하는 컴포넌트입니다.
  * 반응형(`mobile`, `tablet`, `desktop`)에 따라 글자 크기, 여백, 로고 크기를 다르게 적용합니다.
- * 슬로건 문구는 `SLOGAN_TEXTS` 상수에서 관리하며, highlight 여부에 따라 스타일을 분리해 적용합니다.
+ * 슬로건 문구는 `slogan.json` DB에서 관리하며, highlight 여부에 따라 스타일을 분리해 적용합니다.
  *
  * @component
  * @example
@@ -27,10 +27,12 @@ function SloganLogo() {
   if (isMobile) viewport = 'mobile';
   else if (isTablet) viewport = 'tablet';
 
+  const { slogans } = sloganData;
+
   return (
     <S.Container viewport={viewport}>
       <S.Slogan>
-        {SLOGAN_TEXTS.map((line, lineIndex) => (
+        {slogans.map((line, lineIndex) => (
           <S.SloganText key={lineIndex} viewport={viewport}>
             {line.map((part, idx) =>
               part.type === 'highlight' ? (
