@@ -9,7 +9,7 @@ import MoreButton from '@main/components/more-button/MoreButton';
 import InformModal from '@main/components/inform-modal/InformModal';
 import { SHORTCUTS } from '@main/constants/shortcut/Shortcuts';
 import mainBusiness from '@db/mainBusiness.json';
-import InfoData from '@db/communityInfo.json';
+import infoData from '@db/communityInfo.json';
 
 function Main() {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -22,7 +22,7 @@ function Main() {
 
   const [noticeList] = useState(() => {
     // id 내림차순 정렬
-    const sorted = [...InfoData].sort((a, b) => Number(b.id) - Number(a.id));
+    const sorted = [...infoData].sort((a, b) => Number(b.id) - Number(a.id));
     // 최신 4개의 공지글
     return sorted.slice(0, 4);
   });
