@@ -10,7 +10,7 @@ export const Container = styled.div`
   min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   box-sizing: border-box;
-  padding: 35px;
+  padding: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '35px')};
   gap: 25px;
   border-radius: 10px;
   border: 1px solid ${palette.hover.back2};
