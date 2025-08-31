@@ -13,7 +13,7 @@ import * as I from '@info/InfoStyle';
 
 function Info() {
   const [search, setSearch] = useState('');
-  const [searchedData, setSearchedData] = useState(InfoData);
+  const [searchedData, setSearchedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginated, setIsPaginated] = useState(false);
 
@@ -27,16 +27,22 @@ function Info() {
   const firstItemIdx = lastItemIdx - itemsPerPage;
   const currentItems = searchedData.slice(firstItemIdx, lastItemIdx);
 
+  const getSortedData = (data) => {
+    return [...data].sort((a, b) => Number(b.id) - Number(a.id));
+  };
+
   const handleSearch = () => {
     const trimmedSearch = search.trim().toLowerCase();
 
     if (trimmedSearch === '') {
-      setSearchedData(InfoData);
+      setSearchedData(getSortedData(InfoData));
     } else {
       setSearchedData(
-        InfoData.filter(
-          (info) =>
-            info.title.toLowerCase().includes(trimmedSearch) || info.content.toLowerCase().includes(trimmedSearch),
+        getSortedData(
+          InfoData.filter(
+            (info) =>
+              info.title.toLowerCase().includes(trimmedSearch) || info.content.toLowerCase().includes(trimmedSearch),
+          ),
         ),
       );
     }
@@ -70,6 +76,10 @@ function Info() {
       inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [currentPage, isPaginated]);
+
+  useEffect(() => {
+    setSearchedData(getSortedData(InfoData));
+  }, []);
 
   return (
     <I.Info>
