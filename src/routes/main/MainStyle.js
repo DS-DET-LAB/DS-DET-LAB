@@ -28,7 +28,6 @@ export const BottomContainer = styled.div`
   min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
