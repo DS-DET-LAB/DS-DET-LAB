@@ -18,6 +18,12 @@ export const DataCard = styled.div`
   svg {
     cursor: pointer;
   }
+
+  transition: 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+  }
 `;
 
 export const SideWrapper = styled.div`
