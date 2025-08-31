@@ -8,6 +8,7 @@ import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
 
 import Input from '@routes/community/components/Input';
 import DataCard from '@routes/community/components/DataCard';
+import CommunityHeader from '@routes/community/components/CommunityHeader';
 
 import * as I from '@info/InfoStyle';
 import * as D from '@data/DataStyle';
@@ -91,65 +92,68 @@ function Data() {
   }, []);
 
   return (
-    <I.Info>
-      {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
+    <>
+      {(isTablet || isMobile) && <CommunityHeader />}
+      <I.Info>
+        {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
 
-      <I.InfoWrapper ref={inputRef}>
-        <I.InfoText>자료실</I.InfoText>
+        <I.InfoWrapper ref={inputRef}>
+          <I.InfoText>자료실</I.InfoText>
 
-        <Input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          onClick={handleSearch}
-          placeholder="검색어를 입력하세요."
-        />
+          <Input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onClick={handleSearch}
+            placeholder="검색어를 입력하세요."
+          />
 
-        <I.ContentWrapper>
-          <I.Count>
-            전체 <span>{searchedData.length}</span>건
-          </I.Count>
+          <I.ContentWrapper>
+            <I.Count>
+              전체 <span>{searchedData.length}</span>건
+            </I.Count>
 
-          {!isTablet && !isMobile && (
-            <D.BusinessWrapper>
-              {businessList.map((business) => (
-                <D.Business
-                  key={business}
-                  onClick={() => handleFilter(business)}
-                  $isActive={selectedBusiness === business}>
-                  {business}
-                </D.Business>
+            {!isTablet && !isMobile && (
+              <D.BusinessWrapper>
+                {businessList.map((business) => (
+                  <D.Business
+                    key={business}
+                    onClick={() => handleFilter(business)}
+                    $isActive={selectedBusiness === business}>
+                    {business}
+                  </D.Business>
+                ))}
+              </D.BusinessWrapper>
+            )}
+
+            <I.InfoCardWrapper>
+              {currentItems.map((data) => (
+                <DataCard
+                  key={data.id}
+                  type={data.type}
+                  title={data.title}
+                  date={data.date}
+                  fileName={data.fileName}
+                  file={data.file}
+                />
               ))}
-            </D.BusinessWrapper>
-          )}
+            </I.InfoCardWrapper>
 
-          <I.InfoCardWrapper>
-            {currentItems.map((data) => (
-              <DataCard
-                key={data.id}
-                type={data.type}
-                title={data.title}
-                date={data.date}
-                fileName={data.fileName}
-                file={data.file}
-              />
-            ))}
-          </I.InfoCardWrapper>
+            <I.ButtonWrapper>
+              <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
+                <ArrowLeft />
+              </I.Pagination>
 
-          <I.ButtonWrapper>
-            <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
-              <ArrowLeft />
-            </I.Pagination>
-
-            <I.Pagination
-              onClick={handleNextPage}
-              disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
-              <ArrowRight />
-            </I.Pagination>
-          </I.ButtonWrapper>
-        </I.ContentWrapper>
-      </I.InfoWrapper>
-    </I.Info>
+              <I.Pagination
+                onClick={handleNextPage}
+                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
+                <ArrowRight />
+              </I.Pagination>
+            </I.ButtonWrapper>
+          </I.ContentWrapper>
+        </I.InfoWrapper>
+      </I.Info>
+    </>
   );
 }
 

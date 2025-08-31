@@ -5,6 +5,7 @@ import InfoData from '@db/communityInfo.json';
 
 import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
 import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
+import CommunityHeader from '@routes/community/components/CommunityHeader';
 
 import Input from '@routes/community/components/Input';
 import InfoCard from '@routes/community/components/InfoCard';
@@ -82,45 +83,49 @@ function Info() {
   }, []);
 
   return (
-    <I.Info>
-      {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
+    <>
+      {(isTablet || isMobile) && <CommunityHeader />}
 
-      <I.InfoWrapper ref={inputRef}>
-        <I.InfoText>공지사항</I.InfoText>
+      <I.Info>
+        {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
 
-        <Input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          onClick={handleSearch}
-          placeholder="검색어를 입력하세요."
-        />
+        <I.InfoWrapper ref={inputRef}>
+          <I.InfoText>공지사항</I.InfoText>
 
-        <I.ContentWrapper>
-          <I.Count>
-            전체 <span>{searchedData.length}</span>건
-          </I.Count>
+          <Input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onClick={handleSearch}
+            placeholder="검색어를 입력하세요."
+          />
 
-          <I.InfoCardWrapper>
-            {currentItems.map((info) => (
-              <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
-            ))}
-          </I.InfoCardWrapper>
+          <I.ContentWrapper>
+            <I.Count>
+              전체 <span>{searchedData.length}</span>건
+            </I.Count>
 
-          <I.ButtonWrapper>
-            <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
-              <ArrowLeft />
-            </I.Pagination>
+            <I.InfoCardWrapper>
+              {currentItems.map((info) => (
+                <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
+              ))}
+            </I.InfoCardWrapper>
 
-            <I.Pagination
-              onClick={handleNextPage}
-              disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
-              <ArrowRight />
-            </I.Pagination>
-          </I.ButtonWrapper>
-        </I.ContentWrapper>
-      </I.InfoWrapper>
-    </I.Info>
+            <I.ButtonWrapper>
+              <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
+                <ArrowLeft />
+              </I.Pagination>
+
+              <I.Pagination
+                onClick={handleNextPage}
+                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
+                <ArrowRight />
+              </I.Pagination>
+            </I.ButtonWrapper>
+          </I.ContentWrapper>
+        </I.InfoWrapper>
+      </I.Info>
+    </>
   );
 }
 
