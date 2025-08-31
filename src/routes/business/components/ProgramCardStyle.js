@@ -7,6 +7,9 @@ export const Card = styled.div`
   border-radius: 16px;
   background: ${palette.background.white};
   border: 1px solid ${palette.hover.back2};
+  @media (max-width: 767px) {
+    width: 80%;
+  }
 `;
 
 export const Title = styled.h3`

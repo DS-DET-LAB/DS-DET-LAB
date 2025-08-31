@@ -8,9 +8,19 @@ export const Card = styled.div`
   border-radius: 13px;
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
 
-  width: 255px;
+  width: 240px;
   padding: 20px;
   gap: 12px;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 216px;
+  }
+
+  @media (max-width: 767px) {
+    width: 83%;
+    padding: 24px;
+    gap: 20px;
+  }
 `;
 
 export const Left = styled.div`

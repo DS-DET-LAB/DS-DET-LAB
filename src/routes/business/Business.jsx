@@ -1,4 +1,10 @@
 import { useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
+
+import VisionSection from '@business/components/VisionSection';
+import BizAccordion from '@business/components/BizAccordion';
+import ProgramCard from '@business/components/ProgramCard';
+
 import * as B from '@business/BusinessStyle';
 import * as C from '@center/CenterStyle';
 
@@ -6,10 +12,9 @@ import Icon from '@assets/center/triangle.svg';
 import DIcon from '@assets/business/ic-edu-72.svg';
 import RIcon from '@assets/business/ic-rsch-72.svg';
 import SIcon from '@assets/business/ic-stu-72.svg';
-
-import VisionSection from '@business/components/VisionSection';
-import BizAccordion from '@business/components/BizAccordion';
-import ProgramCard from '@business/components/ProgramCard';
+import menuIcon from '@assets/center/menuToggle.svg';
+import slashIcon from '@assets/center/slash.svg';
+import sectionLineIcon from '@assets/center/SectionLine.svg';
 
 function Business() {
   const refs = useRef({ greeting: null, roles: null, org: null, contact: null });
@@ -18,8 +23,30 @@ function Business() {
   };
   const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 899px)' });
+
   return (
     <>
+      {(isMobile || isTablet) && (
+        <C.BreadcrumbBar aria-label="breadcrumb">
+          <C.Crumbs>
+            <li>
+              <p>홈</p>
+            </li>
+            <C.Sep src={slashIcon} />
+            <li>
+              <p>센터 소개</p>
+              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
+            </li>
+            <C.Sep src={slashIcon} />
+            <li>
+              <p>인사말</p>
+              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
+            </li>
+          </C.Crumbs>
+        </C.BreadcrumbBar>
+      )}
       <C.Wrapper>
         <C.Sidebar>
           <C.Center>사업 안내</C.Center>
@@ -69,6 +96,8 @@ function Business() {
               ]}
             />
           </B.VisionSectionWrapper>
+
+          {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
 
           <C.Title ref={setRef('org')}>사업 소개</C.Title>
           <C.IconWrapper ref={setRef('contact')}>

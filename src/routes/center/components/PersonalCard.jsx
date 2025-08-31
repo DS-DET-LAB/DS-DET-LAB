@@ -1,16 +1,16 @@
 /****
  * PersonalCard 컴포넌트는 구성원의 프로필 이미지, 이름/직책, 연락처를 카드 형태로 표시합니다.
+ * 전화번호가 없을 경우 회색 아이콘과 '---' 텍스트로 대체 표시합니다.
  * 리스트에서 반복 사용하기 위한 단일 카드 단위 UI입니다.
  *
  * @component PersonalCard
  * @param {string} photoSrc - 프로필 이미지 경로
  * @param {string} name - 구성원 이름
  * @param {string} role - 직책 또는 역할
- * @param {string} phone - 연락처(전화번호)
- * @param {string} [phoneIconSrc] - 전화 아이콘 이미지 경로(옵션)
+ * @param {string} phone - 연락처(전화번호, 없으면 '---'로 표시됨)
  * @example
  * // 사용 예시
- * <PersonalCard photoSrc={img} name="김세진" role="팀장" phone="02-901-8810" phoneIconSrc={phoneIcon} />
+ * <PersonalCard photoSrc={img} name="김세진" role="팀장" phone="02-901-8810" />
  *
  * @author 노진경
  **/

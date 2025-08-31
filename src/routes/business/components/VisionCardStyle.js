@@ -12,11 +12,31 @@ export const Card = styled.div`
   flex-direction: column;
   gap: 16px;
   align-items: center;
+
+  @media (max-width: 767px) {
+    width: 90%;
+    height: fit-content;
+    padding: 16px 20px;
+    border-radius: 14px;
+    align-items: flex-start;
+    gap: 12px;
+  }
 `;
 
 export const Icon = styled.img`
   width: 72px;
   height: 72px;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 64px;
+    height: 64px;
+  }
+
+  @media (max-width: 767px) {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
 `;
 
 export const CardTitle = styled.h4`
@@ -25,6 +45,15 @@ export const CardTitle = styled.h4`
   font-weight: 600;
   color: ${palette.text.primary};
   margin-top: 4px;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    margin-top: 0;
+  }
 `;
 
 export const CardBody = styled.p`
@@ -32,4 +61,14 @@ export const CardBody = styled.p`
   font-size: 18px;
   line-height: 1.5;
   color: ${palette.text.body};
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
 `;

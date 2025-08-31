@@ -6,10 +6,12 @@ export const Wrapper = styled.div`
   padding: 150px 0;
   justify-content: center;
   width: 100%;
-  @media (max-width: 1279px) and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 899px) {
+    padding: 120px 0;
   }
 
-  @media (max-width: 767px) and (min-width: 360px) {
+  @media (max-width: 767px) {
+    padding: 0;
   }
 `;
 
@@ -22,11 +24,11 @@ export const Sidebar = styled.aside`
   top: calc(50vh - 120px);
   height: fit-content;
 
-  @media (max-width: 1279px) and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 899px) {
     display: none;
   }
 
-  @media (max-width: 767px) and (min-width: 360px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `;
@@ -57,8 +59,16 @@ export const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 200px;
-  overflow: visible;
+  position: relative;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    overflow: visible;
+    margin: 0 40px;
+  }
+
+  @media (max-width: 767px) {
+    margin: 30px 20px 70px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -66,6 +76,16 @@ export const Title = styled.h2`
   font-size: 36px;
   font-weight: 600;
   scroll-margin-top: 100px;
+
+  @media (max-width: 767px) {
+    font-size: 28px;
+    scroll-margin-top: 80px;
+    margin: 0px 0 20px;
+
+    &:nth-of-type(2) {
+      margin: 0px 0 30px;
+    }
+  }
 `;
 
 export const TriIcon = styled.img`
@@ -73,10 +93,37 @@ export const TriIcon = styled.img`
   height: 24px;
 `;
 
-export const Body = styled.p`
+export const TextBody = styled.p`
   color: #000;
   font-size: 18px;
   font-weight: 500;
+  line-height: 1.5;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+`;
+
+export const Body = styled.div`
+  max-width: 90%;
+  &:nth-of-type(2) {
+    margin: 20px 0 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+
+    padding: 20px;
+    border-radius: 17px;
+    border: none;
+    box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+    margin: 0;
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -84,16 +131,31 @@ export const IconWrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin: 0 0 30px 10px;
+
+  @media (max-width: 767px) {
+    margin: 0 0 17px;
+
+    &[data-tail='true'] {
+      margin: 0 0 17px 10px;
+    }
+  }
 `;
 
 export const EngSpan = styled.span`
   font-weight: 300;
+
+  @media (max-width: 767px) {
+    color: ${palette.text.secondary50};
+  }
 `;
 
 export const SubTitle = styled.h3`
   color: ${palette.mainNavy.navy80};
   font-size: 24px;
   font-weight: 600;
+  @media (max-width: 767px) {
+    margin: 0;
+  }
 `;
 
 export const WrapWrapper = styled.div`
@@ -102,6 +164,12 @@ export const WrapWrapper = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    padding: 12px 0;
+    width: 100%;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -109,29 +177,39 @@ export const CardWrapper = styled.div`
   align-items: center;
   gap: 25px 20px;
   flex-wrap: wrap;
-  width: 960px;
-  margin-bottom: 100px;
+  margin-bottom: 24px;
 
   justify-content: center;
 
-  @media (max-width: 1279px) and (min-width: 768px) {
-    flex-wrap: wrap;
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 100%;
   }
 
-  @media (max-width: 767px) and (min-width: 360px) {
+  @media (max-width: 767px) {
     padding: 0;
+    gap: 20px;
+    justify-content: stretch;
+    margin-bottom: 15px;
   }
 `;
 
 export const OrganizationImg = styled.img`
   width: 450px;
   height: 252px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const SubWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 13px;
+  @media (max-width: 767px) {
+    margin: 17px 0 39px 0;
+  }
 `;
 
 export const PSbub = styled.p`
@@ -161,6 +239,10 @@ export const PWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 40px 0 25px 0;
+
+  @media (max-width: 767px) {
+    margin: 0;
+  }
 `;
 
 export const OrganiCardWrapper = styled.div`
@@ -168,6 +250,10 @@ export const OrganiCardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 0px;
+  }
 `;
 
 export const Card = styled.div`
@@ -178,6 +264,11 @@ export const Card = styled.div`
   border-radius: 20px;
   background: ${palette.background.white};
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 24px;
+  }
 `;
 
 export const LabelDiv = styled.div`
@@ -208,4 +299,74 @@ export const PersonalCardWrapper = styled.div`
   margin: 0 0 56px 0;
 
   flex-wrap: wrap;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+`;
+
+export const BreadcrumbBar = styled.nav`
+  --horizontal-padding: clamp(20px, 6vw, 80px);
+  --vertical-padding: 16px;
+
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: var(--vertical-padding) var(--horizontal-padding);
+  background: ${palette.background.white};
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  z-index: 10;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    --horizontal-padding: 40px;
+    --vertical-padding: 14px;
+
+    margin-left: -20px;
+  }
+
+  @media (max-width: 767px) {
+    --horizontal-padding: 20px;
+    --vertical-padding: 10px;
+  }
+`;
+
+export const Crumbs = styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 0 10px;
+  list-style: none;
+  padding-bottom: 3px;
+
+  & > li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  & p {
+    color: ${palette.text.secondary};
+
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+  }
+`;
+
+export const Sep = styled.img`
+  width: 16px;
+  height: 16px;
+`;
+
+export const SectionLineIcon = styled.img`
+  width: 100%;
+  height: 1px;
+  margin: 50px 0;
 `;
