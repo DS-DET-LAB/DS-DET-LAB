@@ -6,7 +6,7 @@ import IcPhoneFill from '@assets/main/ic-phone-fill-24.svg';
 export const INFORM_CONTENT = {
   메일: {
     icon: IcMailFill,
-    items: departmentMail['메일'],
+    items: departmentMail['부서'],
   },
   전화: {
     icon: IcPhoneFill,
