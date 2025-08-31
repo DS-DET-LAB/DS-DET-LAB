@@ -14,7 +14,7 @@ import * as D from '@data/DataStyle';
 
 function Data() {
   const [search, setSearch] = useState('');
-  const [searchedData, setSearchedData] = useState(DataFiles);
+  const [searchedData, setSearchedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBusiness, setSelectedBusiness] = useState('전체');
   const [isPaginated, setIsPaginated] = useState(false);
@@ -31,13 +31,17 @@ function Data() {
   const firstItemIdx = lastItemIdx - itemsPerPage;
   const currentItems = searchedData.slice(firstItemIdx, lastItemIdx);
 
+  const getSortedData = (data) => {
+    return [...data].sort((a, b) => Number(b.id) - Number(a.id));
+  };
+
   const handleSearch = () => {
     const trimmedSearch = search.trim().toLowerCase();
 
     if (trimmedSearch === '') {
-      setSearchedData(DataFiles);
+      setSearchedData(getSortedData(DataFiles));
     } else {
-      setSearchedData(searchedData.filter((info) => info.title.toLowerCase().includes(trimmedSearch)));
+      setSearchedData(getSortedData(DataFiles.filter((info) => info.title.toLowerCase().includes(trimmedSearch))));
     }
 
     setCurrentPage(1);
@@ -68,9 +72,9 @@ function Data() {
     setSelectedBusiness(business);
 
     if (business === '전체') {
-      setSearchedData(DataFiles);
+      setSearchedData(getSortedData(DataFiles));
     } else {
-      setSearchedData(DataFiles.filter((data) => data.business === business));
+      setSearchedData(getSortedData(DataFiles.filter((data) => data.business === business)));
     }
 
     setCurrentPage(1);
@@ -81,6 +85,10 @@ function Data() {
       inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [currentPage, isPaginated]);
+
+  useEffect(() => {
+    setSearchedData(getSortedData(DataFiles));
+  }, []);
 
   return (
     <I.Info>
