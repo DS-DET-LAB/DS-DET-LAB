@@ -18,6 +18,9 @@ function News() {
   const Have2Item = useMediaQuery('((min-width: 767px) and (max-width: 967px)) , (max-width: 620px)');
   const Have1Item = useMediaQuery('(max-width: 420px)');
 
+  let viewport = 'desktop';
+  if (isMobile) viewport = 'mobile';
+
   const [visibleItem, setVisibleItem] = useState(3);
 
   useEffect(() => {
@@ -27,22 +30,22 @@ function News() {
   }, [Have1Item, Have2Item]);
 
   return (
-    <N.NewsPage>
+    <N.NewsPage viewport={viewport}>
       {isPc && (
         <>
           <div style={{ width: '190px', backgroundColor: 'pink' }}>커뮤니티</div>
         </>
       )}
       <N.News>
-        <N.Title>센터 소식</N.Title>
+        <N.Title viewport={viewport}>센터 소식</N.Title>
         <NewsPagination data={newsData} visibleItem={visibleItem} />
         <N.Group>
           <NewsPagination
             data={instaData}
             visibleItem={visibleItem}
             socialBox={
-              <N.SocialBox href="https://www.instagram.com/ds.digitaledu/" target="_blank">
-                <N.SocialIcon src={isMobile ? smallInsta : insta} />
+              <N.SocialBox href="https://www.instagram.com/ds.digitaledu/" target="_blank" viewport={viewport}>
+                <N.SocialIcon src={isMobile ? smallInsta : insta} viewport={viewport} />
                 @ds.digitaledu
                 {!isMobile && <N.External src={external} />}
               </N.SocialBox>
@@ -58,12 +61,13 @@ function News() {
               <>
                 <N.SocialBox
                   href="https://www.youtube.com/@DS%EB%94%94%EC%A7%80%ED%84%B8%EA%B5%90%EC%9C%A1%EA%B3%B5%ED%95%99%EC%84%BC%ED%84%B0"
-                  target="_blank">
-                  <N.SocialIcon src={isMobile ? smallYoutube : youtube} />
+                  target="_blank"
+                  viewport={viewport}>
+                  <N.SocialIcon src={isMobile ? smallYoutube : youtube} viewport={viewport} />
                   @DS디지털교육공학센터
                   {!isMobile && <N.External src={external} />}
                 </N.SocialBox>
-                <N.Playlist>2025 디지털새싹</N.Playlist>
+                <N.Playlist viewport={viewport}>2025 디지털새싹</N.Playlist>
               </>
             }
             isYoutube={true}
@@ -72,7 +76,7 @@ function News() {
           <NewsPagination
             data={playlist2Data}
             visibleItem={visibleItem}
-            socialBox={<N.Playlist>2025 찾아가는 학교 컨설팅</N.Playlist>}
+            socialBox={<N.Playlist viewport={viewport}>2025 찾아가는 학교 컨설팅</N.Playlist>}
             isYoutube={true}
           />
         </N.Group>

@@ -7,13 +7,7 @@ export const NewsPage = styled.div`
   gap: 125px;
   padding: 70px 0;
 
-  @media (min-width: 1280px) {
-    padding-top: 192px;
-  }
-
-  @media (max-width: 767px) {
-    padding-top: 30px;
-  }
+  padding-top: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '192px')};
 `;
 
 export const News = styled.div`
@@ -32,19 +26,13 @@ export const Title = styled.div`
   display: flex;
   justify-content: start;
   color: ${palette.mainNavy.navy100};
-
-  font-size: 36px;
   font-weight: 600;
-  line-height: 150%;
-  letter-spacing: -0.9px;
 
   margin-bottom: 30px;
 
-  @media (max-width: 767px) {
-    font-size: 16px;
-    line-height: 130%;
-    letter-spacing: -0.4px;
-  }
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '36px')};
+  line-height: ${({ viewport }) => (viewport === 'mobile' ? '130%' : '150%')};
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.4px' : '-0.9px')};
 `;
 
 export const Group = styled.div`
@@ -54,10 +42,8 @@ export const Group = styled.div`
 
 export const SocialBox = styled.a`
   display: flex;
-  padding: 10px 20px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 
   border-radius: 20px;
   background: ${palette.background.white};
@@ -66,31 +52,18 @@ export const SocialBox = styled.a`
 
   width: fit-content;
   color: ${palette.mainNavy.navy100};
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 130%;
-  letter-spacing: -0.5px;
 
-  margin-bottom: 30px;
-
-  @media (max-width: 767px) {
-    gap: 3px;
-    padding: 10px;
-
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 150%;
-    letter-spacing: -0.3px;
-
-    margin-bottom: 20px;
-  }
+  gap: ${({ viewport }) => (viewport === 'mobile' ? '3px' : '10px')};
+  padding: ${({ viewport }) => (viewport === 'mobile' ? '10px' : '10px 20px')};
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '12px' : '20px')};
+  font-weight: ${({ viewport }) => (viewport === 'mobile' ? '400' : '500')};
+  line-height: ${({ viewport }) => (viewport === 'mobile' ? '150%' : '130%')};
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.3px' : '-0.5px')};
+  margin-bottom: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '30px')};
 `;
 
 export const SocialIcon = styled.img`
-  width: 45px;
-  @media (max-width: 767px) {
-    width: 16px;
-  }
+  width: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '45px')};
 `;
 
 export const External = styled.img`
@@ -101,19 +74,13 @@ export const External = styled.img`
 
 export const Playlist = styled.div`
   color: ${palette.text.primary};
-  font-size: 24px;
   line-height: 130%;
-  font-weight: 600;
   letter-spacing: -0.5px;
   align-self: stretch;
 
-  margin-bottom: 25px;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '24px')};
+  font-weight: ${({ viewport }) => (viewport === 'mobile' ? '500' : '600')};
+  margin-bottom: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '25px')};
 `;
 
 export const PageControll = styled.div`
