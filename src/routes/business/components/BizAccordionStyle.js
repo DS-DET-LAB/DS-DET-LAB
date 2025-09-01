@@ -4,12 +4,19 @@ import palette from '@styles/theme';
 export const List = styled.div`
   display: flex;
   flex-direction: column;
+
   gap: 30px;
 
   margin: 25px 0 70px;
 
+  width: 90%;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 100%;
+  }
   @media (max-width: 767px) {
     margin: 25px 0 164px;
+    width: 100%;
   }
 `;
 
@@ -34,6 +41,10 @@ export const Header = styled.button`
   border: none;
   cursor: pointer;
   min-width: 0;
+
+  & > span:nth-of-type(2) {
+    text-align: left;
+  }
 `;
 
 export const Num = styled.span`
@@ -100,6 +111,7 @@ export const Chip = styled.div`
   color: ${palette.text.primary};
   line-height: 1.5;
   font-weight: 400;
+
   .weak {
     font-size: 16px;
     color: ${palette.text.body};

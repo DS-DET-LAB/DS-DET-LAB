@@ -38,3 +38,33 @@ export const VisionSectionWrapper = styled.div`
     align-items: center;
   }
 `;
+
+export const BizWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const ProgramCardWrapper = styled.div`
+  width: 90%;
+  display: flex;
+  gap: 20px;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+  }
+`;
