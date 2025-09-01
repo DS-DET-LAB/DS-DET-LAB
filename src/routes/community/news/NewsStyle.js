@@ -5,7 +5,7 @@ export const NewsPage = styled.div`
   display: flex;
   justify-content: center;
   gap: 125px;
-  padding-top: 70px;
+  padding: 70px 0;
 
   @media (min-width: 1280px) {
     padding-top: 192px;
