@@ -128,8 +128,10 @@ export const PageControll = styled.div`
   }
 `;
 
-export const PagingIcon = styled.img`
+export const PagingIcon = styled.div`
   width: 40px;
+  color: ${palette.text.secondary50};
+
   @media (max-width: 767px) {
     width: 20px;
   }

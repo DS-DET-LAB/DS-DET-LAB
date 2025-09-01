@@ -1,10 +1,9 @@
 import * as N from '@community/news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsItem from '@community/components/NewsItem';
-import prev from '@assets/common/icon-prev-40.svg';
-import nonPrev from '@assets/common/icon-non-prev-40.svg';
-import next from '@assets/common/icon-next-40.svg';
-import nonNext from '@assets/common/icon-non-next-40.svg';
+import prev from '@assets/common/icon-prev-40.svg?react';
+import next from '@assets/common/icon-next-40.svg?react';
+import palette from '@styles/theme';
 
 export default function NewsPagination({
   data = [],
@@ -51,13 +50,19 @@ export default function NewsPagination({
 
       <N.PageControll>
         <N.PagingIcon
-          src={hasPrev ? prev : nonPrev}
-          style={{ cursor: hasPrev ? 'pointer' : 'default' }}
+          as={prev}
+          style={{
+            cursor: hasPrev ? 'pointer' : 'default',
+            color: hasPrev ? palette.mainNavy.navy80 : palette.text.secondary50,
+          }}
           onClick={handlePrev}
         />
         <N.PagingIcon
-          src={hasNext ? next : nonNext}
-          style={{ cursor: hasNext ? 'pointer' : 'default' }}
+          as={next}
+          style={{
+            cursor: hasNext ? 'pointer' : 'default',
+            color: hasNext ? palette.mainNavy.navy80 : palette.text.secondary50,
+          }}
           onClick={handleNext}
         />
       </N.PageControll>
