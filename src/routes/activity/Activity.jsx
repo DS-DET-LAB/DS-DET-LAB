@@ -5,6 +5,12 @@ import Bungi from '@routes/activity/components/Bungi';
 import FutureActivity from '@routes/activity/components/FutureActivity';
 import Results from '@routes/activity/components/Results';
 import PhotoAndVideo from '@routes/activity/components/PhotoAndVideo';
+import MajorScheduleCalendar from './components/ScheduleCalendar';
+const schedules = [
+  { id: 1, title: '디지털 새싹 프로그램 1차', startsAt: '2025-06-19T10:00:00+09:00' },
+  { id: 2, title: '디지털 새싹 프로그램 2차', startsAt: '2025-07-03T10:00:00+09:00' },
+];
+
 function Activity() {
   return (
     <A.Activity>
@@ -36,6 +42,12 @@ function Activity() {
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             주요 일정
           </A.ToggleName>
+          <MajorScheduleCalendar
+            schedules={schedules}
+            initialMonth="2025-06-01"
+            onDateSelect={(d) => console.log('선택 날짜:', d)}
+            onScheduleClick={(item) => console.log('선택 일정:', item)}
+          />
         </A.ToggleBox>
 
         {/* 향후 예정 사업 소개 */}

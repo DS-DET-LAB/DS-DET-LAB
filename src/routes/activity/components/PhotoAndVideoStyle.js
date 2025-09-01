@@ -28,6 +28,8 @@ export const Card = styled.button`
   cursor: pointer;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  width: 295px;
+  height: 166px;
 
   /* 썸네일 로딩 전 체크보드 느낌 */
   background-image:
