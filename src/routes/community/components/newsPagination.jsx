@@ -17,7 +17,8 @@ export default function NewsPagination({
 
   const start = page * visibleItem;
   const end = start + visibleItem;
-  const currentData = data.slice(start, end);
+  const reversedData = data.slice().reverse();
+  const currentData = reversedData.slice(start, end);
 
   const hasPrev = page > 0;
   const hasNext = end < data.length;

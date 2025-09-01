@@ -1,7 +1,10 @@
 import * as N from '@news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsPagination from '@community/components/NewsPagination';
-import newsData from '@db/community/news/news.json';
+import newsData from '@db/community/news.json';
+import instaData from '@db/community/insta.json';
+import playlist1Data from '@db/community/playlist1.json';
+import playlist2Data from '@db/community/playlist2.json';
 import insta from '@assets/community/logo-insta-navybg-45.svg';
 import external from '@assets/community/ic-external-45.svg';
 import youtube from '@assets/community/logo-youtube-navybg-45.svg';
@@ -32,10 +35,10 @@ function News() {
       )}
       <N.News>
         <N.Title>센터 소식</N.Title>
-        <NewsPagination data={newsData?.news} visibleItem={visibleItem} />
+        <NewsPagination data={newsData} visibleItem={visibleItem} />
         <N.Group>
           <NewsPagination
-            data={newsData?.insta}
+            data={instaData}
             visibleItem={visibleItem}
             socialBox={
               <N.SocialBox href="https://www.instagram.com/ds.digitaledu/" target="_blank">
@@ -49,7 +52,7 @@ function News() {
         </N.Group>
         <N.Group>
           <NewsPagination
-            data={newsData?.playlist1}
+            data={playlist1Data}
             visibleItem={visibleItem}
             socialBox={
               <>
@@ -60,16 +63,16 @@ function News() {
                   @DS디지털교육공학센터
                   {!isMobile && <N.External src={external} />}
                 </N.SocialBox>
-                <N.Playlist>2025 찾아가는 학교 컨설팅</N.Playlist>
+                <N.Playlist>2025 디지털새싹</N.Playlist>
               </>
             }
             isYoutube={true}
           />
 
           <NewsPagination
-            data={newsData?.playlist2}
+            data={playlist2Data}
             visibleItem={visibleItem}
-            socialBox={<N.Playlist>2025 디지털새싹</N.Playlist>}
+            socialBox={<N.Playlist>2025 찾아가는 학교 컨설팅</N.Playlist>}
             isYoutube={true}
           />
         </N.Group>
