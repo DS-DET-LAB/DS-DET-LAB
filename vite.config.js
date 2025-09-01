@@ -19,6 +19,7 @@ export default defineConfig({
       { find: '@activity', replacement: '/src/routes/activity' },
       { find: '@business', replacement: '/src/routes/business' },
       { find: '@center', replacement: '/src/routes/center' },
+      { find: '@community', replacement: '/src/routes/community' },
       { find: '@data', replacement: '/src/routes/community/data' },
       { find: '@info', replacement: '/src/routes/community/info' },
       { find: '@main', replacement: '/src/routes/main' },

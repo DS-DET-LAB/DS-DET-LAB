@@ -62,7 +62,7 @@ export const SocialBox = styled.a`
   border-radius: 20px;
   background: ${palette.background.white};
 
-  box-shadow: 0 0 15px 0 rgba(18, 32, 102, 0.1);
+  box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
 
   width: fit-content;
   color: ${palette.mainNavy.navy100};

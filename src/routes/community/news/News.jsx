@@ -1,8 +1,6 @@
 import * as N from '@news/NewsStyle';
 import { useState, useEffect } from 'react';
-import NewsItem from '../components/newsItem';
-import NewsPagination from '../components/newsPagination';
-
+import NewsPagination from '@community/components/NewsPagination';
 import newsData from '@db/community/news/news.json';
 import insta from '@assets/community/logo-insta-navybg-45.svg';
 import external from '@assets/community/ic-external-45.svg';

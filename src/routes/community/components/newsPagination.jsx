@@ -1,6 +1,6 @@
-import * as N from '../news/NewsStyle';
+import * as N from '@community/news/NewsStyle';
 import { useState, useEffect } from 'react';
-import NewsItem from './newsItem';
+import NewsItem from '@community/components/NewsItem';
 import prev from '@assets/common/icon-prev-40.svg';
 import nonPrev from '@assets/common/icon-non-prev-40.svg';
 import next from '@assets/common/icon-next-40.svg';

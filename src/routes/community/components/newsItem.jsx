@@ -1,4 +1,4 @@
-import * as N from '../components/newsItemStyle';
+import * as N from '@community/components/newsItemStyle';
 
 function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
   return (
