@@ -2,7 +2,7 @@ import * as N from '../components/newsItemStyle';
 
 function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
   return (
-    <N.NewsItem href={url}>
+    <N.NewsItem href={url} target="_blank">
       {isYoutube ? (
         <N.Youtube
           src={img}
