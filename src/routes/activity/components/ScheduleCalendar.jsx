@@ -443,6 +443,10 @@ const ListItem = styled.li`
     grid-template-columns: 1fr;
     gap: 10px;
   }
+  /* 360~767px: 좌우 여백 줄이기 */
+  @media (min-width: 360px) and (max-width: 767px) {
+    padding: 20px;
+  }
 
   .metaRow {
     display: flex;

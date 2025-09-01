@@ -14,6 +14,18 @@ export const Container = styled.div`
   align-items: flex-start;
   gap: 50px;
   padding: 70px 80px;
+
+  /* ≤1023px (태블릿) */
+  @media (max-width: 1023px) {
+    gap: 40px;
+    padding: 56px 40px;
+  }
+
+  /* ≤767px (모바일) */
+  @media (max-width: 767px) {
+    gap: 32px;
+    padding: 30px 20px;
+  }
 `;
 
 export const HeaderName = styled.h1`
@@ -21,6 +33,13 @@ export const HeaderName = styled.h1`
   font-size: 36px;
   font-weight: 600;
   margin: 0;
+
+  @media (max-width: 1023px) {
+    font-size: 30px;
+  }
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
 `;
 
 export const ToggleBox = styled.div`
@@ -34,8 +53,18 @@ export const ToggleName = styled.div`
   margin-bottom: 25px;
   display: flex;
   align-items: center;
+
   img {
     margin-right: 5px;
+  }
+
+  @media (max-width: 1023px) {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 767px) {
+    font-size: 18px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -43,14 +72,34 @@ export const BranchContainer = styled.div`
   display: flex;
   gap: 96px;
   padding-top: 25px;
+  align-items: flex-start;
+
+  @media (max-width: 1023px) {
+    gap: 48px;
+    padding-top: 20px;
+  }
+  /* 모바일에선 세로 스택 */
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 16px;
+  }
 `;
 
-// 분기 별 컴포넌트
+/* 분기 별 컴포넌트 */
 export const BungiContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+
+  @media (max-width: 1023px) {
+    row-gap: 20px;
+  }
+  @media (max-width: 767px) {
+    row-gap: 16px;
+  }
 `;
+
 export const BContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,18 +111,33 @@ export const BHeaderBox = styled.div`
   align-items: center;
   gap: 5px;
   margin-bottom: 15px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const BHeader = styled.div`
   color: ${palette.text.primary};
   font-size: 20px;
   font-weight: 600;
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 export const BMonth = styled.div`
   color: ${palette.text.secondary};
   font-size: 14px;
   font-weight: 400;
+
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
 `;
 
 export const ListContainer = styled.div`
@@ -84,13 +148,28 @@ export const ListContainer = styled.div`
   row-gap: 10px;
   border-radius: 17px;
   border: 1px solid ${palette.hover.back2};
-  width: 685px;
+
+  /* 고정폭 → 반응형 */
+  width: clamp(280px, 92vw, 685px);
+  margin: 0 auto;
+
+  @media (max-width: 1023px) {
+    padding: 18px 14px;
+  }
+  @media (max-width: 767px) {
+    padding: 16px 12px;
+    row-gap: 8px;
+  }
 `;
 
 export const ListBox = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 767px) {
+    gap: 8px;
+  }
 `;
 
 export const Circle = styled.div`
@@ -99,10 +178,26 @@ export const Circle = styled.div`
   width: 10px;
   height: 10px;
   background-color: ${palette.hover.back2};
+
+  @media (max-width: 767px) {
+    width: 8px;
+    height: 8px;
+  }
 `;
 
 export const List = styled.div`
   color: ${palette.mainNavy.navy100};
   font-size: 18px;
   font-weight: 400;
+
+  @media (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+`;
+
+export const MobileTabsRow = styled.div`
+  padding: 8px 0 12px;
 `;

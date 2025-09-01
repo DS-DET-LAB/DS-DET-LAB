@@ -1,17 +1,63 @@
+// Activity.jsx
+import React, { useEffect, useState } from 'react';
 import * as A from '@activity/ActivityStyle';
 import ToggleIcon from '@assets/activity/ic-arrow-20.svg';
 import YearTimeline from '@routes/activity/components/YearTimeline';
+import YearTabs from '@routes/activity/components/YearTabs';
 import Bungi from '@routes/activity/components/Bungi';
 import FutureActivity from '@routes/activity/components/FutureActivity';
 import Results from '@routes/activity/components/Results';
 import PhotoAndVideo from '@routes/activity/components/PhotoAndVideo';
-import MajorScheduleCalendar from './components/ScheduleCalendar';
+import MajorScheduleCalendar from '@routes/activity/components/ScheduleCalendar';
+
 const schedules = [
   { id: 1, title: '디지털 새싹 프로그램 1차', startsAt: '2025-06-19T10:00:00+09:00' },
   { id: 2, title: '디지털 새싹 프로그램 2차', startsAt: '2025-07-03T10:00:00+09:00' },
 ];
 
+/* 간단한 미디어쿼리 훅 */
+function useMediaQuery(query) {
+  const get = () => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false);
+  const [matches, setMatches] = useState(get);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia(query);
+    const handler = (e) => setMatches(e.matches);
+    if (mql.addEventListener) mql.addEventListener('change', handler);
+    else mql.addListener(handler);
+    setMatches(mql.matches);
+    return () => {
+      if (mql.removeEventListener) mql.removeEventListener('change', handler);
+      else mql.removeListener(handler);
+    };
+  }, [query]);
+  return matches;
+}
+
+/* YearTabs를 ToggleName 바로 아래에 배치할 래퍼 (모바일에서만 보임) */
+const MobileYearTabsWrap = ({ children }) => (
+  <div
+    style={{
+      display: 'none',
+      padding: '8px 0 12px',
+    }}
+    className="mobile-year-tabs-wrap">
+    {children}
+    <style>{`
+      @media (min-width:360px) and (max-width:767px){
+        .mobile-year-tabs-wrap{ display:block; }
+      }
+    `}</style>
+  </div>
+);
+
 function Activity() {
+  // 연도 상태 공유
+  const [year, setYear] = useState(2025);
+
+  // 360px ~ 767px: YearTabs 사용
+  const isMobileYearTabs = useMediaQuery('(min-width: 360px) and (max-width: 767px)');
+
   return (
     <A.Activity>
       <A.Container>
@@ -23,9 +69,18 @@ function Activity() {
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             연도별 / 분기별 계획표
           </A.ToggleName>
+
+          {/* 모바일에서 YearTabs를 ToggleName 바로 아래에 표시 */}
+          {isMobileYearTabs && (
+            <A.MobileTabsRow>
+              <YearTabs years={[2025, 2026, 2027]} value={year} onChange={setYear} size="lg" />
+            </A.MobileTabsRow>
+          )}
+
           <A.BranchContainer>
-            {/* 연도별 */}
-            <YearTimeline years={[2025, 2026, 2027]} activeYear={2025} height={520} />
+            {/* 모바일에선 YearTimeline 숨김 (렌더 자체를 안 함) */}
+            {!isMobileYearTabs && <YearTimeline years={[2025, 2026, 2027]} activeYear={year} height={520} />}
+
             {/* 분기별 */}
             <A.BungiContainer>
               <Bungi idx={0} />
@@ -60,6 +115,7 @@ function Activity() {
         </A.ToggleBox>
 
         <A.HeaderName>성과</A.HeaderName>
+
         {/* 완료된 사업 목록 */}
         <A.ToggleBox>
           <A.ToggleName>
@@ -81,4 +137,5 @@ function Activity() {
     </A.Activity>
   );
 }
+
 export default Activity;

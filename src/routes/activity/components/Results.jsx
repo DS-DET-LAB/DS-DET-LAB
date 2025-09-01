@@ -39,6 +39,9 @@ export const Box = styled.div`
   border-radius: 10px;
   border: 1px solid ${palette.hover.back2};
   background: ${palette.background.white};
+  @media (min-width: 360px) and (max-width: 767px) {
+    padding: 20px;
+  }
 `;
 
 export const Year = styled.div`
