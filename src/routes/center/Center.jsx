@@ -24,7 +24,7 @@ import menuIcon from '@assets/center/menuToggle.svg';
 import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
-import ParkImg from '@assets/center/park.png';
+import ParkImg from '@assets/center/Park.png';
 import KimImg from '@assets/center/Kim.png';
 import BaeImg from '@assets/center/Bae.png';
 import LeeImg from '@assets/center/Lee.png';
