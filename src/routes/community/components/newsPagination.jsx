@@ -1,10 +1,10 @@
 import * as N from '../news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsItem from './newsItem';
-import prev from '@assets/community/icon-prev-40.svg';
-import nonPrev from '@assets/community/icon-non-prev-40.svg';
-import next from '@assets/community/icon-next-40.svg';
-import nonNext from '@assets/community/icon-non-next-40.svg';
+import prev from '@assets/common/icon-prev-40.svg';
+import nonPrev from '@assets/common/icon-non-prev-40.svg';
+import next from '@assets/common/icon-next-40.svg';
+import nonNext from '@assets/common/icon-non-next-40.svg';
 
 export default function NewsPagination({
   data = [],
