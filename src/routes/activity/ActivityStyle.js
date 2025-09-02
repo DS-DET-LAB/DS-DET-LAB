@@ -75,7 +75,7 @@ export const BranchContainer = styled.div`
   align-items: flex-start;
   min-width: 0;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     gap: 48px;
     padding-top: 20px;
   }
@@ -94,7 +94,7 @@ export const BungiContainer = styled.div`
   row-gap: 25px;
   width: 100%;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     row-gap: 20px;
   }
   @media (max-width: 767px) {
@@ -124,7 +124,7 @@ export const BHeader = styled.div`
   font-size: 20px;
   font-weight: 600;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     font-size: 18px;
   }
   @media (max-width: 767px) {
@@ -153,7 +153,7 @@ export const ListContainer = styled.div`
   width: min(100%);
   margin: 0 auto;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     padding: 18px 14px;
   }
   @media (max-width: 767px) {
@@ -193,7 +193,7 @@ export const List = styled.div`
   font-size: 18px;
   font-weight: 400;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     font-size: 16px;
   }
   @media (max-width: 767px) {
