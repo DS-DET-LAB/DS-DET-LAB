@@ -16,23 +16,6 @@ const schedules = [
   { id: 2, title: '디지털 새싹 프로그램 2차', startsAt: '2025-07-03T10:00:00+09:00' },
 ];
 
-/* YearTabs를 ToggleName 바로 아래에 배치할 래퍼 (모바일에서만 보임) */
-const MobileYearTabsWrap = ({ children }) => (
-  <div
-    style={{
-      display: 'none',
-      padding: '8px 0 12px',
-    }}
-    className="mobile-year-tabs-wrap">
-    {children}
-    <style>{`
-      @media (min-width:360px) and (max-width:767px){
-        .mobile-year-tabs-wrap{ display:block; }
-      }
-    `}</style>
-  </div>
-);
-
 function Activity() {
   // 연도 상태 공유
   const [year, setYear] = useState(2025);

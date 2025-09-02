@@ -15,8 +15,8 @@ export const Container = styled.div`
   gap: 50px;
   padding: 70px 80px;
 
-  /* ≤1023px (태블릿) */
-  @media (max-width: 1023px) {
+  /* ≤1279px (태블릿) */
+  @media (max-width: 1279px) {
     gap: 40px;
     padding: 56px 40px;
   }
