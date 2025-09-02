@@ -5,8 +5,10 @@ function Results() {
   return (
     <Contianer>
       <Box>
-        <Year>2025년</Year>
-        <HeadLine>빅데이터 기반 학습 분석 시스템 구축</HeadLine>
+        <FelxBox>
+          <Year>2025년</Year>
+          <HeadLine>빅데이터 기반 학습 분석 시스템 구축</HeadLine>
+        </FelxBox>
         <AboutBox>
           <Line />
           <About>
@@ -47,10 +49,22 @@ export const Box = styled.div`
   }
 `;
 
+export const FelxBox = styled.div`
+  @media (min-width: 360px) and (max-width: 767px) {
+    display: flex;
+    align-items: flex-start;
+  }
+`;
+
 export const Year = styled.div`
   color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
+  margin: 3px 0 0;
+  @media (min-width: 360px) and (max-width: 767px) {
+    font-size: 14px;
+    margin-right: 3px;
+  }
 `;
 
 export const HeadLine = styled.h3`

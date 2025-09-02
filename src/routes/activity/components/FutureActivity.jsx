@@ -5,8 +5,10 @@ function FurueActivity() {
   return (
     <Contianer>
       <Box>
-        <Year>2026년</Year>
-        <HeadLine>디지털 융합 교육 플랫폼 개발</HeadLine>
+        <FelxBox>
+          <Year>2026년</Year>
+          <HeadLine>디지털 융합 교육 플랫폼 개발</HeadLine>
+        </FelxBox>
         <AboutBox>
           <Line />
           <About>
@@ -16,8 +18,10 @@ function FurueActivity() {
         </AboutBox>
       </Box>
       <Box>
-        <Year>2026년</Year>
-        <HeadLine>지역 연계 교육 확대 사업</HeadLine>
+        <FelxBox>
+          <Year>2026년</Year>
+          <HeadLine>지역 연계 교육 확대 사업</HeadLine>
+        </FelxBox>
         <AboutBox>
           <Line />
           <About>
@@ -44,6 +48,13 @@ export const Contianer = styled.div`
   }
 `;
 
+export const FelxBox = styled.div`
+  @media (min-width: 360px) and (max-width: 767px) {
+    display: flex;
+    align-items: flex-start;
+  }
+`;
+
 export const Box = styled.div`
   display: flex;
   padding: 35px;
@@ -64,6 +75,11 @@ export const Year = styled.div`
   color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
+  margin: 3px 0 0;
+  @media (min-width: 360px) and (max-width: 767px) {
+    font-size: 14px;
+    margin-right: 3px;
+  }
 `;
 
 export const HeadLine = styled.h3`
