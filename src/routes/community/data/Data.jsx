@@ -126,7 +126,7 @@ function Data() {
               </D.BusinessWrapper>
             )}
 
-            <I.InfoCardWrapper>
+            <I.InfoCardWrapper $hasNoResult={currentItems.length === 0}>
               {currentItems.map((data) => (
                 <DataCard
                   key={data.id}

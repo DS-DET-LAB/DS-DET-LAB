@@ -91,6 +91,8 @@ export const InfoCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  margin-bottom: ${({ $hasNoResult }) => $hasNoResult && '100px'};
 `;
 
 export const Count = styled.div`

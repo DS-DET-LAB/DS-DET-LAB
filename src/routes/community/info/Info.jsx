@@ -105,7 +105,7 @@ function Info() {
               전체 <span>{searchedData.length}</span>건
             </I.Count>
 
-            <I.InfoCardWrapper>
+            <I.InfoCardWrapper $hasNoResult={currentItems.length === 0}>
               {currentItems.map((info) => (
                 <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
               ))}
