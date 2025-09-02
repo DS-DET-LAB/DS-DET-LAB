@@ -26,7 +26,7 @@ export const Slogan = styled.div`
 
 export const SloganText = styled.div`
   color: ${palette.mainNavy.navy100};
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : viewport === 'tablet' ? '32px' : '44px')};
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '18px' : viewport === 'tablet' ? '32px' : '44px')};
   font-weight: 400;
   line-height: 150%;
   letter-spacing: ${({ viewport }) =>
@@ -46,7 +46,7 @@ export const Highlight = styled.span`
   -webkit-text-fill-color: transparent;
   animation: ${shimmer} 1.5s infinite linear;
 
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : viewport === 'tablet' ? '36px' : '48px')};
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '18px' : viewport === 'tablet' ? '36px' : '48px')};
   font-weight: 700;
   line-height: 150%;
   letter-spacing: ${({ viewport }) =>
