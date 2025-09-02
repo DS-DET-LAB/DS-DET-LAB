@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.youtube.com/watch?v=JU0CQnmyo4M&list=PLaE7AG_TSWwsu4zmf7UBLuJWaruvr91Nn&index=4",
+    "img": "https://www.youtube.com/embed/JU0CQnmyo4M?si=FmWz3xZjCu8GAXds",
+    "title": "[2025 디지털 새싹] 다문화 프로그램 HarmonyBridge 수업 소개",
+    "date": "2025.06.16"
+  },
+  {
+    "id": 2,
+    "url": "https://www.youtube.com/watch?v=s6lVUYWlEKg&list=PLaE7AG_TSWwsu4zmf7UBLuJWaruvr91Nn&index=3",
+    "img": "https://www.youtube.com/embed/s6lVUYWlEKg?si=un7X1z9ADFL5BmqH",
+    "title": "[2025 디지털 새싹] 초등 프로그램 DavinchLab 수업 소개",
+    "date": "2025.06.16"
+  },
+  {
+    "id": 3,
+    "url": "https://www.youtube.com/watch?v=HrYRCJvbUZM&list=PLaE7AG_TSWwsu4zmf7UBLuJWaruvr91Nn&index=2",
+    "img": "https://www.youtube.com/embed/HrYRCJvbUZM?si=HbrQ1iXLmeXL58nR",
+    "title": "[2025 디지털 새싹] 중등 프로그램 Echolink 수업 소개",
+    "date": "2025.06.24"
+  },
+
+  {
+    "id": 4,
+    "url": "https://www.youtube.com/watch?v=xnotNij9Qqc&t=329s",
+    "img": "https://www.youtube.com/embed/xnotNij9Qqc?si=PSCDvoBe_6e92_e1",
+    "title": "2025 디지털 새싹 덕성여자대학교 현장스케치",
+    "date": "2025.08.04"
+  }
+]
