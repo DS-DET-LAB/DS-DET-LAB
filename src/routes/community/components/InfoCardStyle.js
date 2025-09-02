@@ -25,6 +25,12 @@ export const InfoCard = styled.div`
   }
 `;
 
+export const TopWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
 export const Title = styled.p`
   color: ${palette.text.primary};
 
