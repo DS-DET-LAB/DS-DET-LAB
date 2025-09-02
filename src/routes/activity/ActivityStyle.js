@@ -14,6 +14,10 @@ export const Container = styled.div`
   align-items: flex-start;
   gap: 50px;
   padding: 70px 80px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px; /* 데스크톱 상한선 */
+  margin: 0 auto; /* 가운데 정렬 */
 
   /* ≤1279px (태블릿) */
   @media (max-width: 1279px) {
@@ -73,6 +77,7 @@ export const BranchContainer = styled.div`
   gap: 96px;
   padding-top: 25px;
   align-items: flex-start;
+  min-width: 0;
 
   @media (max-width: 1023px) {
     gap: 48px;
@@ -91,6 +96,7 @@ export const BungiContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+  width: 100%;
 
   @media (max-width: 1023px) {
     row-gap: 20px;
@@ -148,7 +154,7 @@ export const ListContainer = styled.div`
   row-gap: 10px;
   border-radius: 17px;
   border: 1px solid ${palette.hover.back2};
-  width: clamp(280px, 92vw, 685px);
+  width: min(100%); /* 컨테이너 너비 내에서만 확장 */
   margin: 0 auto;
 
   @media (max-width: 1023px) {
