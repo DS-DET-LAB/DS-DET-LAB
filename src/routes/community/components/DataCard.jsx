@@ -43,7 +43,7 @@ const DataCard = ({ type, title, date, fileName, file }) => {
   };
 
   return (
-    <D.DataCard>
+    <D.DataCard onClick={handleDownload}>
       <D.SideWrapper>
         <D.InfoWrapper>
           <D.Type>{type}</D.Type>
@@ -54,11 +54,11 @@ const DataCard = ({ type, title, date, fileName, file }) => {
       </D.SideWrapper>
 
       {!isMobile && (
-        <D.Button onClick={handleDownload}>
+        <D.Button>
           <DownloadIcon40 />
         </D.Button>
       )}
-      {isMobile && <DownloadIcon24 onClick={handleDownload} />}
+      {isMobile && <DownloadIcon24 />}
     </D.DataCard>
   );
 };

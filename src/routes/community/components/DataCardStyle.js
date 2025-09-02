@@ -10,13 +10,11 @@ export const DataCard = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 
+  cursor: pointer;
+
   @media (max-width: 767px) {
     padding: 20px;
     align-items: flex-end;
-  }
-
-  svg {
-    cursor: pointer;
   }
 
   transition: 300ms ease;
