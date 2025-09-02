@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import * as S from '@routes/activity/components/PhotoAndVideoStyle';
+// import Arrow20 from '@assets/activity/ic-arrow-20.svg';
 
 const API_KEY = import.meta.env.VITE_YT_API_KEY || '';
 
@@ -134,9 +135,7 @@ export default function PhotoAndVideo({
           </svg>
         </S.IconBtn>
         <S.IconBtn onClick={() => setPageToken(nextToken || '')} disabled={!nextToken} aria-label="다음">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          {/* <Arrow20 /> */}
         </S.IconBtn>
       </S.Pager>
 

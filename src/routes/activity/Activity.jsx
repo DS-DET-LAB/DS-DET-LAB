@@ -9,30 +9,12 @@ import FutureActivity from '@routes/activity/components/FutureActivity';
 import Results from '@routes/activity/components/Results';
 import PhotoAndVideo from '@routes/activity/components/PhotoAndVideo';
 import MajorScheduleCalendar from '@routes/activity/components/ScheduleCalendar';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 const schedules = [
   { id: 1, title: '디지털 새싹 프로그램 1차', startsAt: '2025-06-19T10:00:00+09:00' },
   { id: 2, title: '디지털 새싹 프로그램 2차', startsAt: '2025-07-03T10:00:00+09:00' },
 ];
-
-/* 간단한 미디어쿼리 훅 */
-function useMediaQuery(query) {
-  const get = () => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false);
-  const [matches, setMatches] = useState(get);
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mql = window.matchMedia(query);
-    const handler = (e) => setMatches(e.matches);
-    if (mql.addEventListener) mql.addEventListener('change', handler);
-    else mql.addListener(handler);
-    setMatches(mql.matches);
-    return () => {
-      if (mql.removeEventListener) mql.removeEventListener('change', handler);
-      else mql.removeListener(handler);
-    };
-  }, [query]);
-  return matches;
-}
 
 /* YearTabs를 ToggleName 바로 아래에 배치할 래퍼 (모바일에서만 보임) */
 const MobileYearTabsWrap = ({ children }) => (
