@@ -10,7 +10,8 @@ export const BusinessWrapper = styled.div`
 
 export const Business = styled.div`
   border-radius: 30px;
-  background-color: ${({ $isActive }) => ($isActive ? palette.mainNavy.navy100 : palette.hover.back2)};
+  background-color: ${({ $isActive }) => ($isActive ? palette.mainNavy.navy100 : palette.hover.back1)};
+  border: ${({ $isActive }) => ($isActive ? 'none' : `1px solid ${palette.hover.back2}`)};
   padding: 8px 20px;
 
   display: flex;
