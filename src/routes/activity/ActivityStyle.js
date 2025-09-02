@@ -38,11 +38,8 @@ export const HeaderName = styled.h1`
   font-weight: 600;
   margin: 0;
 
-  @media (max-width: 1023px) {
-    font-size: 30px;
-  }
   @media (max-width: 767px) {
-    font-size: 24px;
+    font-size: 16px;
   }
 `;
 
@@ -62,12 +59,11 @@ export const ToggleName = styled.div`
     margin-right: 5px;
   }
 
-  @media (max-width: 1023px) {
-    font-size: 20px;
+  @media (max-width: 1279px) {
     margin-bottom: 20px;
   }
   @media (max-width: 767px) {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 16px;
   }
 `;
