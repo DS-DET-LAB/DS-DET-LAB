@@ -208,3 +208,14 @@ export const List = styled.div`
 export const MobileTabsRow = styled.div`
   padding: 8px 0 12px;
 `;
+
+export const MobileLine = styled.img`
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    margin: 8px auto 0; /* 중앙 정렬 */
+    max-width: 100%;
+    height: auto;
+  }
+`;

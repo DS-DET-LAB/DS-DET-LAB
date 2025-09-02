@@ -10,6 +10,7 @@ import Results from '@routes/activity/components/Results';
 import PhotoAndVideo from '@routes/activity/components/PhotoAndVideo';
 import MajorScheduleCalendar from '@routes/activity/components/ScheduleCalendar';
 import useMediaQuery from '@hooks/useMediaQuery';
+import Line from '@assets/activity/ic-line.svg';
 
 const schedules = [
   { id: 1, title: '디지털 새싹 프로그램 1차', startsAt: '2025-06-19T10:00:00+09:00' },
@@ -78,7 +79,7 @@ function Activity() {
           </A.ToggleName>
           <FutureActivity />
         </A.ToggleBox>
-
+        <A.MobileLine src={Line} alt="line" />
         <A.HeaderName>성과</A.HeaderName>
 
         {/* 완료된 사업 목록 */}
