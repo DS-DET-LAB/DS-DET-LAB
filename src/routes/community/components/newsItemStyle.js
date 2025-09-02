@@ -20,6 +20,8 @@ export const Img = styled.img`
   border-radius: 11px;
   height: 166px;
   object-fit: cover;
+
+  border: 1px solid ${palette.mainNavy.navy30};
   @media (max-width: 767px) {
     height: 101px;
   }
