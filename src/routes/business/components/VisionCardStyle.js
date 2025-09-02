@@ -24,6 +24,10 @@ export const Card = styled.div`
     border-radius: 14px;
     align-items: flex-start;
     gap: 12px;
+
+    &:first-of-type {
+      height: fit-content;
+    }
   }
 `;
 
