@@ -118,7 +118,7 @@ function Info() {
 
               <I.Pagination
                 onClick={handleNextPage}
-                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage)}>
+                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage) || searchedData.length === 0}>
                 <ArrowRight />
               </I.Pagination>
             </I.ButtonWrapper>
