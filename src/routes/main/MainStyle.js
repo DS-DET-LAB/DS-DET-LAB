@@ -7,7 +7,7 @@ export const ShortcutBar = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  gap: 40px;
+  gap: ${({ viewport }) => (viewport === 'mobile' ? '20px' : viewport === 'tablet' ? '20px' : '40px')};
   background-color: ${palette.background.white};
   box-shadow: 0 4px 4px 0 ${palette.mainNavy.navy10};
 `;

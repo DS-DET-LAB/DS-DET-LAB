@@ -29,13 +29,11 @@ function Main() {
 
   return (
     <>
-      {!isMobile && (
-        <M.ShortcutBar>
-          {SHORTCUTS(setIsModalOpen).map(({ Icon, shortcut, onClick }) => (
-            <Shortcut key={shortcut} Icon={Icon} shortcut={shortcut} onClick={onClick} />
-          ))}
-        </M.ShortcutBar>
-      )}
+      <M.ShortcutBar viewport={viewport}>
+        {SHORTCUTS(setIsModalOpen).map(({ Icon, shortcut, onClick }) => (
+          <Shortcut key={shortcut} Icon={Icon} shortcut={shortcut} onClick={onClick} viewport={viewport} />
+        ))}
+      </M.ShortcutBar>
 
       <SloganLogo />
 
