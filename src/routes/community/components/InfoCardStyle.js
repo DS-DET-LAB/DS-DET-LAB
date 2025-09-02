@@ -42,8 +42,8 @@ export const Title = styled.p`
   margin: 0;
 
   @media (max-width: 767px) {
-    font-size: 14px;
-    letter-spacing: -0.35px;
+    font-size: 16px;
+    letter-spacing: -0.4px;
   }
 `;
 
@@ -59,6 +59,8 @@ export const Date = styled.p`
 
   @media (max-width: 767px) {
     font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
     letter-spacing: -0.35px;
   }
 `;
@@ -80,5 +82,8 @@ export const Content = styled.p`
     -webkit-line-clamp: ${({ $showAll }) => !$showAll && 1};
     overflow: hidden;
     text-overflow: ellipsis;
+
+    font-size: 14px;
+    letter-spacing: -0.35px;
   }
 `;
