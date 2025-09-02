@@ -4,16 +4,14 @@ import palette from '@styles/theme';
 export const List = styled.div`
   display: flex;
   flex-direction: column;
-
   gap: 30px;
-
   margin: 25px 0 70px;
-
   width: 90%;
 
   @media (min-width: 768px) and (max-width: 899px) {
     width: 100%;
   }
+
   @media (max-width: 767px) {
     margin: 0 0 70px;
     width: 100%;
@@ -74,8 +72,8 @@ export const Title = styled.span`
   line-height: 1.35;
 
   @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 16px;
   }
+
   @media (max-width: 767px) {
     font-size: 16px;
   }
@@ -84,6 +82,8 @@ export const Title = styled.span`
 export const Chevron = styled.img`
   margin-left: auto;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
 `;
 
 export const Body = styled.div`
@@ -123,14 +123,6 @@ export const Chip = styled.div`
     font-size: 16px;
     color: ${palette.text.body};
     font-weight: 100;
-  }
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 14px;
-
-    .weak {
-      font-size: 14px;
-    }
   }
 
   @media (max-width: 767px) {

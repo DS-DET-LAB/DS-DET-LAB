@@ -28,7 +28,6 @@
 import { useState } from 'react';
 import * as S from '@business/components/BizAccordionStyle';
 import DownToggle from '@assets/business/downToggle.svg';
-import UpToggle from '@assets/business/upToggle.svg';
 
 function BizAccordion({ items = [] }) {
   const [openMap, setOpenMap] = useState({});
@@ -41,7 +40,7 @@ function BizAccordion({ items = [] }) {
           <S.Header type="button" onClick={() => toggle(it.id)}>
             <S.Num>{it.id}</S.Num>
             <S.Title>{it.title}</S.Title>
-            <S.Chevron src={openMap[it.id] ? UpToggle : DownToggle} alt="" />
+            <S.Chevron $isOpen={!!openMap[it.id]} src={DownToggle} alt="" />
           </S.Header>
           {!!openMap[it.id] && (
             <S.Body>

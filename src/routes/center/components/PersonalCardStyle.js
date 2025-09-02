@@ -7,20 +7,18 @@ export const Card = styled.div`
   background: ${palette.background.white};
   border-radius: 13px;
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
-
   width: 240px;
-  padding: 15px;
+  padding: 20px;
   gap: 12px;
 
   @media (min-width: 768px) and (max-width: 899px) {
-    width: 197px;
-    padding: 13px;
+    width: 190px;
   }
 
   @media (max-width: 767px) {
-    width: 83%;
-    padding: 24px;
-    gap: 20px;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
   }
 `;
 
@@ -34,6 +32,11 @@ export const Right = styled.div`
   flex-direction: column;
   gap: 8px;
   min-width: 0;
+
+  @media (max-width: 767px) {
+    border-left: 1px solid ${palette.hover.back2};
+    padding: 16px;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -41,11 +44,6 @@ export const Avatar = styled.img`
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    width: 50px;
-    height: 50px;
-  }
 `;
 
 export const NameRow = styled.div`
@@ -57,13 +55,20 @@ export const NameRow = styled.div`
 export const Name = styled.span`
   font-size: 18px;
   font-weight: 500;
+
+  @media (max-width: 899px) {
+    font-size: 14px;
+  }
 `;
 
 export const Role = styled.span`
   color: ${palette.text.secondary};
-
   font-size: 16px;
   font-weight: 400;
+
+  @media (max-width: 899px) {
+    font-size: 14px;
+  }
 `;
 
 export const PhoneRow = styled.div`
@@ -74,13 +79,21 @@ export const PhoneRow = styled.div`
 `;
 
 export const PhoneIcon = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+
+  @media (max-width: 899px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const PhoneText = styled.span`
   font-size: 16px;
   font-weight: 400;
-
   color: ${({ $muted }) => ($muted ? '#8C8F92' : '#000')};
+
+  @media (max-width: 899px) {
+    font-size: 14px;
+  }
 `;

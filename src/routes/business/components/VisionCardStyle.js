@@ -3,7 +3,7 @@ import palette from '@styles/theme';
 
 export const Card = styled.div`
   width: 240px;
-  height: 269px;
+  height: 242px;
   padding: 35px 30px;
   border-radius: 18px;
   background: ${palette.background.white};
@@ -12,6 +12,10 @@ export const Card = styled.div`
   flex-direction: column;
   gap: 16px;
   align-items: center;
+
+  &:first-of-type {
+    height: 269px;
+  }
 
   @media (max-width: 767px) {
     width: 90%;
@@ -46,12 +50,8 @@ export const CardTitle = styled.h4`
   color: ${palette.text.primary};
   margin-top: 4px;
 
-  @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 18px;
-  }
-
   @media (max-width: 767px) {
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 0;
   }
 `;
@@ -61,11 +61,6 @@ export const CardBody = styled.p`
   font-size: 18px;
   line-height: 1.5;
   color: ${palette.text.body};
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 16px;
-    line-height: 1.55;
-  }
 
   @media (max-width: 767px) {
     font-size: 14px;

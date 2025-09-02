@@ -16,14 +16,11 @@ export const Card = styled.div`
 export const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
-  margin: 0 0 10px;
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 16px;
-  }
+  margin: 0 0 7.5px;
 
   @media (max-width: 767px) {
     font-size: 16px;
+    margin: 0 0 7px;
   }
 `;
 
@@ -32,7 +29,7 @@ export const Desc = styled.p`
   color: ${palette.text.body};
 
   @media (min-width: 768px) and (max-width: 899px) {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   @media (max-width: 767px) {

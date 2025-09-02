@@ -3,9 +3,10 @@ import palette from '@styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
-  padding: 150px 0;
+  padding: 192px 0;
   justify-content: center;
   width: 100%;
+
   @media (min-width: 768px) and (max-width: 899px) {
     padding: 70px 0;
   }
@@ -78,19 +79,20 @@ export const Title = styled.h2`
   scroll-margin-top: 100px;
 
   @media (max-width: 767px) {
-    font-size: 28px;
+    font-size: 16px;
     scroll-margin-top: 80px;
-    margin: 0px 0 20px;
-
-    &:nth-of-type(2) {
-      margin: 0px 0 30px;
-    }
+    margin: 0px 0 30px;
   }
 `;
 
 export const TriIcon = styled.img`
   width: 24px;
   height: 24px;
+
+  @media (max-width: 767px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const TextBody = styled.p`
@@ -107,6 +109,7 @@ export const TextBody = styled.p`
 
 export const Body = styled.div`
   max-width: 90%;
+
   &:nth-of-type(3) {
     margin: 20px 0 70px;
   }
@@ -117,7 +120,6 @@ export const Body = styled.div`
 
   @media (max-width: 767px) {
     max-width: 100%;
-
     padding: 20px;
     border-radius: 17px;
     border: none;
@@ -133,10 +135,10 @@ export const IconWrapper = styled.div`
   margin: 0 0 30px 10px;
 
   @media (max-width: 767px) {
-    margin: 0 0 17px;
+    margin: 0 0 20px;
 
     &[data-tail='true'] {
-      margin: 0 0 17px 10px;
+      margin: 0 0 20px 10px;
     }
   }
 `;
@@ -153,7 +155,9 @@ export const SubTitle = styled.h3`
   color: ${palette.mainNavy.navy80};
   font-size: 24px;
   font-weight: 600;
+
   @media (max-width: 767px) {
+    font-size: 16px;
     margin: 0;
   }
 `;
@@ -178,7 +182,6 @@ export const CardWrapper = styled.div`
   gap: 25px 20px;
   flex-wrap: wrap;
   margin-bottom: 24px;
-
   justify-content: center;
 
   @media (min-width: 768px) and (max-width: 899px) {
@@ -199,7 +202,6 @@ export const OrganizationImg = styled.img`
 
   @media (max-width: 767px) {
     width: 70%;
-    /* width: auto; */
     height: auto;
   }
 `;
@@ -208,6 +210,7 @@ export const SubWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 13px;
+
   @media (max-width: 767px) {
     margin: 17px 0 39px 0;
   }
@@ -268,7 +271,6 @@ export const Card = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
-    /* width: 70%; */
     padding: 57px 0 56px;
 
     display: flex;
@@ -283,7 +285,6 @@ export const LabelDiv = styled.div`
   justify-content: center;
   align-items: center;
   width: fit-content;
-
   border-radius: 20px;
   background: ${palette.mainNavy.navy10};
   margin: 15px 0;
@@ -293,19 +294,28 @@ export const LabelP = styled.span`
   color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 export const MailImg = styled.img`
   width: 24px;
   height: 24px;
+
+  @media (max-width: 767px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const PersonalCardWrapper = styled.div`
   display: flex;
   gap: 12px;
   margin: 0 0 60px 0;
-
   flex-wrap: wrap;
+
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 15px;

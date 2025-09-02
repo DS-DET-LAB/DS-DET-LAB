@@ -21,18 +21,18 @@ export const Card = styled.div`
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
-
   border-radius: 17px;
   background: ${palette.background.white};
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
 
   @media (max-width: 767px) {
-    width: 80%;
+    width: 100%;
     height: fit-content;
     margin: 0 auto;
     flex-direction: row;
     justify-content: flex-start;
     padding: 15px 30px;
+    box-sizing: border-box;
   }
 `;
 

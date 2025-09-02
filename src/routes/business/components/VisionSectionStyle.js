@@ -40,10 +40,12 @@ export const Grid = styled.div`
     grid-column: 2;
     grid-row: 1;
   }
+
   & > *:nth-child(2) {
     grid-column: 1;
     grid-row: 2;
   }
+
   & > *:nth-child(3) {
     grid-column: 3;
     grid-row: 2;
