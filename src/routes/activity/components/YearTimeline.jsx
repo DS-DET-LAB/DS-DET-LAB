@@ -66,7 +66,7 @@ const Grid = styled.div`
 /* Rail: 라인은 기본적으로 위(1) */
 const Rail = styled.div`
   position: absolute;
-  right: 12px;
+  right: 11px;
   top: 0;
   bottom: 0;
   width: 2px;

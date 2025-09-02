@@ -393,6 +393,9 @@ const EmptyList = styled.div`
 const EmptyText = styled.div`
   color: ${palette.text.body};
   font-size: 18px;
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 const DateBadge = styled.span`
@@ -402,10 +405,14 @@ const DateBadge = styled.span`
   padding: 4px 10px;
   font-size: 12px;
   line-height: 1;
+
   .ymd {
     color: ${palette?.text?.primary || '#1f2937'};
     font-weight: 600;
     font-size: 20px;
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
   }
   .weekday {
     color: ${palette?.text?.secondary || '#6b7280'};
@@ -467,6 +474,10 @@ const ListItem = styled.li`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-weight: 400;
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -495,6 +506,9 @@ const DateBlock = styled.div`
     color: ${palette.text.primary}; /* 날짜 */
     font-size: 20px;
     font-weight: 600;
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
   }
   .date .weekday {
     color: ${palette.text.secondary}; /* 요일만 다른 톤 */

@@ -148,8 +148,6 @@ export const ListContainer = styled.div`
   row-gap: 10px;
   border-radius: 17px;
   border: 1px solid ${palette.hover.back2};
-
-  /* 고정폭 → 반응형 */
   width: clamp(280px, 92vw, 685px);
   margin: 0 auto;
 
@@ -159,6 +157,9 @@ export const ListContainer = styled.div`
   @media (max-width: 767px) {
     padding: 16px 12px;
     row-gap: 8px;
+  }
+  &:hover {
+    box-shadow: 0 0 15px rgba(17, 34, 6, 0.1);
   }
 `;
 
@@ -186,7 +187,7 @@ export const Circle = styled.div`
 `;
 
 export const List = styled.div`
-  color: ${palette.mainNavy.navy100};
+  color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
 
@@ -194,7 +195,7 @@ export const List = styled.div`
     font-size: 16px;
   }
   @media (max-width: 767px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 `;
 

@@ -71,6 +71,10 @@ export const HeadLine = styled.h3`
   font-size: 20px;
   font-weight: 600;
   margin: 3px 0 10.5px;
+  @media (max-width: 767px) {
+    font-size: 16px;
+    font-weight: 500;
+  }
 `;
 
 export const AboutBox = styled.div`
@@ -85,10 +89,16 @@ export const Line = styled.div`
   flex: 0 0 3px;
   display: block;
   border-radius: 5px;
+  @media (max-width: 767px) {
+    height: 100%;
+  }
 `;
 
 export const About = styled.div`
   color: ${palette.text.body};
   font-size: 18px;
   font-weight: 400;
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
