@@ -15,7 +15,7 @@ export const List = styled.div`
     width: 100%;
   }
   @media (max-width: 767px) {
-    margin: 25px 0 164px;
+    margin: 0 0 70px;
     width: 100%;
   }
 `;
@@ -72,6 +72,13 @@ export const Title = styled.span`
   font-weight: 600;
   color: ${palette.text.primary};
   line-height: 1.35;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 16px;
+  }
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 export const Chevron = styled.img`
@@ -118,12 +125,21 @@ export const Chip = styled.div`
     font-weight: 100;
   }
 
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 14px;
+
+    .weak {
+      font-size: 14px;
+    }
+  }
+
   @media (max-width: 767px) {
     border: none;
     background: transparent;
     padding: 0 0 0 28px;
     border-radius: 0;
-    font-size: 20px;
+    font-size: 14px;
+
     line-height: 1.6;
     position: relative;
 
@@ -132,13 +148,13 @@ export const Chip = styled.div`
       position: absolute;
       left: 0;
       top: 0.15em;
-      font-size: 28px;
+      font-size: 14px;
       line-height: 1;
       color: ${palette.text.primary};
     }
 
     .weak {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 `;

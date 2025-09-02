@@ -16,13 +16,28 @@ export const Card = styled.div`
 export const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
-  color: ${palette.mainNavy.navy100};
   margin: 0 0 10px;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 export const Desc = styled.p`
   margin: 0;
   color: ${palette.text.body};
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 export const LineIcon = styled.img``;

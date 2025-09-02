@@ -12,7 +12,7 @@
  *
  * @author 노진경
  **/
-import * as S from './VisionCardStyle';
+import * as S from '@business/components/VisionCardStyle';
 
 function VisionCard({ iconSrc, title, body }) {
   return (

@@ -68,3 +68,14 @@ export const ProgramCardWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 0 10px;
+
+  @media (max-width: 767px) {
+    margin: 0 0 17px;
+  }
+`;

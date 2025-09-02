@@ -26,7 +26,7 @@
  **/
 
 import { useState } from 'react';
-import * as S from './BizAccordionStyle';
+import * as S from '@business/components/BizAccordionStyle';
 import DownToggle from '@assets/business/downToggle.svg';
 import UpToggle from '@assets/business/upToggle.svg';
 

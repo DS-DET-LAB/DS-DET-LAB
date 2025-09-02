@@ -18,8 +18,8 @@
  * @author 노진경
  **/
 
-import VisionCard from './VisionCard';
-import * as V from './VisionSectionStyle';
+import VisionCard from '@business/components/VisionCard';
+import * as V from '@business/components/VisionSectionStyle';
 import circleSvg from '@assets/business/circle.svg';
 
 function VisionSection({ items = [] }) {

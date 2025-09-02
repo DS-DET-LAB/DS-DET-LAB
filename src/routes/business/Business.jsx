@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 import VisionSection from '@business/components/VisionSection';
 import BizAccordion from '@business/components/BizAccordion';
@@ -23,8 +23,8 @@ function Business() {
   };
   const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 899px)' });
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   return (
     <>
@@ -100,10 +100,10 @@ function Business() {
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
 
           <C.Title ref={setRef('org')}>사업 소개</C.Title>
-          <C.IconWrapper ref={setRef('contact')}>
+          <B.IconWrapper ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>핵심 연구 분야</C.SubTitle>
-          </C.IconWrapper>
+          </B.IconWrapper>
 
           <B.BizWrapper>
             <BizAccordion

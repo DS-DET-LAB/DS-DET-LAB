@@ -9,11 +9,12 @@ export const Card = styled.div`
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
 
   width: 240px;
-  padding: 20px;
+  padding: 15px;
   gap: 12px;
 
   @media (min-width: 768px) and (max-width: 899px) {
-    width: 216px;
+    width: 197px;
+    padding: 13px;
   }
 
   @media (max-width: 767px) {
@@ -40,6 +41,11 @@ export const Avatar = styled.img`
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const NameRow = styled.div`
@@ -68,8 +74,8 @@ export const PhoneRow = styled.div`
 `;
 
 export const PhoneIcon = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 `;
 
 export const PhoneText = styled.span`

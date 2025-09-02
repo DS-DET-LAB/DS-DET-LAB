@@ -17,7 +17,7 @@
  * @author 노진경
  **/
 
-import * as S from './ProgramCardStyle';
+import * as S from '@business/components/ProgramCardStyle';
 import lineIcon from '@assets/center/line.svg';
 
 function ProgramCard({ title, target, desc }) {

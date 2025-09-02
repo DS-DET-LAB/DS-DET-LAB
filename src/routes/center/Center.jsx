@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 import CenterCard from '@center/components/CenterCard';
 import PersonalCard from '@center/components/PersonalCard';
@@ -41,8 +41,8 @@ function Center() {
   };
   const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 899px)' });
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   return (
     <>
@@ -98,7 +98,10 @@ function Center() {
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
           <C.Title>비전/소개</C.Title>
-          <C.TriIcon src={Icon} alt="소제목" />
+          <C.IconWrapper>
+            <C.TriIcon src={Icon} alt="소제목" />
+            <C.SubTitle>조직 체계</C.SubTitle>
+          </C.IconWrapper>
           <C.Body>
             <C.TextBody>
               디지털 전환 시대를 맞아, 덕성여자대학교는 교양대학을 중심으로 디지털 교육 분야의 학제간 융합 연구를
@@ -154,7 +157,6 @@ function Center() {
             </C.Card>
           </C.OrganiCardWrapper>
 
-          {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
           <C.IconWrapper ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>담당자 정보 및 연락처</C.SubTitle>
@@ -190,6 +192,7 @@ function Center() {
             <PersonalCard photoSrc={KimImg} name={'김세진'} role={'팀장'} phone={'02-901-8810'} />
             <PersonalCard photoSrc={BaeImg} name={'배초롱'} role={'책임연구원'} phone={'02-901-8853'} />
             <PersonalCard photoSrc={LeeImg} name={'이 정'} role={'연구원'} phone={'02-901-8635'} />
+
             <PersonalCard photoSrc={NamImg} name={'남정연'} role={'연구원'} phone={'02-901-8494'} />
             <PersonalCard photoSrc={SonImg} name={'손승우'} role={'연구원'} phone={'02-901-8495'} />
           </C.PersonalCardWrapper>

@@ -107,8 +107,8 @@ export const TextBody = styled.p`
 
 export const Body = styled.div`
   max-width: 90%;
-  &:nth-of-type(2) {
-    margin: 20px 0 30px;
+  &:nth-of-type(3) {
+    margin: 20px 0 70px;
   }
 
   @media (min-width: 768px) and (max-width: 899px) {
@@ -198,7 +198,8 @@ export const OrganizationImg = styled.img`
   height: 252px;
 
   @media (max-width: 767px) {
-    width: 100%;
+    width: 70%;
+    /* width: auto; */
     height: auto;
   }
 `;
@@ -252,7 +253,7 @@ export const OrganiCardWrapper = styled.div`
   margin-bottom: 100px;
 
   @media (max-width: 767px) {
-    margin-bottom: 0px;
+    margin-bottom: 70px;
   }
 `;
 
@@ -267,7 +268,13 @@ export const Card = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
-    padding: 24px;
+    /* width: 70%; */
+    padding: 57px 0 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
   }
 `;
 
@@ -296,10 +303,9 @@ export const MailImg = styled.img`
 export const PersonalCardWrapper = styled.div`
   display: flex;
   gap: 12px;
-  margin: 0 0 56px 0;
+  margin: 0 0 60px 0;
 
   flex-wrap: wrap;
-
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 15px;
