@@ -17,16 +17,20 @@ export const Background = styled.div`
 
 export const Container = styled.div`
   position: relative;
-  padding: 75px;
+  padding: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '75px')};
   border-radius: 17px;
   background-color: ${palette.background.white};
-  box-shadow: 0 0 100px 0 ${palette.mainNavy.navy15};
+  box-shadow: ${({ viewport }) =>
+    viewport === 'mobile' ? `0 0 10px 0 ${palette.mainNavy.navy15}` : `0 0 100px 0 ${palette.mainNavy.navy15}`};
 `;
 
 export const CloseButton = styled.img`
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: ${({ viewport }) => (viewport === 'mobile' ? '15px' : '20px')};
+  top: ${({ viewport }) => (viewport === 'mobile' ? '15px' : '20px')};
+  width: ${({ viewport }) => (viewport === 'mobile' ? '24px' : '40px')};
+  height: auto;
+  aspect-ratio: 1 / 1;
   cursor: pointer;
 `;
 
@@ -45,42 +49,43 @@ export const CenterInformContainer = styled.div`
 export const CenterFrame = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: ${({ viewport }) => (viewport === 'mobile' ? '3px' : '5px')};
 `;
 
 export const CenterTitle = styled.div`
   color: ${palette.text.secondary};
-  /* r18 */
-  font-size: 18px;
+  /* r18 & r14 */
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : '18px')};
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: -0.45px;
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.45px')};
 `;
 
 export const CenterDetail = styled.div`
   display: flex;
-  padding: 0 7px;
+  padding: ${({ viewport }) => (viewport === 'mobile' ? '0' : '0 7px')};
   align-items: center;
   gap: 5px;
 `;
 
 export const CenterIcon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '24px')};
+  height: auto;
+  aspect-ratio: 1 / 1;
 `;
 
 export const CenterText = styled.div`
   color: ${palette.text.primary};
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: -0.45px;
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : '18px')};
+  font-weight: ${({ viewport }) => (viewport === 'mobile' ? '500' : '400')};
+  line-height: ${({ viewport }) => (viewport === 'mobile' ? '130%' : '150%')};
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.45px')};
 `;
 
 export const ContactContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: ${({ viewport }) => (viewport === 'mobile' ? '10px' : '15px')};
 `;
 
 export const ContactFrame = styled.div`
@@ -91,24 +96,24 @@ export const ContactFrame = styled.div`
 
 export const ContactLine = styled.div`
   width: 3px;
-  height: 56px;
+  height: ${({ viewport }) => (viewport === 'mobile' ? '44px' : '56px')};
   background-color: ${palette.text.secondary50};
 `;
 
 export const ContactTitle = styled.div`
   color: ${palette.text.primary};
-  font-size: 18px;
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : '18px')};
   font-weight: 600;
-  line-height: 150%;
-  letter-spacing: -0.45px;
+  line-height: ${({ viewport }) => (viewport === 'mobile' ? '130%' : '150%')};
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.45px')};
 `;
 
 export const ContactText = styled.div`
   color: #6b7684;
-  font-size: 16px;
+  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : '16px')};
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: -0.4px;
+  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.4px')};
 `;
 
 export const Highlight = styled.span`

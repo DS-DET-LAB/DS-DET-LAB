@@ -71,7 +71,7 @@ function Main() {
         </M.MoreButtonSection>
       </M.BottomSection>
 
-      {isModalOpen && <InformModal shortcut={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <InformModal shortcut={isModalOpen} onClose={() => setIsModalOpen(false)} viewport={viewport} />}
     </>
   );
 }
