@@ -20,7 +20,7 @@ function Activity() {
   // 연도 상태 공유
   const [year, setYear] = useState(2025);
 
-  // 360px ~ 767px: YearTabs 사용
+  // 360px ~ 767px
   const isMobileYearTabs = useMediaQuery('(min-width: 360px) and (max-width: 767px)');
 
   return (

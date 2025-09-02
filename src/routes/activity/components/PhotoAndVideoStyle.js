@@ -31,7 +31,7 @@ export const Card = styled.button`
   width: 295px;
   height: 166px;
 
-  /* 썸네일 로딩 전 체크보드 느낌 */
+  /* 썸네일 로딩 전 체크보드*/
   background-image:
     linear-gradient(45deg, #f2f4f7 25%, transparent 25%), linear-gradient(-45deg, #f2f4f7 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #f2f4f7 75%), linear-gradient(-45deg, transparent 75%, #f2f4f7 75%);

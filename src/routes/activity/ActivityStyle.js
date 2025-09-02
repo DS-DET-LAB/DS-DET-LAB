@@ -16,8 +16,8 @@ export const Container = styled.div`
   padding: 70px 80px;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1200px; /* 데스크톱 상한선 */
-  margin: 0 auto; /* 가운데 정렬 */
+  max-width: 1200px;
+  margin: 0 auto;
 
   /* ≤1279px (태블릿) */
   @media (max-width: 1279px) {
@@ -83,7 +83,7 @@ export const BranchContainer = styled.div`
     gap: 48px;
     padding-top: 20px;
   }
-  /* 모바일에선 세로 스택 */
+
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 24px;
@@ -154,7 +154,7 @@ export const ListContainer = styled.div`
   row-gap: 10px;
   border-radius: 17px;
   border: 1px solid ${palette.hover.back2};
-  width: min(100%); /* 컨테이너 너비 내에서만 확장 */
+  width: min(100%);
   margin: 0 auto;
 
   @media (max-width: 1023px) {
