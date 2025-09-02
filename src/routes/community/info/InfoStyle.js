@@ -11,7 +11,7 @@ export const Info = styled.div`
   max-width: 1234px;
   width: 100%;
 
-  margin: 192px auto 165px;
+  margin: 192px auto 70px;
 
   @media (min-width: 768px) and (max-width: 1279px) {
     max-width: none;
