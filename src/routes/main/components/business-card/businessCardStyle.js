@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const Container = styled(Fade)`
-  display: flex;
-  flex-direction: column;
   align-self: stretch;
   flex: ${({ $viewport }) => $viewport != 'mobile' && '1'};
   width: ${({ $viewport }) => $viewport === 'mobile' && '100%'};
@@ -12,7 +10,6 @@ export const Container = styled(Fade)`
   max-width: ${({ $viewport }) => ($viewport === 'mobile' ? '100%' : '610px')};
   box-sizing: border-box;
   padding: ${({ $viewport }) => ($viewport === 'mobile' ? '20px' : '35px')};
-  gap: 25px;
   border-radius: 10px;
   border: 1px solid ${palette.hover.back2};
   background-color: ${palette.background.white};
@@ -30,6 +27,12 @@ export const Container = styled(Fade)`
   @media (min-width: 1920px) {
     max-width: 100%;
   }
+`;
+
+export const InsideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 `;
 
 export const TopContainer = styled.div`
