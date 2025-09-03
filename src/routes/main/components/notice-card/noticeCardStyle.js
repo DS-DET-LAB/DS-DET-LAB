@@ -1,7 +1,8 @@
+import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import palette from '@styles/theme';
 
-export const Container = styled.div`
+export const Container = styled(Fade)`
   display: flex;
   flex-direction: column;
   align-self: stretch;
