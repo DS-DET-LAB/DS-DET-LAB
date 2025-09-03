@@ -20,8 +20,6 @@
 import * as N from '@community/news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsItem from '@community/components/NewsItem';
-// import prev from '@assets/common/icon-prev-40.svg?react';
-// import next from '@assets/common/icon-next-40.svg?react';
 import next from '@assets/common/ic-arrow-right-40.svg';
 import next_s from '@assets/common/ic-arrow-right-20.svg';
 import prev from '@assets/common/ic-arrow-left-40.svg';
