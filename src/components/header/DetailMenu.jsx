@@ -18,7 +18,7 @@ const menuItems = {
   center: ['인사말', '비전/소개', '조직도 및 구성원'],
   business: ['사업 개요', '사업 소개'],
   activity: ['활동 계획', '성과'],
-  community: ['공지사항', '자료실', '센터 소식', '자주 묻는 질문'],
+  community: ['공지사항', '자료실', '센터 소식'],
 };
 
 const DetailMenu = ({ type }) => {
