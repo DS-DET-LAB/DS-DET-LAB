@@ -3,8 +3,9 @@ import palette from '@styles/theme';
 
 export const NewsPage = styled.div`
   display: flex;
-  /* justify-content: center; */
   gap: 125px;
+
+  justify-content: center;
   @media (min-width: 768px) and (max-width: 899px) {
     width: calc(100% - 80px);
     padding: 0 40px;
