@@ -1,3 +1,29 @@
+/**
+ * Bungi
+ * 분기별(Quarter) 계획 카드 컴포넌트
+ *
+ * 기능
+ * - props(quarter, months, items)가 전달되면 그것을 우선 렌더링
+ * - props가 없으면 idx(0~3)를 기준으로 내부 정적 QUARTERS 데이터에서 선택
+ * - 잘못된 idx이거나 데이터가 없으면 null 반환하여 안전하게 스킵
+ *
+ * Props
+ * - idx?: number                // 0:1분기, 1:2분기, 2:3분기, 3:4분기 (옵션)
+ * - quarter?: string            // 예: "1분기" (옵션)
+ * - months?: string             // 예: "1월 ~ 3월" (옵션)
+ * - items?: string[]            // 항목 배열 (옵션)
+ *
+ * 스타일
+ * - 레이아웃/타이포 등은 @activity/ActivityStyle 에 정의된 styled-components 사용
+ *
+ * 사용 예시
+ * <Bungi idx={0} />
+ * <Bungi quarter="2분기" months="4월 ~ 6월" items={['항목1','항목2']} />
+ *
+ * 보조 컴포넌트
+ * - <BungiList />: QUARTERS 전부(총 4개)를 한 번에 렌더링
+ */
+
 import * as A from '@activity/ActivityStyle';
 
 // 정적 데이터

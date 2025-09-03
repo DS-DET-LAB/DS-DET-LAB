@@ -1,3 +1,28 @@
+/**
+ * PhotoAndVideo
+ * 유튜브 플레이리스트 썸네일 그리드/슬라이더 + 임베드 플레이어
+ *
+ * 동작
+ * - 데스크톱/태블릿(≥768px): 그리드 카드, 카드 클릭 시 바로 아래 행에 큰 플레이어가 인라인 확장
+ * - 모바일(360~767px): 가로 슬라이드(180×101 고정 카드), 클릭 시 슬라이드 하단에 큰 플레이어 표시
+ * - 선택(재생 중) 카드에 오버레이/디밍 효과(data-active)
+ *
+ * Props
+ * - playlist {string} 플레이리스트 URL 또는 playlistId
+ * - pageSize {number} 불러올 썸네일 개수(기본 9)
+ *
+ * 환경변수
+ * - import.meta.env.VITE_YT_API_KEY (YouTube Data API v3 키)
+ *
+ * 접근성/기타
+ * - 자동재생 안정화를 위한 origin 파라미터 사용
+ * - 페이지 전환 시 확장 상태 초기화
+ * - 로딩/에러 상태 표시
+ *
+ * 사용 예시
+ * <PhotoAndVideo playlist="https://www.youtube.com/watch?v=...&list=PLAYLIST_ID" pageSize={9} />
+ */
+
 import React, { useEffect, useMemo, useState, useRef } from 'react';
 import * as S from '@routes/activity/components/PhotoAndVideoStyle';
 import Right20 from '@assets/activity/ic-right-20.svg';

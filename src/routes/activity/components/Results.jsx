@@ -1,105 +1,46 @@
-import styled from 'styled-components';
-import palette from '@styles/theme';
+/**
+ * FutureActivityStyle
+ * 향후 예정 사업 소개(FutureActivity)에서 사용하는 styled-components 모음
+ *
+ * Export 목록
+ * - Contianer: 전체 래퍼 (가운데 정렬, 반응형 폭)
+ * - Box: 카드 컨테이너 (라운드, 보더, 패딩 반응형)
+ * - FelxBox: 상단 연도/헤드라인 수평 정렬(모바일에서만 플렉스)
+ * - Year: 연도 텍스트 (보조톤)
+ * - HeadLine: 사업명/헤드라인 (주요 톤, 반응형 폰트)
+ * - AboutBox: 본문 앞 라인 + 설명 묶음
+ * - Line: 본문 앞 세로 라인(높이 반응형)
+ * - About: 설명 텍스트 (본문 톤, 반응형 폰트)
+ *
+ * 접근성/가이드
+ * - 텍스트 컨텐츠 중심이라 role 추가 불필요
+ * - 컨테이너/박스는 레이아웃만 담당, 색/간격은 theme(palette) 의존
+ *
+ * 주의
+ * - 컴포넌트 이름(Contianer, FelxBox)은 기존 사용처와 일치시키기 위해 그대로 유지합니다.
+ */
+
+import React from 'react';
+import * as S from '@routes/activity/components/ResultsStyle';
 
 function Results() {
   return (
-    <Contianer>
-      <Box>
-        <FelxBox>
-          <Year>2025년</Year>
-          <HeadLine>빅데이터 기반 학습 분석 시스템 구축</HeadLine>
-        </FelxBox>
-        <AboutBox>
-          <Line />
-          <About>
+    <S.Container>
+      <S.Box>
+        <S.FlexBox>
+          <S.Year>2025년</S.Year>
+          <S.HeadLine>빅데이터 기반 학습 분석 시스템 구축</S.HeadLine>
+        </S.FlexBox>
+        <S.AboutBox>
+          <S.Line />
+          <S.About>
             학습자 데이터 기반 맞춤형 피드백 시스템 <br />
             1차 개발 완료했습니다.
-          </About>
-        </AboutBox>
-      </Box>
-    </Contianer>
+          </S.About>
+        </S.AboutBox>
+      </S.Box>
+    </S.Container>
   );
 }
+
 export default Results;
-
-export const Contianer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  @media (min-width: 768px) and (max-width: 1920px) {
-    width: 50%;
-  }
-`;
-
-export const Box = styled.div`
-  display: flex;
-  padding: 35px;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1 0 0;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid ${palette.hover.back2};
-  background: ${palette.background.white};
-  @media (min-width: 360px) and (max-width: 767px) {
-    padding: 20px;
-  }
-`;
-
-export const FelxBox = styled.div`
-  @media (min-width: 360px) and (max-width: 767px) {
-    display: flex;
-    align-items: flex-start;
-  }
-`;
-
-export const Year = styled.div`
-  color: ${palette.text.secondary};
-  font-size: 18px;
-  font-weight: 400;
-  margin: 3px 0 0;
-  @media (min-width: 360px) and (max-width: 767px) {
-    font-size: 14px;
-    margin-right: 3px;
-  }
-`;
-
-export const HeadLine = styled.h3`
-  color: ${palette.text.primary};
-  font-size: 20px;
-  font-weight: 600;
-  margin: 3px 0 10.5px;
-  @media (max-width: 767px) {
-    font-size: 16px;
-    font-weight: 500;
-  }
-`;
-
-export const AboutBox = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-export const Line = styled.div`
-  width: 3px;
-  height: 55px;
-  background: ${palette.text.secondary50};
-  flex: 0 0 3px;
-  display: block;
-  border-radius: 5px;
-  @media (max-width: 767px) {
-    height: 35px;
-  }
-`;
-
-export const About = styled.div`
-  color: ${palette.text.body};
-  font-size: 18px;
-  font-weight: 400;
-  @media (max-width: 767px) {
-    font-size: 14px;
-  }
-`;
