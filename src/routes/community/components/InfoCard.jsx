@@ -24,8 +24,6 @@
 import { useState } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
 
-import ArrowUp32 from '@assets/community/ic-arrow-up-32.svg?react';
-import ArrowUp24 from '@assets/community/ic-arrow-up-24.svg?react';
 import ArrowDown32 from '@assets/community/ic-arrow-down-32.svg?react';
 import ArrowDown24 from '@assets/community/ic-arrow-down-24.svg?react';
 
@@ -45,8 +43,8 @@ const InfoCard = ({ title, date, content }) => {
           <I.Title>{title}</I.Title>
           <I.Date>{date}</I.Date>
         </div>
-        {isMobile && <ArrowDown32 />}
-        {!isMobile && <ArrowDown24 />}
+        {isMobile && <ArrowDown24 />}
+        {!isMobile && <ArrowDown32 />}
       </I.TopWrapper>
 
       <div>
