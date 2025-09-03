@@ -21,10 +21,12 @@ import Banner from '@components/banner/Banner';
 import ScrollToTopButton from '@components/scroll/ScrollToTopButton';
 import DesktopMenu from '@components/menu/DesktopMenu';
 import { Outlet, useLocation } from 'react-router-dom';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 const Layout = () => {
   const location = useLocation();
   const showDesktopMenu = location.pathname !== '/';
+  const isDesktop = useMediaQuery('(min-width: 899px)');
 
   return (
     <>
@@ -32,7 +34,7 @@ const Layout = () => {
       <Banner />
       <main
         style={{
-          display: 'grid',
+          display: isDesktop ? 'grid' : 'unset',
           gridTemplateColumns: showDesktopMenu ? '280px 1fr' : '1fr',
           maxWidth: '100vw',
           margin: showDesktopMenu ? '100px auto' : 0,
