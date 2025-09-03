@@ -18,6 +18,7 @@
 import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 import Banner from '@components/banner/Banner';
+import ScrollToTopButton from '@components/scroll/ScrollToTopButton';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 };
