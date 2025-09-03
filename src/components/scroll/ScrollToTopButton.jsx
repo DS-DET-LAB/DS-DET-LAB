@@ -18,43 +18,43 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 import icArrowUp from '@assets/common/ic-arrow-up-40.svg';
 
+const Btn = styled.div`
+  cursor: pointer;
+  position: fixed;
+  right: 60px;
+  bottom: 40px;
+  z-index: 900;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 58px;
+  border: 1px solid ${palette.background.white30};
+  background: ${palette.background.white30};
+  box-shadow: 0 0 10px 0 rgba(18, 32, 102, 0.25);
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 767px) {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  transition: opacity 0.5s ease-in-out;
+  opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+  pointer-events: ${(props) => (props.$isVisible ? 'auto' : 'none')};
+`;
+
+const Icon = styled.img`
+  width: 30px;
+  height: auto;
+
+  @media (max-width: 767px) {
+    width: 20px;
+  }
+`;
+
 function ScrollToTop() {
   const [showButton, setShowButton] = useState(false);
-
-  const Btn = styled.div`
-    cursor: pointer;
-    position: fixed;
-    right: 60px;
-    bottom: 40px;
-    z-index: 900;
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 58px;
-    border: 1px solid ${palette.background.white30};
-    background: ${palette.background.white30};
-    box-shadow: 0 0 10px 0 rgba(18, 32, 102, 0.25);
-    backdrop-filter: blur(10px);
-
-    @media (max-width: 767px) {
-      right: 30px;
-      bottom: 30px;
-    }
-
-    transition: opacity 0.5s ease-in-out;
-    opacity: ${(props) => (props.$isVisible ? 1 : 0)};
-    pointer-events: ${(props) => (props.$isVisible ? 'auto' : 'none')};
-  `;
-
-  const Icon = styled.img`
-    width: 30px;
-    height: auto;
-
-    @media (max-width: 767px) {
-      width: 20px;
-    }
-  `;
 
   const scrollToTopHandler = () => {
     window.scrollTo({
