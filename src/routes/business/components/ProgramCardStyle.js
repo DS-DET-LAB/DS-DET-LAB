@@ -7,9 +7,12 @@ export const Card = styled.div`
   border-radius: 16px;
   background: ${palette.background.white};
   border: 1px solid ${palette.hover.back2};
+  align-self: flex-start;
 
   @media (max-width: 767px) {
-    width: 80%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
   }
 `;
 
@@ -41,12 +44,34 @@ export const LineIcon = styled.img``;
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 25px;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    gap: 20px;
+  }
 `;
 
 export const PWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 8px;
+`;
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+`;
+
+export const Content = styled.p`
+  color: ${palette.text.body};
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.45px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;

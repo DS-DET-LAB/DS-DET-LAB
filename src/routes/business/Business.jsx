@@ -16,6 +16,16 @@ import menuIcon from '@assets/center/menuToggle.svg';
 import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
+import mainBusiness from '@db/mainBusiness.json';
+
+const parseSubTitle = (subTitle) => {
+  const idxTarget = subTitle.indexOf('대상');
+  return {
+    target: idxTarget !== -1 ? subTitle.slice(0, idxTarget + 2) : subTitle,
+    desc: idxTarget !== -1 ? subTitle.slice(idxTarget + 2).trim() : '',
+  };
+};
+
 function Business() {
   const refs = useRef({ greeting: null, roles: null, org: null, contact: null });
   const setRef = (key) => (el) => {
@@ -211,17 +221,18 @@ function Business() {
           </B.IconWrapper>
 
           <B.ProgramCardWrapper>
-            <ProgramCard
-              title="2025 디지털 새싹"
-              target="초·중·고 학생 대상"
-              desc="인공지능(AI)·소프트웨어(SW) 융합 교육 프로그램"
-            />
-
-            <ProgramCard
-              title="2024-2025 찾아가는 학교 컨설팅"
-              target="전국 교원 대상"
-              desc="디지털 전환 맞춤형 컨설팅 프로그램"
-            />
+            {mainBusiness.map((item, idx) => {
+              const { target, desc } = parseSubTitle(item.subTitle);
+              return (
+                <ProgramCard
+                  key={item.title || idx}
+                  title={item.title}
+                  target={target}
+                  desc={desc}
+                  content={item.content}
+                />
+              );
+            })}
           </B.ProgramCardWrapper>
         </C.SectionWrapper>
       </C.Wrapper>
