@@ -5,6 +5,14 @@ export const NewsPage = styled.div`
   display: flex;
   /* justify-content: center; */
   gap: 125px;
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: calc(100% - 80px);
+    padding: 0 40px;
+  }
+  @media (max-width: 767px) {
+    width: calc(100% - 40px);
+    padding: 0 20px;
+  }
   padding-top: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '0')};
 `;
 
