@@ -10,7 +10,6 @@ import ArrowRight20 from '@assets/community/ic-arrow-right-20.svg?react';
 
 import Input from '@routes/community/components/Input';
 import DataCard from '@routes/community/components/DataCard';
-import CommunityHeader from '@routes/community/components/CommunityHeader';
 
 import * as I from '@info/InfoStyle';
 import * as D from '@data/DataStyle';
@@ -95,7 +94,6 @@ function Data() {
 
   return (
     <>
-      {(isTablet || isMobile) && <CommunityHeader />}
       <I.Info>
         <I.InfoWrapper ref={inputRef}>
           <I.InfoText>자료실</I.InfoText>

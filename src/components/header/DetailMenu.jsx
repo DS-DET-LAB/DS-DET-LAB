@@ -45,7 +45,6 @@ const DetailMenu = ({ type }) => {
   const handleMenuItemClick = (itemPath, itemHash) => {
     if (location.pathname === itemPath) {
       const element = document.getElementById(itemHash);
-      console.log(itemPath, itemHash);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
