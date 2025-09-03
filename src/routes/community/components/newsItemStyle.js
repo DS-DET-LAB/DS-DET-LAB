@@ -62,12 +62,9 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  height: 52px;
-
   @media (max-width: 767px) {
     font-size: 14px;
     font-weight: 400;
-    height: 37px;
   }
 `;
 

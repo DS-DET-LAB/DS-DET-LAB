@@ -18,10 +18,15 @@
  **/
 
 import * as N from '@community/components/newsItemStyle';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
   return (
-    <N.NewsItem href={url} target="_blank">
+    <N.NewsItem
+      href={url}
+      target="_blank"
+      style={{ minHeight: isMobile ? (isInsta ? '255px' : '174px') : isInsta ? '391px' : '253px' }}>
       {isYoutube ? (
         <N.Youtube
           src={img}
