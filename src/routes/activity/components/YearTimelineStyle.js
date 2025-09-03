@@ -12,7 +12,7 @@ export const Grid = styled.div`
   grid-template-columns: auto 24px; /* 왼쪽: 연도, 오른쪽: 점 */
   grid-auto-rows: auto;
   align-content: start;
-  align-items: start;
+  align-items: center;
   column-gap: 16px;
   row-gap: 72px;
 `;

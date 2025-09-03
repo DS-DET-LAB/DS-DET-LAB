@@ -14,8 +14,9 @@ export const Grid = styled.div`
   @media (max-width: 960px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  @media (max-width: 560px) {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
+    padding: 0px;
   }
 `;
 
@@ -143,11 +144,11 @@ export const ErrorMsg = styled.div`
   font-size: 14px;
 `;
 
-/* 모바일(360–767px) */
+/* 모바일( ~ 767px) */
 export const MobileScroller = styled.div`
   /* 가로 슬라이더 컨테이너 */
   display: none;
-  @media (min-width: 360px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     display: flex;
     overflow-x: auto;
     gap: 12px;
@@ -165,9 +166,9 @@ export const MobileScroller = styled.div`
 
 /* 슬라이드 아이템 (카드 확장) */
 export const MobileCard = styled(Card)`
-  @media (min-width: 360px) and (max-width: 767px) {
-    aspect-ratio: auto; /* Card 기본 16/9 비율 무효화 */
-    flex: 0 0 180px; /* 슬라이드 한 칸 폭 고정 */
+  @media (max-width: 767px) {
+    aspect-ratio: auto;
+    flex: 0 0 180px;
     width: 180px;
     height: 101px;
     scroll-snap-align: start;
@@ -177,8 +178,8 @@ export const MobileCard = styled(Card)`
 /* 슬라이드 아래 큰 플레이어 */
 export const MobileExpanded = styled.div`
   display: none;
-  @media (min-width: 360px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     display: block;
-    padding: 8px 12px 0;
+    padding-top: 20px;
   }
 `;

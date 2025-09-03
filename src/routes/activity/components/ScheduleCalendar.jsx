@@ -72,8 +72,8 @@ export default function MajorScheduleCalendar({
   pageSize = 5,
 }) {
   const init = initialMonth ? toDate(initialMonth) : new Date();
-  const [viewYear, setViewYear] = useState(init.getFullYear());
-  const [viewMonth, setViewMonth] = useState(init.getMonth());
+  const [viewYear, setViewYear] = useState(startOfDayLocal(new Date()).getFullYear());
+  const [viewMonth, setViewMonth] = useState(startOfDayLocal(new Date()).getMonth());
   const [selectedDate, setSelectedDate] = useState(null);
   const [page, setPage] = useState(0);
 
@@ -139,8 +139,17 @@ export default function MajorScheduleCalendar({
     onDateSelect && onDateSelect(null);
   };
   const handleSelect = (d) => {
-    setSelectedDate(d);
-    onDateSelect && onDateSelect(d);
+    const isSame = selectedDate && dateKey(selectedDate) === dateKey(d);
+
+    if (isSame) {
+      // 같은 날짜 다시 클릭 시 선택 해제
+      setSelectedDate(null);
+      onDateSelect && onDateSelect(null);
+    } else {
+      // 다른 날짜 클릭 시 해당 날짜 선택
+      setSelectedDate(d);
+      onDateSelect && onDateSelect(d);
+    }
   };
 
   const cells = [];

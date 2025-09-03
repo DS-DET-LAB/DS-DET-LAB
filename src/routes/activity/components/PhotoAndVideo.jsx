@@ -60,7 +60,7 @@ export default function PhotoAndVideo({
   const playlistId = useMemo(() => getPlaylistId(playlist), [playlist]);
 
   // 모바일(360~767)
-  const isMobile = useMediaQuery('(min-width: 360px) and (max-width: 767px)');
+  const isMobile = useMediaQuery('(min-width: 0px) and (max-width: 767px)');
   const scrollerRef = useRef(null);
 
   // 썸네일 데이터만 불러옴
