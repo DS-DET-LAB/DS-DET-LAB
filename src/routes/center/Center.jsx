@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
+import centerTime from '@db/centerTime.json';
+import departmentMail from '@db/departmentMail.json';
 
 import CenterCard from '@center/components/CenterCard';
 import PersonalCard from '@center/components/PersonalCard';
@@ -168,9 +170,9 @@ function Center() {
           <C.SubWrapper>
             <C.LineIcon src={LineIcon} alt="줄" />
             <C.PWrapper>
-              <C.PSbub>센터 운영 시간 (응대 가능 시간)</C.PSbub>
+              <C.PSbub>{centerTime.title}</C.PSbub>
               <C.PSbub>
-                평일 <C.SpanExtraSub>09:00 - 17:00</C.SpanExtraSub> (주말 및 공휴일 휴무)
+                평일 <C.SpanExtraSub>{centerTime.time}</C.SpanExtraSub> (주말 및 공휴일 휴무)
               </C.PSbub>
             </C.PWrapper>
           </C.SubWrapper>
@@ -184,12 +186,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>찾아가는 학교 컨설팅 운영팀</C.LabelP>
+            <C.LabelP>{departmentMail.부서[1].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>digitaled.ds@gmail.com</C.LabelP>
+            <C.LabelP>{departmentMail.부서[1].text}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>
@@ -202,12 +204,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>디지털 새싹 운영팀</C.LabelP>
+            <C.LabelP>{departmentMail.부서[0].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>digitalseed.ds@gmail.com</C.LabelP>
+            <C.LabelP>{departmentMail.부서[0].text}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>

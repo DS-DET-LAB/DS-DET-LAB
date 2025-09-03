@@ -285,9 +285,11 @@ export const PWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 40px 0;
+  gap: 5px;
 
   @media (max-width: 767px) {
     margin: 0;
+    gap: 3px;
   }
 `;
 
