@@ -3,15 +3,16 @@ import palette from '@styles/theme';
 
 export const Wrap = styled.section`
   width: 100%;
-  background: #fff;
   border-radius: 16px;
   margin: 0 auto;
 `;
 
 export const CalendarArea = styled.div`
-  width: clamp(300px, 92vw, 360px);
+  width: 100%;
+  max-width: 438px;
   margin: 0 auto;
-  padding: 0 8px;
+  box-sizing: border-box;
+  --cell-size: clamp(32px, calc((100% - 6 * 8px) / 7), 44px);
 `;
 
 export const Header = styled.div`
@@ -32,14 +33,13 @@ export const ArrowButton = styled.button`
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
+  background: ${palette.hover.back1};
   color: #4b5563;
   display: grid;
   place-items: center;
   cursor: pointer;
   &:hover {
-    background: #eef2ff;
+    background: rgb(231, 232, 239);
   }
 `;
 
@@ -56,16 +56,20 @@ export const WeekHeader = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  box-sizing: border-box;
+  gap: 8px; /* 셀 간격 복구/유지 */
   padding: 0 8px 12px;
 `;
 
 export const Empty = styled.div`
-  height: 44px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 빈 칸도 정사각형로 맞춤 */
 `;
 
 export const DayCell = styled.button`
-  height: 44px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
   background: #ffffff;
   position: relative;
@@ -88,6 +92,12 @@ export const DayCell = styled.button`
     background: ${palette.hover.back2};
   }
   &:hover {
+    background: ${palette.hover.back2};
+  }
+  &&:not([data-selected]):hover {
+    background: ${palette.hover.back1};
+  }
+  &&:not([data-selected]):active {
     background: ${palette.hover.back2};
   }
 `;
@@ -113,7 +123,7 @@ export const EmptyList = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 8px 8px;
+  padding: 30px 8px 8px;
 `;
 
 export const EmptyText = styled.div`
@@ -148,16 +158,16 @@ export const DateBadge = styled.span`
 `;
 
 export const ListContainer = styled.div`
-  width: clamp(320px, 92vw, 1040px);
+  width: clamp(92vw, 1040px);
   margin: 16px auto 0;
-  padding: 0 8px;
+  padding: 0;
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 0 8px 12px;
+  padding: 0 0px 12px;
 `;
 
 export const ListItem = styled.li`
@@ -169,12 +179,15 @@ export const ListItem = styled.li`
   border-radius: 16px;
   border: 1px solid #eef2f7;
   background: #fff;
+  &:hover {
+    box-shadow: 0 0 15px rgba(17, 34, 6, 0.1);
+  }
 
   @media (max-width: 520px) {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  @media (min-width: 360px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     padding: 20px;
   }
 

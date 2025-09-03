@@ -8,14 +8,14 @@ export const Contianer = styled.div`
   gap: 20px;
   width: 100%;
 
-  /* 360~767px: 좌우 여백 줄이기 */
-  @media (min-width: 360px) and (max-width: 767px) {
+  /* ~767px: 좌우 여백 줄이기 */
+  @media (max-width: 767px) {
     flex-direction: column;
   }
 `;
 
 export const FelxBox = styled.div`
-  @media (min-width: 360px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     display: flex;
     align-items: flex-start;
   }
@@ -32,7 +32,7 @@ export const Box = styled.div`
   border-radius: 10px;
   border: 1px solid ${palette.hover.back2};
   background: ${palette.background.white};
-  @media (min-width: 360px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     padding: 20px;
   }
 `;
@@ -41,8 +41,8 @@ export const Year = styled.div`
   color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
-  margin: 3px 0 0;
-  @media (min-width: 360px) and (max-width: 767px) {
+  margin: 3.5px 0 0;
+  @media (max-width: 767px) {
     font-size: 14px;
     margin-right: 3px;
   }
