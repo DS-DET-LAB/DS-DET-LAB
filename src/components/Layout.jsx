@@ -35,8 +35,8 @@ const Layout = () => {
           display: 'grid',
           gridTemplateColumns: showDesktopMenu ? '280px 1fr' : '1fr',
           maxWidth: '100vw',
-          margin: '100px auto',
-          padding: '0 60px',
+          margin: showDesktopMenu ? '100px auto' : 0,
+          padding: showDesktopMenu ? '0 60px' : 0,
         }}>
         {showDesktopMenu && <DesktopMenu />}
         <div style={{ minWidth: 0 }}>
