@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Pretendard';
     background-color: #fff;
     margin: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     min-width: 100vw;
     min-height: 100dvh;
 

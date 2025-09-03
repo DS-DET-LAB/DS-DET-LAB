@@ -17,6 +17,8 @@ import logoInsta12 from '@assets/footer/logo-insta-12.svg';
 import logoInsta24 from '@assets/footer/logo-insta-24.svg';
 import logoYoutube12 from '@assets/footer/logo-youtube-12.svg';
 import logoYoutube24 from '@assets/footer/logo-youtube-24.svg';
+import socialAccount from '@db/socialAccount.json';
+import centerTime from '@db/centerTime.json';
 
 const Footer = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -32,9 +34,9 @@ const Footer = () => {
       </F.FooterInner>
       <F.FooterInner>
         <F.FooterTitle>문의</F.FooterTitle>
-        <F.InfoText>시간 | 평일 09:00 - 17:00 (주말 및 공휴일 휴무)</F.InfoText>
-        <F.InfoText>전화 | 02-904-8224</F.InfoText>
-        <F.InfoText>메일 | digitalseed.dsu@gmail.com</F.InfoText>
+        <F.InfoText>시간 | 평일 {centerTime.time} (주말 및 공휴일 휴무)</F.InfoText>
+        <F.InfoText>전화 | {socialAccount.phone}</F.InfoText>
+        <F.InfoText>메일 | {socialAccount.mail}</F.InfoText>
         <F.InfoText>주소 | 덕성여자대학교, 01369, 서울 도봉구 삼양로144길 33 (쌍문동, 덕성여자대학교)</F.InfoText>
       </F.FooterInner>
       <LinkToggle />
@@ -43,17 +45,11 @@ const Footer = () => {
         <F.Website>Website by 덕성여대 멋쟁이사자처럼</F.Website>
       </F.FooterInner>
       <F.IconContainer>
-        <F.Icon onClick={() => window.open('https://www.instagram.com/ds.digitaledu/', '_blank')}>
+        <F.Icon onClick={() => window.open(socialAccount.instagram, '_blank')}>
           <img src={isMobile ? logoInsta12 : logoInsta24} alt="인스타그램" />
           {isMobile && <>Instagram</>}
         </F.Icon>
-        <F.Icon
-          onClick={() =>
-            window.open(
-              'https://www.youtube.com/@DS%EB%94%94%EC%A7%80%ED%84%B8%EA%B5%90%EC%9C%A1%EA%B3%B5%ED%95%99%EC%84%BC%ED%84%B0',
-              '_blank',
-            )
-          }>
+        <F.Icon onClick={() => window.open(socialAccount.youtube, '_blank')}>
           <img src={isMobile ? logoYoutube12 : logoYoutube24} alt="유튜브" />
           {isMobile && <>Youtube</>}
         </F.Icon>

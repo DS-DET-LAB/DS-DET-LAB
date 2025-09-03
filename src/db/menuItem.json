@@ -1,0 +1,30 @@
+{
+  "center": [
+    { "type": "subtitle", "name": "인사말", "path": "/center", "hash": "greeting" },
+    { "type": "subtitle", "name": "비전/소개", "path": "/center", "hash": "vision" },
+    { "type": "content", "name": "역할과 전망", "path": "/center", "hash": "vision-overview" },
+    { "type": "subtitle", "name": "조직도 및 구성원", "path": "/center", "hash": "organization" },
+    { "type": "content", "name": "조직 체계", "path": "/center", "hash": "organization-structure" },
+    { "type": "content", "name": "담당자 정보 및 연락처", "path": "/center", "hash": "contact" }
+  ],
+  "business": [
+    { "type": "subtitle", "name": "사업 개요", "path": "/business", "hash": "overview" },
+    { "type": "content", "name": "센터 설립 목적", "path": "/business", "hash": "purpose" },
+    { "type": "subtitle", "name": "사업 소개", "path": "/business", "hash": "introduction" },
+    { "type": "content", "name": "핵심 연구 분야", "path": "/business", "hash": "research-area" },
+    { "type": "content", "name": "주요 사업", "path": "/business", "hash": "main-projects" }
+  ],
+  "activity": [
+    { "type": "subtitle", "name": "활동 계획", "path": "/activity", "hash": "plan" },
+    { "type": "content", "name": "연도별/분기별 계획표", "path": "/activity", "hash": "yearly-quarterly-plan" },
+    { "type": "content", "name": "주요 일정", "path": "/activity", "hash": "schedule" },
+    { "type": "content", "name": "향후 예정 사업 소개", "path": "/activity", "hash": "upcoming-projects" },
+    { "type": "subtitle", "name": "성과", "path": "/activity", "hash": "results" },
+    { "type": "content", "name": "완료된 사업 목록", "path": "/activity", "hash": "completed-projects" }
+  ],
+  "community": [
+    { "type": "subtitle", "name": "공지사항", "path": "/community/info" },
+    { "type": "subtitle", "name": "자료실", "path": "/community/data" },
+    { "type": "subtitle", "name": "센터 소식", "path": "/community/news" }
+  ]
+}
