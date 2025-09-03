@@ -259,7 +259,7 @@ export const SubWrapper = styled.div`
 `;
 
 export const PSbub = styled.p`
-  color: ${palette.textPrimary};
+  color: ${palette.text.primary};
   font-size: 18px;
   font-weight: 600;
   margin: 0;
