@@ -95,11 +95,15 @@ export const PageControll = styled.div`
   }
 `;
 
-export const PagingIcon = styled.div`
-  width: 40px;
-  color: ${palette.text.secondary50};
+export const PagingBtn = styled.div`
+  width: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '40px')};
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${({ viewport }) => (viewport === 'mobile' ? '7px' : '15px')};
+`;
 
-  @media (max-width: 767px) {
-    width: 20px;
-  }
+export const PagingIcon = styled.img`
+  color: ${palette.text.secondary50};
 `;
