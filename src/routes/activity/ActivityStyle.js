@@ -17,11 +17,12 @@ export const Container = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 0 40px 0;
 
   /* ≤1279px (태블릿) */
-  @media (max-width: 1279px) {
+  @media (max-width: 900px) {
     gap: 40px;
-    padding: 56px 40px;
+    padding: 0 80px;
   }
 
   /* ≤767px (모바일) */
@@ -59,11 +60,14 @@ export const ToggleName = styled.div`
   }
 
   @media (max-width: 1279px) {
-    margin-bottom: 20px;
   }
   @media (max-width: 767px) {
     font-size: 16px;
-    margin-bottom: 16px;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
   }
 `;
 
@@ -75,13 +79,13 @@ export const BranchContainer = styled.div`
   min-width: 0;
 
   @media (max-width: 1279px) {
-    gap: 48px;
+    gap: 100px;
     padding-top: 20px;
   }
 
   @media (max-width: 767px) {
     flex-direction: column;
-    gap: 24px;
+    gap: 50px;
     padding-top: 16px;
   }
 `;
@@ -151,6 +155,7 @@ export const ListContainer = styled.div`
   border: 1px solid ${palette.hover.back2};
   width: min(100%);
   margin: 0 auto;
+  transition: box-shadow 300ms ease;
 
   @media (max-width: 1279px) {
     padding: 18px 14px;

@@ -13,6 +13,10 @@ export const Grid = styled.div`
   padding: 0 100px;
   @media (max-width: 960px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 30px;
+  }
+  @media (max-width: 900px) {
+    padding: 30px;
   }
   @media (max-width: 767px) {
     grid-template-columns: 1fr;

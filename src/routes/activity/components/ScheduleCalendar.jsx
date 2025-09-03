@@ -34,6 +34,8 @@
 
 import React, { useMemo, useState } from 'react';
 import * as S from '@routes/activity/components/ScheduleCalendarStyle';
+import Right from '@assets/activity/ic-right-555.svg';
+import Left from '@assets/activity/ic-left-555.svg';
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -161,13 +163,13 @@ export default function MajorScheduleCalendar({
       <S.CalendarArea>
         <S.Header>
           <S.ArrowButton onClick={goPrevMonth} aria-label="이전 달">
-            ‹
+            <img src={Left} width={6} height={10} />
           </S.ArrowButton>
           <S.MonthTitle>
             {viewYear}.{`${viewMonth + 1}`.padStart(2, '0')}
           </S.MonthTitle>
           <S.ArrowButton onClick={goNextMonth} aria-label="다음 달">
-            ›
+            <img src={Right} width={6} height={10} />
           </S.ArrowButton>
         </S.Header>
 
@@ -210,7 +212,10 @@ export default function MajorScheduleCalendar({
                 <span className="ymd">{formatYYMMDD(selectedDate)}</span>
                 <span className="weekday">{WEEKDAYS[selectedDate.getDay()]}요일</span>
               </S.DateBadge>
-              <S.EmptyText>일정이 없습니다.</S.EmptyText>
+              <S.EmptyText>
+                <span className="bullet" />
+                일정이 없습니다.
+              </S.EmptyText>
             </S.EmptyList>
           </S.ListContainer>
         ) : (
