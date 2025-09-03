@@ -40,13 +40,13 @@ const InfoCard = ({ title, date, content }) => {
 
   return (
     <I.InfoCard onClick={() => setShowAll((prev) => !prev)}>
-      <I.TopWrapper>
+      <I.TopWrapper $isOpen={showAll}>
         <div>
           <I.Title>{title}</I.Title>
           <I.Date>{date}</I.Date>
         </div>
-        {!isMobile && (showAll ? <ArrowUp32 /> : <ArrowDown32 />)}
-        {isMobile && (showAll ? <ArrowUp24 /> : <ArrowDown24 />)}
+        {isMobile && <ArrowDown32 />}
+        {!isMobile && <ArrowDown24 />}
       </I.TopWrapper>
 
       <div>

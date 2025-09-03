@@ -29,6 +29,11 @@ export const TopWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  svg {
+    transition: transform 0.3s ease;
+    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  }
 `;
 
 export const Title = styled.p`
