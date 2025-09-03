@@ -29,7 +29,7 @@ const Banner = () => {
     <img
       src={getBannerImage()}
       alt="배너"
-      style={{ width: '100%', height: 'auto', boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.05)' }}
+      style={{ display: 'block', width: '100vw', height: 'auto', boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.05)' }}
     />
   );
 };
