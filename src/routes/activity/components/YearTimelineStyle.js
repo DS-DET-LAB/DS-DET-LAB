@@ -24,7 +24,7 @@ export const Rail = styled.div`
   top: 0;
   bottom: 0;
   width: 2px;
-  height: 320px; /* 기존 코드 유지 */
+  height: 320px;
   background: linear-gradient(180deg, ${(p) => p.$rail} 0%, ${(p) => p.$rail} 75%, rgba(152, 161, 189, 0) 100%);
   border-radius: 1px;
   z-index: 1;
@@ -39,7 +39,7 @@ export const YearLabel = styled.div`
   grid-column: 1;
   user-select: none;
   font-weight: ${(p) => (p.$active ? 800 : 600)};
-  font-size: ${(p) => (p.$active ? '28px' : '24px')};
+  font-size: 20px;
   line-height: 1;
   color: ${(p) => (p.$active ? p.$primary : p.$muted)};
   cursor: ${(p) => (p.onClick ? 'pointer' : 'default')};
