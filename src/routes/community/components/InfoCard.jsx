@@ -37,7 +37,7 @@ const InfoCard = ({ title, date, content }) => {
   const displaySentence = `${firstSentence}.\n...`;
 
   return (
-    <I.InfoCard onClick={() => setShowAll((prev) => !prev)}>
+    <I.InfoCard onClick={() => setShowAll((prev) => !prev)} $showAll={showAll}>
       <I.TopWrapper $isOpen={showAll}>
         <div>
           <I.Title>{title}</I.Title>

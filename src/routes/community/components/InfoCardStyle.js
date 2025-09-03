@@ -20,6 +20,8 @@ export const InfoCard = styled.div`
 
   transition: 300ms ease;
 
+  box-shadow: ${({ $showAll }) => $showAll && `0 0 15px 0 ${palette.mainNavy.navy10}`};
+
   &:hover {
     box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
   }
