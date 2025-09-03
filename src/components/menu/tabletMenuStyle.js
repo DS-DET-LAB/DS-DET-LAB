@@ -1,16 +1,24 @@
 import styled from 'styled-components';
 import palette from '@styles/theme';
 
-export const MenuContainer = styled.div`
+export const BackContainer = styled.div`
+  width: 100vw;
+  height: 100dvh;
   position: fixed;
+  z-index: 999;
   top: 0;
   right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const MenuContainer = styled.div`
   width: calc(50% - 100px);
-  height: calc(100dvh - 20px);
+  height: calc(100% - 12px);
   background: linear-gradient(0deg, rgba(18, 32, 102, 0.1) 0%, rgba(18, 32, 102, 0.1) 100%), #fff;
   box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.25);
   padding: 20px 30px 0 70px;
-  z-index: 999;
 `;
 
 export const Close = styled.div`
