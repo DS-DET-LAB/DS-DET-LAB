@@ -28,6 +28,8 @@ export const SectionWrapper = styled.section`
   flex-direction: column;
   flex: 1;
   position: relative;
+  min-width: 0;
+  box-sizing: border-box;
 
   @media (min-width: 768px) and (max-width: 899px) {
     overflow: visible;
@@ -101,7 +103,7 @@ export const TextBody = styled.p`
 `;
 
 export const Body = styled.div`
-  max-width: 90%;
+  max-width: 100%;
 
   &:nth-of-type(3) {
     margin: 20px 0 70px;
