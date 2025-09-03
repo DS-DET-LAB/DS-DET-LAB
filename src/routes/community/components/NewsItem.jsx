@@ -35,7 +35,9 @@ function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></N.Youtube>
       ) : (
-        <N.Img src={img} style={isInsta ? { aspectRatio: 1, height: 'auto' } : undefined} />
+        <N.ImgWrapper style={isInsta ? { aspectRatio: 1, height: 'auto' } : undefined}>
+          <N.Img src={img} />
+        </N.ImgWrapper>
       )}
       <N.NewsInfo>
         <N.Title>{title}</N.Title>
