@@ -143,11 +143,6 @@ export const Pagination = styled.button`
 
   position: relative;
 
-  svg {
-    position: absolute;
-    inset: 0;
-  }
-
   &:disabled {
     cursor: not-allowed;
     background-color: ${palette.text.secondary50};
@@ -157,10 +152,5 @@ export const Pagination = styled.button`
     width: 20px;
     height: 20px;
     border-radius: 7px;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
   }
 `;

@@ -20,6 +20,8 @@ export const InfoCard = styled.div`
 
   transition: 300ms ease;
 
+  box-shadow: ${({ $showAll }) => $showAll && `0 0 15px 0 ${palette.mainNavy.navy10}`};
+
   &:hover {
     box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
   }
@@ -29,6 +31,11 @@ export const TopWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  svg {
+    transition: transform 0.3s ease;
+    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  }
 `;
 
 export const Title = styled.p`
