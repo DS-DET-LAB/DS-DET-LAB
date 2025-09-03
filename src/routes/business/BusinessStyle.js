@@ -27,6 +27,7 @@ export const CardWrapper = styled.div`
 `;
 
 export const VisionSectionWrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -53,7 +54,7 @@ export const BizWrapper = styled.div`
 `;
 
 export const ProgramCardWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   gap: 20px;
   outline: none;
