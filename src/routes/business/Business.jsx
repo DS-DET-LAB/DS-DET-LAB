@@ -58,31 +58,14 @@ function Business() {
         </C.BreadcrumbBar>
       )}
       <C.Wrapper>
-        <C.Sidebar>
-          <C.Center>사업 안내</C.Center>
-          <C.Float type="button" onClick={() => scrollTo('businessOverview')}>
-            사업 개요
-          </C.Float>
-          <C.Float type="button" onClick={() => scrollTo('roles')}>
-            센터 설립 목적
-          </C.Float>
-          <C.Float type="button" onClick={() => scrollTo('org')}>
-            사업 소개
-          </C.Float>
-          <C.Float type="button" onClick={() => scrollTo('contact')}>
-            핵심 연구 분야
-          </C.Float>
-          <C.Float type="button" onClick={() => scrollTo('businessProjects')}>
-            주요 사업
-          </C.Float>
-        </C.Sidebar>
-
         <C.SectionWrapper>
-          <C.Title ref={setRef('businessOverview')}>사업 개요</C.Title>
+          <C.Title id="overview" ref={setRef('businessOverview')}>
+            사업 개요
+          </C.Title>
 
           <B.IconWrapper ref={setRef('roles')}>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>센터 설립 목적</C.SubTitle>
+            <C.SubTitle id="purpose">센터 설립 목적</C.SubTitle>
           </B.IconWrapper>
 
           <B.VisionSectionWrapper>
@@ -109,10 +92,12 @@ function Business() {
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
 
-          <C.Title ref={setRef('org')}>사업 소개</C.Title>
+          <C.Title id="introduction" ref={setRef('org')}>
+            사업 소개
+          </C.Title>
           <B.IconWrapper ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>핵심 연구 분야</C.SubTitle>
+            <C.SubTitle id="research-area">핵심 연구 분야</C.SubTitle>
           </B.IconWrapper>
 
           <B.BizWrapper>
@@ -217,7 +202,7 @@ function Business() {
           </B.BizWrapper>
           <B.IconWrapper ref={setRef('businessProjects')}>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>주요 사업</C.SubTitle>
+            <C.SubTitle id="main-projects">주요 사업</C.SubTitle>
           </B.IconWrapper>
 
           <B.ProgramCardWrapper>

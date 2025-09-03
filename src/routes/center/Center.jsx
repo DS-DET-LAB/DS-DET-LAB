@@ -41,8 +41,6 @@ function Center() {
   const setRef = (key) => (el) => {
     refs.current[key] = el;
   };
-  const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
@@ -68,28 +66,8 @@ function Center() {
         </C.BreadcrumbBar>
       )}
       <C.Wrapper>
-        {isTablet ? (
-          <></>
-        ) : (
-          <C.Sidebar>
-            <C.Center>센터 소개</C.Center>
-            <C.Float type="button" onClick={() => scrollTo('greeting')}>
-              인사말
-            </C.Float>
-            <C.Float type="button" onClick={() => scrollTo('roles')}>
-              역할과 전망
-            </C.Float>
-            <C.Float type="button" onClick={() => scrollTo('org')}>
-              조직도
-            </C.Float>
-            <C.Float type="button" onClick={() => scrollTo('contact')}>
-              담당자
-            </C.Float>
-          </C.Sidebar>
-        )}
-
         <C.SectionWrapper>
-          <C.Title less-margin="true" ref={setRef('greeting')}>
+          <C.Title less-margin="true" id="greeting" ref={setRef('greeting')}>
             인사말
           </C.Title>
           <C.Body>
@@ -101,7 +79,7 @@ function Center() {
           </C.Body>
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
-          <C.Title>비전/소개</C.Title>
+          <C.Title id="vision">비전/소개</C.Title>
           <C.IconWrapper less-margin="true">
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>비전과 소개</C.SubTitle>
@@ -127,7 +105,7 @@ function Center() {
 
           <C.IconWrapper ref={setRef('roles')}>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>역할과 전망</C.SubTitle>
+            <C.SubTitle id="vision-overview">역할과 전망</C.SubTitle>
           </C.IconWrapper>
 
           <C.WrapWrapper>
@@ -150,10 +128,12 @@ function Center() {
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
 
-          <C.Title ref={setRef('org')}>조직도 및 구성원</C.Title>
+          <C.Title id="organization" ref={setRef('org')}>
+            조직도 및 구성원
+          </C.Title>
           <C.IconWrapper>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>조직 체계</C.SubTitle>
+            <C.SubTitle id="organization-structure">조직 체계</C.SubTitle>
           </C.IconWrapper>
 
           <C.OrganiCardWrapper>
@@ -164,7 +144,7 @@ function Center() {
 
           <C.IconWrapper no-margin="true" ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>담당자 정보 및 연락처</C.SubTitle>
+            <C.SubTitle id="contact">담당자 정보 및 연락처</C.SubTitle>
           </C.IconWrapper>
 
           <C.SubWrapper>

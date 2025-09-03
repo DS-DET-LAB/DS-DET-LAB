@@ -16,6 +16,7 @@ export const Container = styled.div`
 
 export const Item = styled.div`
   cursor: pointer;
+  transition: 300ms ease;
   padding: 10px 18px;
   white-space: nowrap;
   border-radius: 10px;
