@@ -43,14 +43,14 @@ function NoticeCard({ category, title, date, content }) {
       duration={fadeTime.duration}
       distance="20px"
       delay={fadeTime.delay}>
-      <>
+      <div>
         <N.TopContainer>
           <Chip text={category} />
           <N.Title $viewport={viewport}>{title}</N.Title>
           <N.Date $viewport={viewport}>{date}</N.Date>
         </N.TopContainer>
         <N.Content $viewport={viewport}>{content}</N.Content>
-      </>
+      </div>
     </N.Container>
   );
 }

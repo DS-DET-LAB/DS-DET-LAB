@@ -43,7 +43,7 @@ function BusinessCard({ category, title, subTitle, content }) {
       duration={fadeTime.duration}
       distance="20px"
       delay={fadeTime.delay}>
-      <>
+      <div>
         <B.TopContainer>
           <Chip text={category} />
           <B.Title $viewport={viewport}>{title}</B.Title>
@@ -53,7 +53,7 @@ function BusinessCard({ category, title, subTitle, content }) {
           </B.SubContainer>
         </B.TopContainer>
         <B.Content $viewport={viewport}>{content}</B.Content>
-      </>
+      </div>
     </B.Container>
   );
 }
