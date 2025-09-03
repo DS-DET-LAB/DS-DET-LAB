@@ -8,6 +8,14 @@ export const Card = styled.div`
   background: ${palette.background.white};
   border: 1px solid ${palette.hover.back2};
   align-self: flex-start;
+  outline: none;
+  cursor: pointer;
+  box-shadow: ${({ $isOpen }) => ($isOpen ? `0 0 15px 0 ${palette.mainNavy.navy10}` : 'none')};
+
+  &:hover {
+    box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+    transition: transform 0.3s ease;
+  }
 
   @media (max-width: 767px) {
     width: 100%;
@@ -70,8 +78,20 @@ export const Content = styled.p`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.45px;
+  margin: 0;
 
   @media (max-width: 767px) {
     font-size: 14px;
   }
+`;
+
+export const Chevron = styled.img`
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+`;
+
+export const DivWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

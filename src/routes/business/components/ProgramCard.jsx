@@ -21,6 +21,7 @@
 import * as S from '@business/components/ProgramCardStyle';
 import lineIcon from '@assets/center/line.svg';
 import React, { useState, useCallback } from 'react';
+import DownToggle from '@assets/business/downToggle.svg';
 
 function ProgramCard({ title, target, desc, content }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +38,17 @@ function ProgramCard({ title, target, desc, content }) {
   }, []);
 
   return (
-    <S.Card role="button" tabIndex={0} aria-expanded={isOpen} onClick={handleToggle} onKeyDown={handleKeyDown}>
-      <S.Title>{title}</S.Title>
+    <S.Card
+      role="button"
+      tabIndex={0}
+      $isOpen={isOpen}
+      aria-expanded={isOpen}
+      onClick={handleToggle}
+      onKeyDown={handleKeyDown}>
+      <S.DivWrapper>
+        <S.Title>{title}</S.Title>
+        <S.Chevron $isOpen={isOpen} src={DownToggle} alt="" />
+      </S.DivWrapper>
 
       <S.Wrapper>
         <S.PWrapper>
@@ -48,6 +58,7 @@ function ProgramCard({ title, target, desc, content }) {
             <S.Desc>{desc}</S.Desc>
           </S.TitleWrapper>
         </S.PWrapper>
+
         {isOpen && <S.Content>{content}</S.Content>}
       </S.Wrapper>
     </S.Card>

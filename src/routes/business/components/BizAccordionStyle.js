@@ -23,9 +23,11 @@ export const Item = styled.div`
   border-radius: 16px;
   border: 1px solid ${palette.hover.back2};
   box-shadow: ${({ $open }) => ($open ? `0 0 15px 0 ${palette.mainNavy.navy10}` : 'none')};
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+    transition: transform 0.3s ease;
   }
 `;
 
