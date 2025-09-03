@@ -9,9 +9,10 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-
+  justify-content: center; /* 가운데 정렬 */
+  padding: 0 100px;
   @media (max-width: 960px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
@@ -20,16 +21,15 @@ export const Grid = styled.div`
 
 export const Card = styled.button`
   position: relative;
+  isolation: isolate;
   padding: 0;
   border: 0;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 6px 20px rgba(10, 22, 70, 0.08);
   cursor: pointer;
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  width: 295px;
-  height: 166px;
 
   /* 썸네일 로딩 전 체크보드*/
   background-image:
@@ -42,9 +42,29 @@ export const Card = styled.button`
     12px -12px,
     -12px 0;
 
-  /* 호버 시 이미지 1.1배 */
   &:hover img {
     transform: scale(1.1);
+  }
+
+  /*재생 중(선택) 시 어두운 오버레이 */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0); /* 기본 투명 */
+    transition: background 160ms ease;
+    pointer-events: none;
+  }
+  img {
+    transition:
+      transform 180ms ease,
+      filter 160ms ease;
+  }
+  &[data-active]::after {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  &[data-active] img {
+    filter: brightness(0.75);
   }
 `;
 
@@ -56,20 +76,7 @@ export const Thumb = styled.img`
   transition: transform 180ms ease;
 `;
 
-export const Title = styled.div`
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 10px;
-  font-weight: 700;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  pointer-events: none;
-`;
-
-/* 클릭 시 생성되는 확장 플레이어 행 (그리드 전체 폭 사용) */
+/* 클릭 시 생성되는 확장 플레이어 행 */
 export const Expanded = styled.div`
   grid-column: 1 / -1;
 `;
@@ -77,7 +84,7 @@ export const Expanded = styled.div`
 export const PlayerBox = styled.div`
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
   background: #000;
   box-shadow: 0 10px 28px rgba(10, 22, 70, 0.16);
@@ -95,15 +102,18 @@ export const PlayerBox = styled.div`
 
 export const Pager = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 15px;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 25px;
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
 `;
 
 export const IconBtn = styled.button`
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
   border: none;
   background: ${palette.mainNavy?.navy100 || '#1f2d64'};
   display: grid;
@@ -119,6 +129,11 @@ export const IconBtn = styled.button`
   &:not(:disabled):active {
     transform: scale(0.96);
   }
+  @media (min-width: 767px) {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+  }
 `;
 
 export const ErrorMsg = styled.div`
@@ -126,4 +141,44 @@ export const ErrorMsg = styled.div`
   text-align: center;
   margin-top: 12px;
   font-size: 14px;
+`;
+
+/* 모바일(360–767px) */
+export const MobileScroller = styled.div`
+  /* 가로 슬라이더 컨테이너 */
+  display: none;
+  @media (min-width: 360px) and (max-width: 767px) {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 0 12px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  @media (max-width: 767px) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+`;
+
+/* 슬라이드 아이템 (카드 확장) */
+export const MobileCard = styled(Card)`
+  @media (min-width: 360px) and (max-width: 767px) {
+    aspect-ratio: auto; /* Card 기본 16/9 비율 무효화 */
+    flex: 0 0 180px; /* 슬라이드 한 칸 폭 고정 */
+    width: 180px;
+    height: 101px;
+    scroll-snap-align: start;
+  }
+`;
+
+/* 슬라이드 아래 큰 플레이어 */
+export const MobileExpanded = styled.div`
+  display: none;
+  @media (min-width: 360px) and (max-width: 767px) {
+    display: block;
+    padding: 8px 12px 0;
+  }
 `;

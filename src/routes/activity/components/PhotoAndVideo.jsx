@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import * as S from '@routes/activity/components/PhotoAndVideoStyle';
 import Right20 from '@assets/activity/ic-right-20.svg';
 import Left20 from '@assets/activity/ic-left-20.svg';
+import useMediaQuery from '@hooks/useMediaQuery'; // 경로 프로젝트에 맞게
 
 const API_KEY = import.meta.env.VITE_YT_API_KEY || '';
 
-// URL 또는 ID에서 playlistId 추출
 const getPlaylistId = (input) => {
   if (!input) return null;
   try {
@@ -16,7 +16,6 @@ const getPlaylistId = (input) => {
   }
 };
 
-// origin 파라미터 (IFrame Player 제어/자동재생 안정화)
 const ORIGIN = typeof window !== 'undefined' ? `&origin=${encodeURIComponent(window.location.origin)}` : '';
 
 export default function PhotoAndVideo({
@@ -30,10 +29,14 @@ export default function PhotoAndVideo({
   const [nextToken, setNextToken] = useState(null);
 
   // 클릭 확장 상태
-  const [expandedIdx, setExpandedIdx] = useState(null); // 숫자 인덱스
-  const [expandedVid, setExpandedVid] = useState(null); // videoId
+  const [expandedIdx, setExpandedIdx] = useState(null);
+  const [expandedVid, setExpandedVid] = useState(null);
 
   const playlistId = useMemo(() => getPlaylistId(playlist), [playlist]);
+
+  // 모바일(360~767)
+  const isMobile = useMediaQuery('(min-width: 360px) and (max-width: 767px)');
+  const scrollerRef = useRef(null);
 
   // 썸네일 데이터만 불러옴
   useEffect(() => {
@@ -68,7 +71,6 @@ export default function PhotoAndVideo({
     setExpandedVid(null);
   }, [pageToken]);
 
-  // 클릭 핸들러: 같은 카드면 접기, 아니면 해당 위치로 확장
   const onCardClick = (idx, vid) => {
     if (expandedIdx === idx) {
       setExpandedIdx(null);
@@ -79,10 +81,67 @@ export default function PhotoAndVideo({
     }
   };
 
-  // 그리드 아이템 + (선택 시) 확장행 삽입
-  const children = [];
   const source = loading ? Array.from({ length: pageSize }) : items;
 
+  /* ===========================
+     모바일 렌더 (슬라이드 + 하단 큰 플레이어)
+     =========================== */
+  if (isMobile) {
+    return (
+      <S.Wrap>
+        <S.MobileScroller ref={scrollerRef}>
+          {source.map((it, idx) => {
+            const sn = it?.snippet;
+            const vid = sn?.resourceId?.videoId || `sk-${idx}`;
+            const title = sn?.title || '';
+            const thumb =
+              sn?.thumbnails?.maxres?.url ||
+              sn?.thumbnails?.high?.url ||
+              sn?.thumbnails?.medium?.url ||
+              sn?.thumbnails?.default?.url;
+
+            return (
+              <S.MobileCard
+                key={vid}
+                onClick={() => onCardClick(idx, vid)}
+                title={title}
+                aria-label={title}
+                data-active={expandedVid === vid || undefined}>
+                {loading ? <S.Thumb as="div" /> : <S.Thumb src={thumb} alt={title} />}
+              </S.MobileCard>
+            );
+          })}
+        </S.MobileScroller>
+
+        {expandedVid && (
+          <S.MobileExpanded>
+            <S.PlayerBox>
+              <iframe
+                src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
+                title="video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </S.PlayerBox>
+          </S.MobileExpanded>
+        )}
+
+        <S.Pager>
+          <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
+            <img src={Left20} alt="leftBtn" width={5} height={10} />
+          </S.IconBtn>
+          <S.IconBtn onClick={() => setPageToken(nextToken || '')} disabled={!nextToken} aria-label="다음">
+            <img src={Right20} alt="rightBtn" width={5} height={10} />
+          </S.IconBtn>
+        </S.Pager>
+        {err && <S.ErrorMsg>{err}</S.ErrorMsg>}
+      </S.Wrap>
+    );
+  }
+
+  /* 데스크톱/태블릿인라 */
+  const children = [];
   source.forEach((it, idx) => {
     const sn = it?.snippet;
     const vid = sn?.resourceId?.videoId || `sk-${idx}`;
@@ -94,19 +153,21 @@ export default function PhotoAndVideo({
       sn?.thumbnails?.default?.url;
 
     children.push(
-      <S.Card key={vid} onClick={() => onCardClick(idx, vid)} title={title} aria-label={title}>
-        <S.Thumb src={thumb} alt={title} />
-        <S.Title>{title}</S.Title>
+      <S.Card
+        key={vid}
+        onClick={() => onCardClick(idx, vid)}
+        title={title}
+        aria-label={title}
+        data-active={(expandedIdx === idx && expandedVid === vid) || undefined}>
+        {loading ? <S.Thumb as="div" /> : <S.Thumb src={thumb} alt={title} />}
       </S.Card>,
     );
 
-    // 바로 아래에 확장 플레이어 행 삽입 (전체 열 span)
     if (expandedIdx === idx && expandedVid === vid) {
       children.push(
         <S.Expanded key={`exp-${vid}`}>
           <S.PlayerBox>
             <iframe
-              // 자동재생 + 음소거(모바일 자동재생 보장) + origin
               src={`https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
               title={title}
               frameBorder="0"
@@ -124,10 +185,10 @@ export default function PhotoAndVideo({
       <S.Grid>{children}</S.Grid>
       <S.Pager>
         <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
-          <img src={Left20} alt="leftBtn"></img>
+          <img src={Left20} alt="leftBtn" width={10} height={20} />
         </S.IconBtn>
         <S.IconBtn onClick={() => setPageToken(nextToken || '')} disabled={!nextToken} aria-label="다음">
-          <img src={Right20} alt="rightBtn"></img>
+          <img src={Right20} alt="rightBtn" width={10} height={20} />
         </S.IconBtn>
       </S.Pager>
       {err && <S.ErrorMsg>{err}</S.ErrorMsg>}
