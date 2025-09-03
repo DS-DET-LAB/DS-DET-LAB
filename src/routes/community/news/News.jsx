@@ -15,7 +15,7 @@ import useMediaQuery from '@hooks/useMediaQuery';
 
 function News() {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const Have2Item = useMediaQuery('((min-width: 767px) and (max-width: 967px)) , (max-width: 620px)');
+  const Have2Item = useMediaQuery('((min-width: 767px) and (max-width: 1300px)) , (max-width: 620px)');
   const Have1Item = useMediaQuery('(max-width: 420px)');
 
   let viewport = 'desktop';
