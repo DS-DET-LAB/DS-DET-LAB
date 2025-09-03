@@ -16,17 +16,28 @@ export const NewsItem = styled.a`
   }
 `;
 
-export const Img = styled.img`
+export const ImgWrapper = styled.div`
   border-radius: 11px;
-  height: 166px;
-  object-fit: cover;
-
   border: 1px solid ${palette.mainNavy.navy30};
+  height: 166px;
+  overflow: hidden;
+
   @media (max-width: 767px) {
     height: 101px;
   }
   @media (max-width: 420px) {
     height: 45vw;
+  }
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  ${ImgWrapper}:hover & {
+    transform: scale(1.1);
   }
 `;
 
@@ -62,12 +73,9 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  height: 52px;
-
   @media (max-width: 767px) {
     font-size: 14px;
     font-weight: 400;
-    height: 37px;
   }
 `;
 

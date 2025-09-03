@@ -1,6 +1,7 @@
 import * as N from '@news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsPagination from '@community/components/NewsPagination';
+import AccountData from '@db/socialAccount.json';
 import newsData from '@db/community/news.json';
 import instaData from '@db/community/insta.json';
 import playlist1Data from '@db/community/playlist1.json';
@@ -44,7 +45,7 @@ function News() {
             data={instaData}
             visibleItem={visibleItem}
             socialBox={
-              <N.SocialBox href="https://www.instagram.com/ds.digitaledu/" target="_blank" viewport={viewport}>
+              <N.SocialBox href={AccountData.instagram} target="_blank" viewport={viewport}>
                 <N.SocialIcon src={isMobile ? smallInsta : insta} viewport={viewport} />
                 @ds.digitaledu
                 {!isMobile && <N.External src={external} />}
@@ -59,10 +60,7 @@ function News() {
             visibleItem={visibleItem}
             socialBox={
               <>
-                <N.SocialBox
-                  href="https://www.youtube.com/@DS%EB%94%94%EC%A7%80%ED%84%B8%EA%B5%90%EC%9C%A1%EA%B3%B5%ED%95%99%EC%84%BC%ED%84%B0"
-                  target="_blank"
-                  viewport={viewport}>
+                <N.SocialBox href={AccountData.youtube} target="_blank" viewport={viewport}>
                   <N.SocialIcon src={isMobile ? smallYoutube : youtube} viewport={viewport} />
                   @DS디지털교육공학센터
                   {!isMobile && <N.External src={external} />}

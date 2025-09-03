@@ -20,9 +20,12 @@
 import * as N from '@community/news/NewsStyle';
 import { useState, useEffect } from 'react';
 import NewsItem from '@community/components/NewsItem';
-import prev from '@assets/common/icon-prev-40.svg?react';
-import next from '@assets/common/icon-next-40.svg?react';
+import next from '@assets/common/ic-arrow-right-40.svg';
+import next_s from '@assets/common/ic-arrow-right-20.svg';
+import prev from '@assets/common/ic-arrow-left-40.svg';
+import prev_s from '@assets/common/ic-arrow-left-20.svg';
 import palette from '@styles/theme';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 export default function NewsPagination({
   data = [],
@@ -32,6 +35,10 @@ export default function NewsPagination({
   isInsta = false,
   isYoutube = false,
 }) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  let viewport = 'desktop';
+  if (isMobile) viewport = 'mobile';
+
   const [page, setPage] = useState(0);
 
   const start = page * visibleItem;
@@ -69,22 +76,24 @@ export default function NewsPagination({
       </N.ItemGroup>
 
       <N.PageControll>
-        <N.PagingIcon
-          as={prev}
+        <N.PagingBtn
+          viewport={viewport}
+          onClick={handlePrev}
           style={{
             cursor: hasPrev ? 'pointer' : 'default',
-            color: hasPrev ? palette.mainNavy.navy80 : palette.text.secondary50,
-          }}
-          onClick={handlePrev}
-        />
-        <N.PagingIcon
-          as={next}
+            backgroundColor: hasPrev ? palette.mainNavy.navy80 : palette.text.secondary50,
+          }}>
+          <N.PagingIcon src={isMobile ? prev_s : prev} />
+        </N.PagingBtn>
+        <N.PagingBtn
+          viewport={viewport}
+          onClick={handleNext}
           style={{
             cursor: hasNext ? 'pointer' : 'default',
-            color: hasNext ? palette.mainNavy.navy80 : palette.text.secondary50,
-          }}
-          onClick={handleNext}
-        />
+            backgroundColor: hasNext ? palette.mainNavy.navy80 : palette.text.secondary50,
+          }}>
+          <N.PagingIcon src={isMobile ? next_s : next} />
+        </N.PagingBtn>
       </N.PageControll>
     </N.Group>
   );
