@@ -7,7 +7,6 @@ import ArrowLeft40 from '@assets/community/ic-arrow-left-40.svg?react';
 import ArrowLeft20 from '@assets/community/ic-arrow-left-20.svg?react';
 import ArrowRight40 from '@assets/community/ic-arrow-right-40.svg?react';
 import ArrowRight20 from '@assets/community/ic-arrow-right-20.svg?react';
-import CommunityHeader from '@routes/community/components/CommunityHeader';
 
 import Input from '@routes/community/components/Input';
 import InfoCard from '@routes/community/components/InfoCard';
@@ -20,7 +19,7 @@ function Info() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginated, setIsPaginated] = useState(false);
 
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
+  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   const inputRef = useRef(null);
@@ -86,8 +85,6 @@ function Info() {
 
   return (
     <>
-      {(isTablet || isMobile) && <CommunityHeader />}
-
       <I.Info>
         <I.InfoWrapper ref={inputRef}>
           <I.InfoText>공지사항</I.InfoText>

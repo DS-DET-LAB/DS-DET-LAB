@@ -22,8 +22,8 @@ import OrganizationIcon from '@assets/center/org_chart-450w.png';
 import PhoneOrganizationIcon from '@assets/center/org_chart-268w.png';
 import LineIcon from '@assets/center/line.svg';
 import MailIcon from '@assets/center/ic-mail-filled-24.svg';
-import menuIcon from '@assets/center/menuToggle.svg';
-import slashIcon from '@assets/center/slash.svg';
+// import menuIcon from '@assets/center/menuToggle.svg';
+// import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
 import ParkImg from '@assets/center/Park.png';
@@ -42,32 +42,13 @@ function Center() {
     refs.current[key] = el;
   };
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
+  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   return (
     <>
-      {(isMobile || isTablet) && (
-        <C.BreadcrumbBar aria-label="breadcrumb">
-          <C.Crumbs>
-            <li>
-              <p>홈</p>
-            </li>
-            <C.Sep src={slashIcon} />
-            <li>
-              <p>센터 소개</p>
-              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
-            </li>
-            <C.Sep src={slashIcon} />
-            <li>
-              <p>인사말</p>
-              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
-            </li>
-          </C.Crumbs>
-        </C.BreadcrumbBar>
-      )}
       <C.Wrapper>
         <C.SectionWrapper>
-          <C.Title $lessMargin={true} ref={setRef('greeting')}>
+          <C.Title $lessMargin={true} ref={setRef('greeting')} id="greeting">
             인사말
           </C.Title>
           <C.Body>
@@ -79,7 +60,7 @@ function Center() {
           </C.Body>
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
-          <C.Title>비전/소개</C.Title>
+          <C.Title id="vision">비전/소개</C.Title>
           <C.IconWrapper $lessMargin={true}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>비전과 소개</C.SubTitle>

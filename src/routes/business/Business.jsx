@@ -32,29 +32,10 @@ function Business() {
   };
 
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
+  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   return (
     <>
-      {(isMobile || isTablet) && (
-        <C.BreadcrumbBar aria-label="breadcrumb">
-          <C.Crumbs>
-            <li>
-              <p>홈</p>
-            </li>
-            <C.Sep src={slashIcon} />
-            <li>
-              <p>센터 소개</p>
-              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
-            </li>
-            <C.Sep src={slashIcon} />
-            <li>
-              <p>인사말</p>
-              <C.Sep src={menuIcon} alt="메뉴 아이콘" />
-            </li>
-          </C.Crumbs>
-        </C.BreadcrumbBar>
-      )}
       <C.Wrapper>
         <C.SectionWrapper>
           <C.Title id="overview" ref={setRef('businessOverview')}>
