@@ -13,7 +13,6 @@ import smallInsta from '@assets/community/logo-insta-lightnavy-16.svg';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 function News() {
-  const isPc = useMediaQuery('(min-width: 1280px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
   const Have2Item = useMediaQuery('((min-width: 767px) and (max-width: 967px)) , (max-width: 620px)');
   const Have1Item = useMediaQuery('(max-width: 420px)');
@@ -31,11 +30,6 @@ function News() {
 
   return (
     <N.NewsPage viewport={viewport}>
-      {isPc && (
-        <>
-          <div style={{ width: '190px', backgroundColor: 'pink' }}>커뮤니티</div>
-        </>
-      )}
       <N.News>
         <N.Title viewport={viewport}>센터 소식</N.Title>
         <NewsPagination data={newsData} visibleItem={visibleItem} />

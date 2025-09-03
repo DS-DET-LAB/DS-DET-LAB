@@ -3,11 +3,9 @@ import palette from '@styles/theme';
 
 export const NewsPage = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 125px;
-  padding: 70px 0;
-
-  padding-top: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '192px')};
+  padding-top: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '0')};
 `;
 
 export const News = styled.div`

@@ -5,13 +5,13 @@ export const Info = styled.div`
   box-sizing: border-box;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 125px;
 
   max-width: 1234px;
   width: 100%;
 
-  margin: 192px auto 70px;
+  margin: 0 auto 70px;
 
   @media (min-width: 768px) and (max-width: 1279px) {
     max-width: none;
