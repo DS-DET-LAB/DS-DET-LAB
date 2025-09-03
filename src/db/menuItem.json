@@ -20,7 +20,8 @@
     { "type": "content", "name": "주요 일정", "path": "/activity", "hash": "schedule" },
     { "type": "content", "name": "향후 예정 사업 소개", "path": "/activity", "hash": "upcoming-projects" },
     { "type": "subtitle", "name": "성과", "path": "/activity", "hash": "results" },
-    { "type": "content", "name": "완료된 사업 목록", "path": "/activity", "hash": "completed-projects" }
+    { "type": "content", "name": "완료된 사업 목록", "path": "/activity", "hash": "completed-projects" },
+    { "type": "content", "name": "사진 및 영상 콘텐츠", "path": "/activity", "hash": "contents" }
   ],
   "community": [
     { "type": "subtitle", "name": "공지사항", "path": "/community/info" },

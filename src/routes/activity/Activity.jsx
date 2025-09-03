@@ -93,7 +93,7 @@ function Activity() {
 
         {/* 사진 및 영상 콘텐츠 */}
         <A.ToggleBox>
-          <A.ToggleName>
+          <A.ToggleName id="contents">
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             사진 및 영상 콘텐츠
           </A.ToggleName>
