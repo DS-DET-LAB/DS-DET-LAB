@@ -54,6 +54,7 @@ export const MenuTitle = styled.div`
   line-height: 130%;
   letter-spacing: -0.5px;
   cursor: pointer;
+  transition: 300ms ease;
   &:hover {
     border-radius: 10px;
     background: ${palette.hover.back2};
@@ -72,6 +73,7 @@ export const SubTitle = styled.div`
   line-height: 150%;
   letter-spacing: -0.45px;
   cursor: pointer;
+  transition: 300ms ease;
   &:hover {
     border-radius: 10px;
     background: ${palette.hover.back2};

@@ -64,6 +64,7 @@ export const NavItem = styled.div`
     return 'inherit';
   }};
   cursor: pointer;
+  transition: 300ms ease;
   border-radius: 5px;
 
   &::after {

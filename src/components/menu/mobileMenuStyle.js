@@ -80,6 +80,7 @@ export const SubTitle = styled.div`
   line-height: 150%;
   letter-spacing: -0.35px;
   cursor: pointer;
+  transition: 300ms ease;
   &:hover {
     border-radius: 10px;
     background: ${palette.hover.back2};
@@ -94,6 +95,7 @@ export const Content = styled.div`
   line-height: 150%;
   letter-spacing: -0.35px;
   cursor: pointer;
+  transition: 300ms ease;
   &:hover {
     border-radius: 10px;
     background: ${palette.hover.back2};
