@@ -70,10 +70,10 @@ function Business() {
         <C.SectionWrapper>
           <C.Title ref={setRef('businessOverview')}>사업 개요</C.Title>
 
-          <C.IconWrapper ref={setRef('roles')}>
+          <B.IconWrapper ref={setRef('roles')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>센터 설립 목적</C.SubTitle>
-          </C.IconWrapper>
+          </B.IconWrapper>
 
           <B.VisionSectionWrapper>
             <VisionSection
@@ -205,10 +205,10 @@ function Business() {
               ]}
             />
           </B.BizWrapper>
-          <C.IconWrapper ref={setRef('businessProjects')}>
+          <B.IconWrapper ref={setRef('businessProjects')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>주요 사업</C.SubTitle>
-          </C.IconWrapper>
+          </B.IconWrapper>
 
           <B.ProgramCardWrapper>
             <ProgramCard

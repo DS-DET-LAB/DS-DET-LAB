@@ -73,7 +73,7 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 0 10px;
+  margin: 0 0 25px;
 
   @media (max-width: 767px) {
     margin: 0 0 17px;

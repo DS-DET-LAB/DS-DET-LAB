@@ -4,7 +4,7 @@ export const Section = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 25px 112px;
+  padding: 0 112px;
 
   @media (max-width: 767px) {
     padding: 25px 0 0;

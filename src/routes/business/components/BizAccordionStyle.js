@@ -5,7 +5,7 @@ export const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin: 25px 0 70px;
+  margin: 0 0 70px;
   width: 90%;
 
   @media (min-width: 768px) and (max-width: 899px) {

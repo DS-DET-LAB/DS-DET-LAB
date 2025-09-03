@@ -77,11 +77,36 @@ export const Title = styled.h2`
   font-size: 36px;
   font-weight: 600;
   scroll-margin-top: 100px;
+  margin: 0 0 50px;
+
+  &[less-margin='true'] {
+    margin: 0 0 25px 0;
+  }
+
+  &:nth-of-type(2) {
+    margin: 100px 0 50px;
+  }
 
   @media (max-width: 767px) {
     font-size: 16px;
     scroll-margin-top: 80px;
-    margin: 0px 0 30px;
+    margin: 0px 0 20px;
+
+    &:first-of-type {
+      margin: 0 0 30px 0;
+    }
+
+    &[less-margin='true'] {
+      margin: 0 0 20px 0;
+    }
+
+    &:nth-of-type(2) {
+      margin: 0 0 30px;
+    }
+
+    &:nth-of-type(3) {
+      margin: 0 0 30px;
+    }
   }
 `;
 
@@ -100,6 +125,7 @@ export const TextBody = styled.p`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
+  margin: 0;
 
   @media (max-width: 767px) {
     font-size: 14px;
@@ -112,6 +138,9 @@ export const Body = styled.div`
 
   &:nth-of-type(3) {
     margin: 20px 0 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   @media (min-width: 768px) and (max-width: 899px) {
@@ -132,7 +161,19 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 30px 10px;
+  margin: 0 0 50px;
+
+  &[no-margin='true'] {
+    margin: 0;
+  }
+
+  &[less-margin='true'] {
+    margin: 0;
+  }
+
+  &[data-tail='true'] {
+    margin: 0 0 30px 7px;
+  }
 
   @media (max-width: 767px) {
     margin: 0 0 20px;
@@ -155,6 +196,7 @@ export const SubTitle = styled.h3`
   color: ${palette.mainNavy.navy80};
   font-size: 24px;
   font-weight: 600;
+  margin: 0;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -164,7 +206,7 @@ export const SubTitle = styled.h3`
 
 export const WrapWrapper = styled.div`
   overflow: visible;
-  padding: 20px 0;
+  padding: 0 0 100px;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -226,7 +268,7 @@ export const PSbub = styled.p`
     color: #6b7684;
     font-size: 16px;
     font-weight: 400;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 `;
 
@@ -242,7 +284,7 @@ export const PWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 40px 0 25px 0;
+  margin: 40px 0;
 
   @media (max-width: 767px) {
     margin: 0;
@@ -253,7 +295,7 @@ export const OrganiCardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 67.5px;
 
   @media (max-width: 767px) {
     margin-bottom: 70px;
@@ -287,7 +329,11 @@ export const LabelDiv = styled.div`
   width: fit-content;
   border-radius: 20px;
   background: ${palette.mainNavy.navy10};
-  margin: 15px 0;
+  margin: 0 0 10px 0;
+
+  &[more-margin='true'] {
+    margin: 0 0 15px 0;
+  }
 `;
 
 export const LabelP = styled.span`
@@ -313,7 +359,7 @@ export const MailImg = styled.img`
 export const PersonalCardWrapper = styled.div`
   display: flex;
   gap: 12px;
-  margin: 0 0 60px 0;
+  margin: 0 0 56px;
   flex-wrap: wrap;
 
   @media (max-width: 767px) {
@@ -369,7 +415,6 @@ export const Crumbs = styled.ul`
 
   & p {
     color: ${palette.text.secondary};
-
     font-size: 12px;
     font-weight: 400;
     margin: 0;

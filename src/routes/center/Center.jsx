@@ -87,7 +87,9 @@ function Center() {
         )}
 
         <C.SectionWrapper>
-          <C.Title ref={setRef('greeting')}>인사말</C.Title>
+          <C.Title less-margin="true" ref={setRef('greeting')}>
+            인사말
+          </C.Title>
           <C.Body>
             <C.TextBody>
               디지털 교육공학센터<C.EngSpan>(Digital Educational Technology Lab, EdTech Lab)</C.EngSpan>는 디지털 기술을
@@ -98,10 +100,11 @@ function Center() {
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
           <C.Title>비전/소개</C.Title>
-          <C.IconWrapper>
+          <C.IconWrapper less-margin="true">
             <C.TriIcon src={Icon} alt="소제목" />
-            <C.SubTitle>조직 체계</C.SubTitle>
+            <C.SubTitle>비전과 소개</C.SubTitle>
           </C.IconWrapper>
+
           <C.Body>
             <C.TextBody>
               디지털 전환 시대를 맞아, 덕성여자대학교는 교양대학을 중심으로 디지털 교육 분야의 학제간 융합 연구를
@@ -157,7 +160,7 @@ function Center() {
             </C.Card>
           </C.OrganiCardWrapper>
 
-          <C.IconWrapper ref={setRef('contact')}>
+          <C.IconWrapper no-margin="true" ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>담당자 정보 및 연락처</C.SubTitle>
           </C.IconWrapper>
@@ -172,9 +175,10 @@ function Center() {
             </C.PWrapper>
           </C.SubWrapper>
 
-          <C.LabelDiv>
+          <C.LabelDiv more-margin="true">
             <C.LabelP>센터장</C.LabelP>
           </C.LabelDiv>
+
           <C.PersonalCardWrapper>
             <PersonalCard photoSrc={ParkImg} name={'박주연'} role={'교수님'} phone={'02-901-8785'} />
           </C.PersonalCardWrapper>
