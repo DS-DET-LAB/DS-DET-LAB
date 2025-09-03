@@ -12,6 +12,7 @@ export const InputDiv = styled.div`
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   border-radius: 17px;
   background-color: ${palette.background.white};
