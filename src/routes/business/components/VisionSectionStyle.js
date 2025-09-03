@@ -4,7 +4,7 @@ export const Section = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 0 112px;
+  padding: 25px 112px;
 
   @media (max-width: 767px) {
     padding: 25px 0 0;
@@ -29,7 +29,7 @@ export const Grid = styled.div`
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 90px max-content 90px;
+  grid-template-columns: 10px max-content 10px;
   grid-auto-rows: auto;
   row-gap: 39px;
   column-gap: 12px;
@@ -40,12 +40,10 @@ export const Grid = styled.div`
     grid-column: 2;
     grid-row: 1;
   }
-
   & > *:nth-child(2) {
     grid-column: 1;
     grid-row: 2;
   }
-
   & > *:nth-child(3) {
     grid-column: 3;
     grid-row: 2;

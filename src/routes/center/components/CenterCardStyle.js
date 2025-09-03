@@ -5,6 +5,11 @@ export const CardImg = styled.img`
   width: 64px;
   height: 64px;
 
+  @media (min-width: 900px) and (max-width: 1300px) {
+    width: 55px;
+    height: 55px;
+  }
+
   @media (max-width: 767px) {
     width: 24px;
     height: 24px;
@@ -13,7 +18,7 @@ export const CardImg = styled.img`
 
 export const Card = styled.div`
   display: flex;
-  width: clamp(155px, 16vw, 200px);
+  width: 200px;
   height: 140px;
   padding: 30px;
   flex-direction: column;
@@ -24,6 +29,20 @@ export const Card = styled.div`
   border-radius: 17px;
   background: ${palette.background.white};
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+
+  @media (min-width: 900px) and (max-width: 1300px) {
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 15px 30px;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) and (max-width: 899.98px) {
+    width: 22%;
+  }
 
   @media (max-width: 767px) {
     width: 100%;
