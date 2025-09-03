@@ -67,7 +67,7 @@ function Center() {
       )}
       <C.Wrapper>
         <C.SectionWrapper>
-          <C.Title less-margin="true" id="greeting" ref={setRef('greeting')}>
+          <C.Title $lessMargin={true} ref={setRef('greeting')}>
             인사말
           </C.Title>
           <C.Body>
@@ -79,8 +79,8 @@ function Center() {
           </C.Body>
 
           {isMobile && <C.SectionLineIcon src={sectionLineIcon} alt="구분선" />}
-          <C.Title id="vision">비전/소개</C.Title>
-          <C.IconWrapper less-margin="true">
+          <C.Title>비전/소개</C.Title>
+          <C.IconWrapper $lessMargin={true}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle>비전과 소개</C.SubTitle>
           </C.IconWrapper>
@@ -142,7 +142,7 @@ function Center() {
             </C.Card>
           </C.OrganiCardWrapper>
 
-          <C.IconWrapper no-margin="true" ref={setRef('contact')}>
+          <C.IconWrapper $noMargin={true} ref={setRef('contact')}>
             <C.TriIcon src={Icon} alt="소제목" />
             <C.SubTitle id="contact">담당자 정보 및 연락처</C.SubTitle>
           </C.IconWrapper>
@@ -157,7 +157,7 @@ function Center() {
             </C.PWrapper>
           </C.SubWrapper>
 
-          <C.LabelDiv more-margin="true">
+          <C.LabelDiv $moreMargin={true}>
             <C.LabelP>센터장</C.LabelP>
           </C.LabelDiv>
 
@@ -166,12 +166,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>{departmentMail.부서[1].title}</C.LabelP>
+            <C.LabelP>{departmentMail.부서[0].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>{departmentMail.부서[1].text}</C.LabelP>
+            <C.LabelP>{departmentMail.부서[0].text}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>
@@ -184,12 +184,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>{departmentMail.부서[0].title}</C.LabelP>
+            <C.LabelP>{departmentMail.부서[1].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>{departmentMail.부서[0].text}</C.LabelP>
+            <C.LabelP>{departmentMail.부서[1].text}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>

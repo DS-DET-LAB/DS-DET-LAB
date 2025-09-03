@@ -268,7 +268,6 @@ export const PSbub = styled.p`
     color: #6b7684;
     font-size: 16px;
     font-weight: 400;
-    /* margin-top: 10px; */
   }
 `;
 

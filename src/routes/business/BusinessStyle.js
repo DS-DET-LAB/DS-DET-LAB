@@ -56,6 +56,7 @@ export const ProgramCardWrapper = styled.div`
   width: 90%;
   display: flex;
   gap: 20px;
+  outline: none;
 
   @media (min-width: 768px) and (max-width: 899px) {
     width: 100%;

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
+import mainBusiness from '@db/mainBusiness.json';
 
 import VisionSection from '@business/components/VisionSection';
 import BizAccordion from '@business/components/BizAccordion';
@@ -16,8 +17,6 @@ import menuIcon from '@assets/center/menuToggle.svg';
 import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
-import mainBusiness from '@db/mainBusiness.json';
-
 const parseSubTitle = (subTitle) => {
   const idxTarget = subTitle.indexOf('대상');
   return {
@@ -31,7 +30,6 @@ function Business() {
   const setRef = (key) => (el) => {
     refs.current[key] = el;
   };
-  const scrollTo = (key) => refs.current[key]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
