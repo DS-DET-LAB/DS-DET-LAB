@@ -19,9 +19,12 @@ import * as C from '@main/components/chip/chipStyle';
 function Chip({ text }) {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
+  let viewport = 'desktop';
+  if (isMobile) viewport = 'mobile';
+
   return (
-    <C.Container isMobile={isMobile}>
-      <C.Text isMobile={isMobile}>{text}</C.Text>
+    <C.Container $viewport={viewport}>
+      <C.Text $viewport={viewport}>{text}</C.Text>
     </C.Container>
   );
 }

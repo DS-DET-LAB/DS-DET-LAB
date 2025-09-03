@@ -22,8 +22,8 @@ import * as S from '@main/components/shortcut/shortCutStyle';
 
 function Shortcut({ Icon, shortcut, onClick, viewport }) {
   return (
-    <S.Container onClick={onClick} viewport={viewport}>
-      <S.IconWrapper as={Icon} viewport={viewport} />
+    <S.Container onClick={onClick} $viewport={viewport}>
+      <S.IconWrapper as={Icon} $viewport={viewport} />
       {viewport !== 'mobile' && <S.ShortcutText>{shortcut}</S.ShortcutText>}
     </S.Container>
   );

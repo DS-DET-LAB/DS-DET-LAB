@@ -27,15 +27,18 @@ function MoreButton({ text, path }) {
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 767px)');
 
+  let viewport = 'desktop';
+  if (isMobile) viewport = 'mobile';
+
   const handleNavLinkClick = (path) => {
     navigate(path);
   };
 
   return (
     <Fade direction="up" triggerOnce duration={fadeTime.duration} distance="20px" delay={fadeTime.delay}>
-      <M.Container isMobile={isMobile} onClick={() => handleNavLinkClick(`${path}`)}>
+      <M.Container $viewport={viewport} onClick={() => handleNavLinkClick(`${path}`)}>
         <M.Frame>
-          <M.Text isMobile={isMobile}>{text} 더보기</M.Text>
+          <M.Text $viewport={viewport}>{text} 더보기</M.Text>
           <M.Icon src={IcChevron} alt=">" />
         </M.Frame>
       </M.Container>

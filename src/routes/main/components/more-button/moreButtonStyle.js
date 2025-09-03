@@ -3,7 +3,7 @@ import palette from '@styles/theme';
 
 export const Container = styled.div`
   width: fit-content;
-  padding: ${({ isMobile }) => (isMobile ? '5px 10px' : '10px 15px')};
+  padding: ${({ $viewport }) => ($viewport === 'mobile' ? '5px 10px' : '10px 15px')};
   border-radius: 10px;
   cursor: pointer;
   transition: 300ms ease;
@@ -22,10 +22,10 @@ export const Frame = styled.div`
 export const Text = styled.div`
   color: ${palette.mainNavy.navy100};
   /* r18 & r14 */
-  font-size: ${({ isMobile }) => (isMobile ? '14px' : '18px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '14px' : '18px')};
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: ${({ isMobile }) => (isMobile ? '-0.35px' : '-0.45px')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.35px' : '-0.45px')};
 `;
 
 export const Icon = styled.img`

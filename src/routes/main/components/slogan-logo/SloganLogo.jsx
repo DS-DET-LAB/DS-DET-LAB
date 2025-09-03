@@ -33,7 +33,7 @@ function SloganLogo() {
   const { slogans } = sloganData;
 
   return (
-    <S.Container viewport={viewport}>
+    <S.Container $viewport={viewport}>
       <S.Slogan>
         {slogans.map((line, lineIndex) => (
           <Fade
@@ -43,10 +43,10 @@ function SloganLogo() {
             duration={fadeTime.duration}
             distance="10px"
             delay={lineIndex * fadeTime.delay}>
-            <S.SloganText key={lineIndex} viewport={viewport}>
+            <S.SloganText key={lineIndex} $viewport={viewport}>
               {line.map((part, idx) =>
                 part.type === 'highlight' ? (
-                  <S.Highlight key={idx} viewport={viewport}>
+                  <S.Highlight key={idx} $viewport={viewport}>
                     {part.text}
                   </S.Highlight>
                 ) : (
@@ -58,12 +58,12 @@ function SloganLogo() {
         ))}
       </S.Slogan>
 
-      <S.VerticalLine viewport={viewport} />
+      <S.VerticalLine $viewport={viewport} />
 
       <Fade direction="up" triggerOnce duration={fadeTime.duration} distance="10px">
         <S.Logo>
-          <S.LogoMain src={LogoSimple} viewport={viewport} alt="DET" />
-          <S.LogoSub src={LogoKr} viewport={viewport} alt="디지털교육공학센터" />
+          <S.LogoMain src={LogoSimple} $viewport={viewport} alt="DET" />
+          <S.LogoSub src={LogoKr} $viewport={viewport} alt="디지털교육공학센터" />
         </S.Logo>
       </Fade>
     </S.Container>

@@ -29,7 +29,7 @@ function Main() {
 
   return (
     <>
-      <M.ShortcutBar viewport={viewport}>
+      <M.ShortcutBar $viewport={viewport}>
         {SHORTCUTS(setIsModalOpen).map(({ Icon, shortcut, onClick }) => (
           <Shortcut key={shortcut} Icon={Icon} shortcut={shortcut} onClick={onClick} viewport={viewport} />
         ))}
@@ -37,8 +37,8 @@ function Main() {
 
       <SloganLogo />
 
-      <M.BottomSection viewport={viewport} isBusiness={true}>
-        <M.BottomContainer viewport={viewport}>
+      <M.BottomSection $viewport={viewport} $isBusiness={true}>
+        <M.BottomContainer $viewport={viewport}>
           {mainBusiness.map((biz, idx) => (
             <BusinessCard
               key={idx}
@@ -49,13 +49,13 @@ function Main() {
             />
           ))}
         </M.BottomContainer>
-        <M.MoreButtonSection viewport={viewport}>
+        <M.MoreButtonSection $viewport={viewport}>
           <MoreButton text="사업" path="/business" />
         </M.MoreButtonSection>
       </M.BottomSection>
 
-      <M.BottomSection viewport={viewport} isBusiness={false}>
-        <M.BottomContainer viewport={viewport}>
+      <M.BottomSection $viewport={viewport} $isBusiness={false}>
+        <M.BottomContainer $viewport={viewport}>
           {noticeList.map((notice) => (
             <NoticeCard
               key={notice.id}
@@ -66,7 +66,7 @@ function Main() {
             />
           ))}
         </M.BottomContainer>
-        <M.MoreButtonSection viewport={viewport}>
+        <M.MoreButtonSection $viewport={viewport}>
           <MoreButton text="공지사항" path="/community/info" />
         </M.MoreButtonSection>
       </M.BottomSection>

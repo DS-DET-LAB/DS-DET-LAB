@@ -37,7 +37,7 @@ function BusinessCard({ category, title, subTitle, content }) {
 
   return (
     <B.Container
-      viewport={viewport}
+      $viewport={viewport}
       direction="up"
       triggerOnce
       duration={fadeTime.duration}
@@ -46,13 +46,13 @@ function BusinessCard({ category, title, subTitle, content }) {
       <>
         <B.TopContainer>
           <Chip text={category} />
-          <B.Title viewport={viewport}>{title}</B.Title>
+          <B.Title $viewport={viewport}>{title}</B.Title>
           <B.SubContainer>
-            <B.VerticalLine viewport={viewport} />
-            <B.SubTitle viewport={viewport}>{subTitle}</B.SubTitle>
+            <B.VerticalLine $viewport={viewport} />
+            <B.SubTitle $viewport={viewport}>{subTitle}</B.SubTitle>
           </B.SubContainer>
         </B.TopContainer>
-        <B.Content viewport={viewport}>{content}</B.Content>
+        <B.Content $viewport={viewport}>{content}</B.Content>
       </>
     </B.Container>
   );

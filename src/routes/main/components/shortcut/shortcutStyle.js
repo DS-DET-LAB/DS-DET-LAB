@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const Container = styled.div`
-  width: ${({ viewport }) => (viewport === 'mobile' ? '40px' : '90px')};
-  height: ${({ viewport }) => (viewport === 'mobile' ? '40px' : 'auto')};
+  width: ${({ $viewport }) => ($viewport === 'mobile' ? '40px' : '90px')};
+  height: ${({ $viewport }) => ($viewport === 'mobile' ? '40px' : 'auto')};
   box-sizing: border-box;
-  padding: ${({ viewport }) => (viewport === 'mobile' ? '0' : '20px 15px')};
+  padding: ${({ $viewport }) => ($viewport === 'mobile' ? '0' : '20px 15px')};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: ${({ viewport }) => (viewport === 'mobile' ? '24px' : viewport === 'tablet' ? '32px' : '40px')};
+  width: ${({ $viewport }) => ($viewport === 'mobile' ? '24px' : $viewport === 'tablet' ? '32px' : '40px')};
   height: auto;
   aspect-ratio: 1 / 1;
   transition: 300ms ease;

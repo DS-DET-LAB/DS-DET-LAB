@@ -28,27 +28,27 @@ function InformModal({ shortcut, onClose, viewport }) {
 
   return (
     <M.Background onClick={onClose}>
-      <M.Container onClick={(e) => e.stopPropagation()} viewport={viewport}>
-        <M.CloseButton src={IcClose} alt="닫기" onClick={onClose} viewport={viewport} />
+      <M.Container onClick={(e) => e.stopPropagation()} $viewport={viewport}>
+        <M.CloseButton src={IcClose} alt="닫기" onClick={onClose} $viewport={viewport} />
 
         <M.ContentConatiner>
           <M.CenterInformContainer>
             {data.items.map((item, index) => (
-              <M.CenterFrame key={index} viewport={viewport}>
-                <M.CenterTitle viewport={viewport}>{item.title}</M.CenterTitle>
-                <M.CenterDetail viewport={viewport}>
-                  <M.CenterIcon src={data.icon} alt={shortcut} viewport={viewport} />
-                  <M.CenterText viewport={viewport}>{item.text}</M.CenterText>
+              <M.CenterFrame key={index} $viewport={viewport}>
+                <M.CenterTitle $viewport={viewport}>{item.title}</M.CenterTitle>
+                <M.CenterDetail $viewport={viewport}>
+                  <M.CenterIcon src={data.icon} alt={shortcut} $viewport={viewport} />
+                  <M.CenterText $viewport={viewport}>{item.text}</M.CenterText>
                 </M.CenterDetail>
               </M.CenterFrame>
             ))}
           </M.CenterInformContainer>
 
-          <M.ContactContainer viewport={viewport}>
-            <M.ContactLine viewport={viewport} />
+          <M.ContactContainer $viewport={viewport}>
+            <M.ContactLine $viewport={viewport} />
             <M.ContactFrame>
-              <M.ContactTitle viewport={viewport}>{centerTime.title}</M.ContactTitle>
-              <M.ContactText viewport={viewport}>
+              <M.ContactTitle $viewport={viewport}>{centerTime.title}</M.ContactTitle>
+              <M.ContactText $viewport={viewport}>
                 평일 <M.Highlight>{centerTime.time}</M.Highlight> (주말 및 공휴일 휴무)
               </M.ContactText>
             </M.ContactFrame>

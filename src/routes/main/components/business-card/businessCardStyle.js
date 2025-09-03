@@ -6,12 +6,12 @@ export const Container = styled(Fade)`
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  flex: ${({ viewport }) => viewport != 'mobile' && '1'};
-  width: ${({ viewport }) => viewport === 'mobile' && '100%'};
-  min-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
-  max-width: ${({ viewport }) => (viewport === 'mobile' ? '100%' : '610px')};
+  flex: ${({ $viewport }) => $viewport != 'mobile' && '1'};
+  width: ${({ $viewport }) => $viewport === 'mobile' && '100%'};
+  min-width: ${({ $viewport }) => ($viewport === 'mobile' ? '100%' : '610px')};
+  max-width: ${({ $viewport }) => ($viewport === 'mobile' ? '100%' : '610px')};
   box-sizing: border-box;
-  padding: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '35px')};
+  padding: ${({ $viewport }) => ($viewport === 'mobile' ? '20px' : '35px')};
   gap: 25px;
   border-radius: 10px;
   border: 1px solid ${palette.hover.back2};
@@ -42,10 +42,10 @@ export const Title = styled.div`
   width: 100%;
   color: ${palette.text.primary};
   /* s24 & s16 */
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '24px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '16px' : '24px')};
   font-weight: 600;
   line-height: 130%;
-  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.4px' : '-0.6px')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.4px' : '-0.6px')};
   transition: 300ms ease;
 
   ${Container}:hover & {
@@ -61,7 +61,7 @@ export const SubContainer = styled.div`
 `;
 
 export const VerticalLine = styled.div`
-  width: ${({ viewport }) => (viewport === 'mobile' ? '2px' : '3px')};
+  width: ${({ $viewport }) => ($viewport === 'mobile' ? '2px' : '3px')};
   align-self: stretch;
   background-color: ${palette.text.secondary50};
 `;
@@ -69,18 +69,18 @@ export const VerticalLine = styled.div`
 export const SubTitle = styled.div`
   color: ${palette.text.secondary};
   /* m20 & m14 */
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : ' 20px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '14px' : ' 20px')};
   font-weight: 500;
   line-height: 130%;
-  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.5px')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.35px' : '-0.5px')};
 `;
 
 export const Content = styled.div`
   width: 100%;
   color: ${palette.text.body};
   /* r18 & r14 */
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '14px' : ' 18px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '14px' : ' 18px')};
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.35px' : '-0.45px')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.35px' : '-0.45px')};
 `;

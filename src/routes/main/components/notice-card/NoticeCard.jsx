@@ -37,7 +37,7 @@ function NoticeCard({ category, title, date, content }) {
 
   return (
     <N.Container
-      viewport={viewport}
+      $viewport={viewport}
       direction="up"
       triggerOnce
       duration={fadeTime.duration}
@@ -46,10 +46,10 @@ function NoticeCard({ category, title, date, content }) {
       <>
         <N.TopContainer>
           <Chip text={category} />
-          <N.Title viewport={viewport}>{title}</N.Title>
-          <N.Date viewport={viewport}>{date}</N.Date>
+          <N.Title $viewport={viewport}>{title}</N.Title>
+          <N.Date $viewport={viewport}>{date}</N.Date>
         </N.TopContainer>
-        <N.Content viewport={viewport}>{content}</N.Content>
+        <N.Content $viewport={viewport}>{content}</N.Content>
       </>
     </N.Container>
   );
