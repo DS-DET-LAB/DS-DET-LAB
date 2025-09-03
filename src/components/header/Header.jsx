@@ -10,7 +10,7 @@
  * @author 목소연
  */
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useMediaQuery from '@hooks/useMediaQuery';
 import * as H from '@components/header/headerStyle';
@@ -21,7 +21,7 @@ import DetailMenu from '@components/header/DetailMenu';
 import MobileMenu from '@components/menu/MobileMenu';
 import TabletMenu from '@components/menu/TabletMenu';
 
-const Header = () => {
+const Header = React.forwardRef((props, ref) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <H.HeaderContainer onMouseLeave={handleMouseLeave}>
+    <H.HeaderContainer onMouseLeave={handleMouseLeave} ref={ref}>
       <H.LeftSection>
         <img src={isMobile ? simpleLogo : topbarLogo} alt="디지털교육공학센터 로고" onClick={() => navigate('/')} />
       </H.LeftSection>
@@ -101,6 +101,6 @@ const Header = () => {
       </H.RightSection>
     </H.HeaderContainer>
   );
-};
+});
 
 export default Header;
