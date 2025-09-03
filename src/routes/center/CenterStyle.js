@@ -3,7 +3,6 @@ import palette from '@styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
-  padding: 192px 0;
   justify-content: center;
   width: 100%;
 
@@ -13,38 +12,6 @@ export const Wrapper = styled.div`
 
   @media (max-width: 767px) {
     padding: 0;
-  }
-`;
-
-export const Sidebar = styled.aside`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  position: sticky;
-  top: calc(50vh - 120px);
-  height: fit-content;
-
-  @media (min-width: 768px) and (max-width: 899px) {
-    display: none;
-  }
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-`;
-
-export const Float = styled.button`
-  background: transparent;
-  border: none;
-  padding: 6px 10px;
-  color: ${palette.mainNavy.navy80};
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background: ${palette.mainNavy.navy10};
   }
 `;
 

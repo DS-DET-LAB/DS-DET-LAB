@@ -89,8 +89,6 @@ function Info() {
       {(isTablet || isMobile) && <CommunityHeader />}
 
       <I.Info>
-        {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
-
         <I.InfoWrapper ref={inputRef}>
           <I.InfoText>공지사항</I.InfoText>
 

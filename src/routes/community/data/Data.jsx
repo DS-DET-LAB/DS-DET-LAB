@@ -97,8 +97,6 @@ function Data() {
     <>
       {(isTablet || isMobile) && <CommunityHeader />}
       <I.Info>
-        {!isTablet && !isMobile && <I.Community>커뮤니티</I.Community>}
-
         <I.InfoWrapper ref={inputRef}>
           <I.InfoText>자료실</I.InfoText>
 

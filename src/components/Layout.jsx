@@ -19,15 +19,29 @@ import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 import Banner from '@components/banner/Banner';
 import ScrollToTopButton from '@components/scroll/ScrollToTopButton';
-import { Outlet } from 'react-router-dom';
+import DesktopMenu from '@components/menu/DesktopMenu';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const Layout = () => {
+  const location = useLocation();
+  const showDesktopMenu = location.pathname !== '/';
+
   return (
     <>
       <Header />
       <Banner />
-      <main>
-        <Outlet />
+      <main
+        style={{
+          display: 'grid',
+          gridTemplateColumns: showDesktopMenu ? '280px 1fr' : '1fr',
+          maxWidth: '100vw',
+          margin: '100px auto',
+          padding: '0 60px',
+        }}>
+        {showDesktopMenu && <DesktopMenu />}
+        <div style={{ minWidth: 0 }}>
+          <Outlet />
+        </div>
       </main>
       <Footer />
       <ScrollToTopButton />
