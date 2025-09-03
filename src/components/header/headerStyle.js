@@ -19,6 +19,9 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 998;
 `;
 
 export const LeftSection = styled.div`
