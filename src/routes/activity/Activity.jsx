@@ -1,5 +1,5 @@
 // Activity.jsx
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as A from '@activity/ActivityStyle';
 import ToggleIcon from '@assets/activity/ic-arrow-20.svg';
 import YearTimeline from '@routes/activity/components/YearTimeline';
@@ -27,11 +27,11 @@ function Activity() {
   return (
     <A.Activity>
       <A.Container>
-        <A.HeaderName>활동 계획</A.HeaderName>
+        <A.HeaderName id="plan">활동 계획</A.HeaderName>
 
         {/* 연도별 / 분기별 계획표 */}
         <A.ToggleBox>
-          <A.ToggleName>
+          <A.ToggleName id="yearly-quarterly-plan">
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             연도별 / 분기별 계획표
           </A.ToggleName>
@@ -59,7 +59,7 @@ function Activity() {
 
         {/* 주요 일정 */}
         <A.ToggleBox>
-          <A.ToggleName>
+          <A.ToggleName id="schedule">
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             주요 일정
           </A.ToggleName>
@@ -73,18 +73,18 @@ function Activity() {
 
         {/* 향후 예정 사업 소개 */}
         <A.ToggleBox>
-          <A.ToggleName>
+          <A.ToggleName id="upcoming-projects">
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             향후 예정 사업 소개
           </A.ToggleName>
           <FutureActivity />
         </A.ToggleBox>
         <A.MobileLine src={Line} alt="line" />
-        <A.HeaderName>성과</A.HeaderName>
+        <A.HeaderName id="results">성과</A.HeaderName>
 
         {/* 완료된 사업 목록 */}
         <A.ToggleBox>
-          <A.ToggleName>
+          <A.ToggleName id="completed-projects">
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             완료된 사업 목록
           </A.ToggleName>
