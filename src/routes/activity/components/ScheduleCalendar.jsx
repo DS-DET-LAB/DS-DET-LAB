@@ -212,7 +212,10 @@ export default function MajorScheduleCalendar({
                 <span className="ymd">{formatYYMMDD(selectedDate)}</span>
                 <span className="weekday">{WEEKDAYS[selectedDate.getDay()]}요일</span>
               </S.DateBadge>
-              <S.EmptyText>일정이 없습니다.</S.EmptyText>
+              <S.EmptyText>
+                <span className="bullet" />
+                일정이 없습니다.
+              </S.EmptyText>
             </S.EmptyList>
           </S.ListContainer>
         ) : (

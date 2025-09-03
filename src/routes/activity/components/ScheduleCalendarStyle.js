@@ -12,6 +12,7 @@ export const CalendarArea = styled.div`
   max-width: 438px;
   margin: 0 auto;
   box-sizing: border-box;
+  padding: 0 8px;
   --cell-size: clamp(32px, calc((100% - 6 * 8px) / 7), 44px);
 `;
 
@@ -27,6 +28,7 @@ export const MonthTitle = styled.h3`
   font-size: 18px;
   font-weight: 700;
   color: #1f2a37;
+  margin: 0;
 `;
 
 export const ArrowButton = styled.button`
@@ -44,9 +46,9 @@ export const ArrowButton = styled.button`
 
 export const WeekHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   text-align: center;
-  padding: 6px 8px;
+  padding: 26.5px 0 16.5px 0;
   color: ${palette.text.primary};
   font-size: 18px;
   font-weight: 400;
@@ -54,18 +56,21 @@ export const WeekHeader = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   box-sizing: border-box;
-  gap: 8px; /* 셀 간격 복구/유지 */
-  padding: 0 8px 12px;
+  gap: 8px;
+  padding: 0 0 12px;
+  min-width: 0;
 `;
 
 export const Empty = styled.div`
+  box-sizing: border-box;
   width: 100%;
-  aspect-ratio: 1 / 1; /* 빈 칸도 정사각형로 맞춤 */
+  aspect-ratio: 1 / 1;
 `;
 
 export const DayCell = styled.button`
+  box-sizing: border-box;
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
@@ -73,7 +78,9 @@ export const DayCell = styled.button`
   background: #ffffff;
   position: relative;
   display: grid;
-  place-items: center;
+  place-items: normal;
+  line-height: 130%;
+  padding: clamp(6px, 1.2vw, 10px) clamp(8px, 1.8vw, 15px) clamp(10px, 2.4vw, 20px) clamp(8px, 1.8vw, 15px);
   color: ${palette.text.secondary};
   font-weight: 400;
   cursor: pointer;
@@ -103,7 +110,7 @@ export const DayCell = styled.button`
 
 export const Dot = styled.span`
   position: absolute;
-  bottom: 6px;
+  bottom: 20%;
   left: 50%;
   width: 5px;
   height: 5px;
@@ -121,13 +128,31 @@ export const Divider = styled.hr`
 export const EmptyList = styled.div`
   display: flex;
   align-items: center;
+  border-radius: 17px;
+  border: 1px solid var(--Hover-Back2, #edeeef);
+  background: var(--Background-White, #fff);
   gap: 12px;
-  padding: 30px 8px 8px;
+  padding: 20px 105px;
+  @media (max-width: 900px) {
+    padding: 20px;
+  }
 `;
 
 export const EmptyText = styled.div`
   color: ${palette.text.body};
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c7cbe0;
+    flex: 0 0 6px;
+    display: inline-block;
+  }
   @media (max-width: 767px) {
     font-size: 14px;
   }
