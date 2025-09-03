@@ -20,7 +20,7 @@ export const BottomSection = styled.div`
   padding: ${({ $viewport }) => ($viewport === 'mobile' ? '30px 20px' : '80px 340px')};
   gap: 15px;
   background-color: ${({ $isBusiness }) => $isBusiness && palette.mainNavy.navy10};
-  margin-bottom: ${({ $viewport, isBusiness }) => ($viewport === 'mobile' && !isBusiness ? '70px' : '0')};
+  margin-bottom: ${({ $viewport, $isBusiness }) => ($viewport === 'mobile' && !$isBusiness ? '70px' : '0')};
 `;
 
 export const BottomContainer = styled.div`
