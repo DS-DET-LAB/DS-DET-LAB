@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import * as S from '@routes/activity/components/PhotoAndVideoStyle';
-// import Arrow20 from '@assets/activity/ic-arrow-20.svg';
+import Right20 from '@assets/activity/ic-right-20.svg';
+import Left20 from '@assets/activity/ic-left-20.svg';
 
 const API_KEY = import.meta.env.VITE_YT_API_KEY || '';
 
@@ -121,24 +122,14 @@ export default function PhotoAndVideo({
   return (
     <S.Wrap>
       <S.Grid>{children}</S.Grid>
-
       <S.Pager>
         <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 19l-7-7 7-7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <img src={Left20} alt="leftBtn"></img>
         </S.IconBtn>
         <S.IconBtn onClick={() => setPageToken(nextToken || '')} disabled={!nextToken} aria-label="다음">
-          {/* <Arrow20 /> */}
+          <img src={Right20} alt="rightBtn"></img>
         </S.IconBtn>
       </S.Pager>
-
       {err && <S.ErrorMsg>{err}</S.ErrorMsg>}
     </S.Wrap>
   );
