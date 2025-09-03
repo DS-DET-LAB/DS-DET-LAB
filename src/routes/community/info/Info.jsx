@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
 import InfoData from '@db/communityInfo.json';
 
-import ArrowLeft from '@assets/community/ic-arrow-left-40.svg?react';
-import ArrowRight from '@assets/community/ic-arrow-40.svg?react';
+import ArrowLeft40 from '@assets/community/ic-arrow-left-40.svg?react';
+import ArrowLeft20 from '@assets/community/ic-arrow-left-20.svg?react';
+import ArrowRight40 from '@assets/community/ic-arrow-right-40.svg?react';
+import ArrowRight20 from '@assets/community/ic-arrow-right-20.svg?react';
 import CommunityHeader from '@routes/community/components/CommunityHeader';
 
 import Input from '@routes/community/components/Input';
@@ -112,14 +114,17 @@ function Info() {
             </I.InfoCardWrapper>
 
             <I.ButtonWrapper>
-              <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1}>
-                <ArrowLeft />
+              <I.Pagination onClick={handlePrevPage} disabled={currentPage === 1} $isMobile={isMobile}>
+                {!isMobile && <ArrowLeft40 />}
+                {isMobile && <ArrowLeft20 />}
               </I.Pagination>
 
               <I.Pagination
                 onClick={handleNextPage}
-                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage) || searchedData.length === 0}>
-                <ArrowRight />
+                disabled={currentPage === Math.ceil(searchedData.length / itemsPerPage) || searchedData.length === 0}
+                $isMobile={isMobile}>
+                {!isMobile && <ArrowRight40 />}
+                {isMobile && <ArrowRight20 />}
               </I.Pagination>
             </I.ButtonWrapper>
           </I.ContentWrapper>
