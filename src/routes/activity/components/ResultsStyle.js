@@ -33,7 +33,7 @@ export const Box = styled.div`
 export const FlexBox = styled.div`
   @media (max-width: 767px) {
     display: flex;
-    align-items: flex-start;
+    align-items: Center;
   }
 `;
 
@@ -41,7 +41,6 @@ export const Year = styled.div`
   color: ${palette.text.secondary};
   font-size: 18px;
   font-weight: 400;
-  margin: 3.5px 0 0;
 
   @media (max-width: 767px) {
     font-size: 14px;
@@ -53,7 +52,7 @@ export const HeadLine = styled.h3`
   color: ${palette.text.primary};
   font-size: 20px;
   font-weight: 600;
-  margin: 3px 0 10.5px;
+  margin: 0;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -65,18 +64,17 @@ export const AboutBox = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 7px;
 `;
-
 export const Line = styled.div`
-  width: 3px;
-  height: 55px;
+  width: 2px;
   background: ${palette.text.secondary50};
-  flex: 0 0 3px;
-  display: block;
   border-radius: 5px;
-
+  align-self: stretch;
+  flex-shrink: 0;
   @media (max-width: 767px) {
-    height: 35px;
+    height: 40px;
+    width: 2px;
   }
 `;
 
@@ -84,7 +82,7 @@ export const About = styled.div`
   color: ${palette.text.body};
   font-size: 18px;
   font-weight: 400;
-
+  line-height: 150%;
   @media (max-width: 767px) {
     font-size: 14px;
   }

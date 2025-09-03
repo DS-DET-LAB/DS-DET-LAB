@@ -30,11 +30,10 @@ export const MonthTitle = styled.h3`
 `;
 
 export const ArrowButton = styled.button`
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  border-radius: 10px;
   background: ${palette.hover.back1};
-  color: #4b5563;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -179,6 +178,7 @@ export const ListItem = styled.li`
   border-radius: 16px;
   border: 1px solid #eef2f7;
   background: #fff;
+  transition: box-shadow 300ms ease;
   &:hover {
     box-shadow: 0 0 15px rgba(17, 34, 6, 0.1);
   }
@@ -187,7 +187,7 @@ export const ListItem = styled.li`
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 900px) {
     padding: 20px;
   }
 

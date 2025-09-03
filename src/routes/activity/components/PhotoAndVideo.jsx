@@ -165,8 +165,10 @@ export default function PhotoAndVideo({
     );
   }
 
-  /* 데스크톱/태블릿인라 */
+  /* 데스크톱/태블릿 */
   const children = [];
+  const expandedTitle = (expandedIdx != null && source[expandedIdx]?.snippet?.title) || 'video';
+
   source.forEach((it, idx) => {
     const sn = it?.snippet;
     const vid = sn?.resourceId?.videoId || `sk-${idx}`;
@@ -188,23 +190,33 @@ export default function PhotoAndVideo({
       </S.Card>,
     );
 
-    if (expandedIdx === idx && expandedVid === vid) {
-      children.push(
-        <S.Expanded key={`exp-${vid}`}>
-          <S.PlayerBox>
-            <iframe
-              src={`https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
-              title={title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </S.PlayerBox>
-        </S.Expanded>,
-      );
+    // ✅ 이 줄의 마지막 카드라면(3개 단위 or 마지막 아이템)
+    const isRowEnd = idx % 3 === 2 || idx === source.length - 1;
+    if (isRowEnd) {
+      const rowStart = idx - (idx % 3);
+      const rowEnd = idx;
+
+      // ✅ 확장된 카드가 이 줄 안에 있다면, 이 줄 바로 아래 확장 플레이어 삽입
+      const isExpandedInThisRow =
+        expandedIdx != null && expandedIdx >= rowStart && expandedIdx <= rowEnd && !!expandedVid;
+
+      if (isExpandedInThisRow) {
+        children.push(
+          <S.Expanded key={`exp-row-${rowStart}`}>
+            <S.PlayerBox>
+              <iframe
+                src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
+                title={expandedTitle}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </S.PlayerBox>
+          </S.Expanded>,
+        );
+      }
     }
   });
-
   return (
     <S.Wrap>
       <S.Grid>{children}</S.Grid>
