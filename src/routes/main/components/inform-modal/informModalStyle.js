@@ -6,7 +6,7 @@ export const Background = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 1500;
   background-color: ${palette.background.black25};
   width: 100vw;
   height: 100dvh;
