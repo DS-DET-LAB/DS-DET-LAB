@@ -47,6 +47,7 @@ export default function PhotoAndVideo({
   playlist = 'https://www.youtube.com/watch?v=xnotNij9Qqc&list=PLaE7AG_TSWwsu4zmf7UBLuJWaruvr91Nn',
   pageSize = 9,
 }) {
+  const rootRef = useRef(null);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState('');
@@ -106,6 +107,41 @@ export default function PhotoAndVideo({
     }
   };
 
+  // ▶ 바깥 클릭 / ESC 로 닫기
+  useEffect(() => {
+    if (!expandedVid) return; // 열린 상태에서만 감시
+    const onPointerDown = (e) => {
+      const root = rootRef.current;
+      if (!root) return;
+      const target = e.target;
+      // 1) 컴포넌트 밖 클릭 → 닫기
+      if (!root.contains(target)) {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+        return;
+      }
+      // 2) 컴포넌트 안이지만 카드/플레이어 내부가 아니면 → 닫기
+      //    (카드/플레이어에는 data-click-keep 달아 둘 것)
+      const keep = target.closest?.('[data-click-keep]');
+      if (!keep) {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+      }
+    };
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown, true); // capture로 먼저 감지
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown, true);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [expandedVid]);
+
   const source = loading ? Array.from({ length: pageSize }) : items;
 
   /* ===========================
@@ -113,7 +149,7 @@ export default function PhotoAndVideo({
      =========================== */
   if (isMobile) {
     return (
-      <S.Wrap>
+      <S.Wrap ref={rootRef}>
         <S.MobileScroller ref={scrollerRef}>
           {source.map((it, idx) => {
             const sn = it?.snippet;
@@ -127,6 +163,7 @@ export default function PhotoAndVideo({
 
             return (
               <S.MobileCard
+                data-click-keep
                 key={vid}
                 onClick={() => onCardClick(idx, vid)}
                 title={title}
@@ -140,7 +177,7 @@ export default function PhotoAndVideo({
 
         {expandedVid && (
           <S.MobileExpanded>
-            <S.PlayerBox>
+            <S.PlayerBox data-click-keep>
               <iframe
                 src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
                 title="video"
@@ -181,6 +218,7 @@ export default function PhotoAndVideo({
 
     children.push(
       <S.Card
+        data-click-keep
         key={vid}
         onClick={() => onCardClick(idx, vid)}
         title={title}
@@ -190,20 +228,20 @@ export default function PhotoAndVideo({
       </S.Card>,
     );
 
-    // ✅ 이 줄의 마지막 카드라면(3개 단위 or 마지막 아이템)
+    // 이 줄의 마지막 카드라면(3개 단위 or 마지막 아이템)
     const isRowEnd = idx % 3 === 2 || idx === source.length - 1;
     if (isRowEnd) {
       const rowStart = idx - (idx % 3);
       const rowEnd = idx;
 
-      // ✅ 확장된 카드가 이 줄 안에 있다면, 이 줄 바로 아래 확장 플레이어 삽입
+      // 확장된 카드가 이 줄 안에 있다면, 이 줄 바로 아래 확장 플레이어 삽입
       const isExpandedInThisRow =
         expandedIdx != null && expandedIdx >= rowStart && expandedIdx <= rowEnd && !!expandedVid;
 
       if (isExpandedInThisRow) {
         children.push(
           <S.Expanded key={`exp-row-${rowStart}`}>
-            <S.PlayerBox>
+            <S.PlayerBox data-click-keep>
               <iframe
                 src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
                 title={expandedTitle}
@@ -218,7 +256,7 @@ export default function PhotoAndVideo({
     }
   });
   return (
-    <S.Wrap>
+    <S.Wrap ref={rootRef}>
       <S.Grid>{children}</S.Grid>
       <S.Pager>
         <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
