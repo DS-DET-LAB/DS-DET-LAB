@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
 import centerTime from '@db/centerTime.json';
-import departmentMail from '@db/departmentMail.json';
+import departmentInform from '@db/departmentInform.json';
 
 import CenterCard from '@center/components/CenterCard';
 import PersonalCard from '@center/components/PersonalCard';
@@ -147,12 +147,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>{departmentMail.부서[0].title}</C.LabelP>
+            <C.LabelP>{departmentInform.부서[0].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>{departmentMail.부서[0].text}</C.LabelP>
+            <C.LabelP>{departmentInform.부서[0].email}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>
@@ -165,12 +165,12 @@ function Center() {
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
-            <C.LabelP>{departmentMail.부서[1].title}</C.LabelP>
+            <C.LabelP>{departmentInform.부서[1].title}</C.LabelP>
           </C.LabelDiv>
 
           <C.IconWrapper data-tail="true">
             <C.MailImg src={MailIcon} alt="메일 아이콘" />
-            <C.LabelP>{departmentMail.부서[1].text}</C.LabelP>
+            <C.LabelP>{departmentInform.부서[1].email}</C.LabelP>
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>

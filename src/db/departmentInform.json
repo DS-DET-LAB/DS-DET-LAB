@@ -1,0 +1,16 @@
+{
+  "부서": [
+    {
+      "title": "디지털 새싹 운영팀",
+      "phone": "02-904-8224",
+      "email": "digitalseed.ds@gmail.com",
+      "address": "인문사회관 449호"
+    },
+    {
+      "title": "찾아가는 학교 컨설팅 운영팀",
+      "phone": "02-901-8810",
+      "email": "digitaledu.ds@gmail.com",
+      "address": "인문사회관 411호"
+    }
+  ]
+}
