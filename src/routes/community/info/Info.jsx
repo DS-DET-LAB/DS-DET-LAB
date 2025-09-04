@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import useMediaQuery from '@hooks/useMediaQuery';
 import InfoData from '@db/communityInfo.json';
@@ -14,10 +15,13 @@ import InfoCard from '@routes/community/components/InfoCard';
 import * as I from '@info/InfoStyle';
 
 function Info() {
+  const location = useLocation();
   const [search, setSearch] = useState('');
   const [searchedData, setSearchedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginated, setIsPaginated] = useState(false);
+  const [openNotice, setOpenNotice] = useState(null);
+  const cardRefs = useRef({});
 
   // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -83,6 +87,24 @@ function Info() {
     setSearchedData(getSortedData(InfoData));
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const noticeId = params.get('notice');
+
+    if (noticeId) {
+      setOpenNotice(Number(noticeId));
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (openNotice) {
+      const el = cardRefs.current[openNotice];
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [openNotice]);
+
   return (
     <>
       <I.Info>
@@ -104,7 +126,15 @@ function Info() {
 
             <I.InfoCardWrapper $hasNoResult={currentItems.length === 0}>
               {currentItems.map((info) => (
-                <InfoCard key={info.id} title={info.title} date={info.date} content={info.content} />
+                <div key={info.id} ref={(el) => (cardRefs.current[info.id] = el)}>
+                  <InfoCard
+                    id={Number(info.id)}
+                    title={info.title}
+                    date={info.date}
+                    content={info.content}
+                    defaultOpen={Number(info.id) === openNotice}
+                  />
+                </div>
               ))}
             </I.InfoCardWrapper>
 

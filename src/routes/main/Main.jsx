@@ -64,6 +64,7 @@ function Main() {
               title={notice.title}
               date={notice.date}
               content={notice.content}
+              path={`/community/info?notice=${notice.id}`}
             />
           ))}
         </M.BottomContainer>

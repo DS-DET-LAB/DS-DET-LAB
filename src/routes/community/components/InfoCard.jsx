@@ -6,22 +6,24 @@
  * 각 아이템 클릭 시 공지사항 전문 내용을 확인할 수 있습니다.
  *
  * @component
+ * @param {number} id - 공지사항의 id
  * @param {string} title - 화면에 렌더링할 공지사항 제목
  * @param {string} date - 공지를 작성한 날짜
  * @param {string} content - 공지사항 전문 내용
+ * @param {boolean} defaultOpen - 초기 렌더링 시 카드가 펼쳐져 있는지 여부 (true면 열림 상태로 시작)
  *
  * @example
  * <InfoCard
- *   key={data.id}
+ *   id={Number(info.id)}
  *   title={data.title}
  *   date={data.date}
  *   content={data.content}
  * />
  *
- * @author 김진효
+ * @author 김진효, 김서윤
  */
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 import ArrowDown32 from '@assets/community/ic-arrow-down-32.svg?react';
@@ -29,15 +31,23 @@ import ArrowDown24 from '@assets/community/ic-arrow-down-24.svg?react';
 
 import * as I from './InfoCardStyle';
 
-const InfoCard = ({ title, date, content }) => {
-  const [showAll, setShowAll] = useState(false);
+const InfoCard = ({ id, title, date, content, defaultOpen = false }) => {
+  const [showAll, setShowAll] = useState(defaultOpen);
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   const firstSentence = content.split('.')[0].trim();
   const displaySentence = `${firstSentence}.\n...`;
 
+  const handleToggle = useCallback(() => {
+    setShowAll((prev) => !prev);
+  }, []);
+
+  useEffect(() => {
+    if (defaultOpen) setShowAll(true);
+  }, [defaultOpen, id]);
+
   return (
-    <I.InfoCard onClick={() => setShowAll((prev) => !prev)} $showAll={showAll}>
+    <I.InfoCard onClick={handleToggle} $showAll={showAll}>
       <I.TopWrapper $isOpen={showAll}>
         <div>
           <I.Title>{title}</I.Title>

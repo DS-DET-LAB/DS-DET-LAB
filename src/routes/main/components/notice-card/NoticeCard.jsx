@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import useMediaQuery from '@hooks/useMediaQuery';
 import * as N from '@main/components/notice-card/noticeCardStyle';
 import Chip from '@main/components/chip/Chip';
@@ -8,6 +9,7 @@ import fadeTime from '@main/constants/fadeTime.json';
  *
  * 메인 페이지에서 사용하는 공지사항의 카드 형태 컴포넌트입니다.
  * 카테고리(Chip), 제목, 날짜, 설명 내용을 표시합니다.
+ * 클릭 시 전달받은 `path` 경로로 이동합니다.
  * Fade를 통해 스크롤 애니메이션을 보여줍니다.
  *
  * @component
@@ -15,6 +17,7 @@ import fadeTime from '@main/constants/fadeTime.json';
  * @param {string} title - 공지 제목 (예: "공지사항 제목")
  * @param {string} date - 공지 날짜
  * @param {string} content - 상세 설명
+ * @param {string} path - 클릭 시 이동할 라우트 경로
  *
  * @example
  * <NoticeCard
@@ -27,13 +30,18 @@ import fadeTime from '@main/constants/fadeTime.json';
  * @author 김서윤
  */
 
-function NoticeCard({ category, title, date, content }) {
+function NoticeCard({ category, title, date, content, path }) {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   let viewport = 'desktop';
   if (isMobile) viewport = 'mobile';
   else if (isTablet) viewport = 'tablet';
+
+  const handleNavLinkClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <N.Container
@@ -43,7 +51,7 @@ function NoticeCard({ category, title, date, content }) {
       duration={fadeTime.duration}
       distance="20px"
       delay={fadeTime.delay}>
-      <N.InsideContainer>
+      <N.InsideContainer onClick={() => handleNavLinkClick(path)}>
         <N.TopContainer>
           <Chip text={category} />
           <N.Title $viewport={viewport}>{title}</N.Title>
