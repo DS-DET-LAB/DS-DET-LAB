@@ -7,6 +7,9 @@
  * @param {string} title - 프로그램 이름
  * @param {string} target - 대상
  * @param {string|React.ReactNode} desc - 설명 (문자열 또는 React 노드)
+ * @param {string} content - 내용
+ * @param {boolean} defaultOpen - 초기 렌더링 시 카드가 펼쳐져 있는지 여부 (true면 열림 상태로 시작)
+ *
  * @example
  * <ProgramCard
  *   title="2025 디지털 새싹"
@@ -15,15 +18,15 @@
  *   content="디지털 새싹 사업은 초·중·고 학생들을 대상으로 AI와 소프트웨어 중심의 실습형 교육을 제공하는 국가 디지털 인재 양성 사업입니다. 덕성여자대학교 디지털 교육공학 센터는 해당 사업의 운영기관으로서, 다양한 학교 및 지역아동센터에 직접 찾아가 학생들에게 디지털 체험 중심의 교육을 제공합니다."
  * />
  *
- * @author 노진경
+ * @author 노진경, 김서윤
  **/
 
 import * as S from '@business/components/ProgramCardStyle';
 import lineIcon from '@assets/center/line.svg';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DownToggle from '@assets/business/downToggle.svg';
 
-function ProgramCard({ title, target, desc, content }) {
+function ProgramCard({ title, target, desc, content, defaultOpen = false }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = useCallback(() => {
@@ -36,6 +39,10 @@ function ProgramCard({ title, target, desc, content }) {
       setIsOpen((prev) => !prev);
     }
   }, []);
+
+  useEffect(() => {
+    setIsOpen(defaultOpen);
+  }, [defaultOpen]);
 
   return (
     <S.Card

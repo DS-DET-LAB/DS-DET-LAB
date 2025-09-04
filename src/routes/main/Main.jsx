@@ -46,6 +46,7 @@ function Main() {
               title={biz.title}
               subTitle={biz.subTitle}
               content={biz.content}
+              path={`/business?program=${encodeURIComponent(biz.title)}`}
             />
           ))}
         </M.BottomContainer>

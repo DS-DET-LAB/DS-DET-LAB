@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@hooks/useMediaQuery';
 import mainBusiness from '@db/mainBusiness.json';
 
@@ -13,8 +14,6 @@ import Icon from '@assets/center/triangle.svg';
 import DIcon from '@assets/business/ic-edu-72.svg';
 import RIcon from '@assets/business/ic-rsch-72.svg';
 import SIcon from '@assets/business/ic-stu-72.svg';
-import menuIcon from '@assets/center/menuToggle.svg';
-import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
 const parseSubTitle = (subTitle) => {
@@ -31,8 +30,27 @@ function Business() {
     refs.current[key] = el;
   };
 
+  const location = useLocation();
+  const [openProgram, setOpenProgram] = useState(null);
+
   const isMobile = useMediaQuery('(max-width: 767px)');
   // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const program = params.get('program');
+
+    if (program && refs.current.businessProjects) {
+      setOpenProgram(program);
+
+      setTimeout(() => {
+        refs.current.businessProjects.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 100);
+    }
+  }, [location]);
 
   return (
     <>
@@ -194,6 +212,7 @@ function Business() {
                   target={target}
                   desc={desc}
                   content={item.content}
+                  defaultOpen={openProgram === item.title}
                 />
               );
             })}
