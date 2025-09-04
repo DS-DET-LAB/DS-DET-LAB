@@ -1,79 +1,57 @@
 /**
- * YearTabs
- * 연도 탭 네비게이션 컴포넌트
+ * YearTabs (static)
+ * 연도 탭 표시 전용 컴포넌트 — 상호작용 없음
  *
- * 기능
- * - 연도 리스트를 탭으로 노출, 클릭/키보드(←/→)로 선택 가능
- * - controlled(value/onChange) & uncontrolled(defaultValue) 모두 지원
- * - 비활성 연도(disabledYears) 처리
+ * 동작
+ * - 클릭/키보드로 연도 변경 불가 (완전 비활성)
+ * - 지정된 연도 하나만 밑줄 표시(시각적 강조)
  *
  * Props
- * - years {number[]} 탭으로 보여줄 연도 배열 (미지정 시 현재연도~+2)
- * - value {number} 선택된 연도(컨트롤드)
- * - defaultValue {number} 초기 선택값(언컨트롤드)
- * - onChange {(year:number)=>void} 선택 변경 콜백
+ * - years {number[]} 표시할 연도 배열 (미지정 시 현재연도~+2)
+ * - value {number} 강조할 연도(우선 사용)
+ * - defaultValue {number} value가 없을 때 초기 강조값
  * - gap {number} 탭 사이 간격(px), 기본 32
- * - size {'md'|'lg'} 탭 폰트 크기 프리셋, 기본 'lg'
- * - disabledYears {number[]} 비활성 처리할 연도들
- * - className {string} 커스텀 클래스
+ * - size {'md'|'lg'} 폰트 크기 프리셋, 기본 'lg'
+ * - disabledYears {number[]} 비활성 표시(시각적 처리만, 동작엔 영향 없음)
+ * - className {string}
  *
- * 사용 예시
- * <YearTabs years={[2025,2026,2027]} value={year} onChange={setYear} size="lg" />
+ * 주의
+ * - onChange는 사용하지 않음(상호작용 없음)
  */
 
 import React from 'react';
 import * as S from '@routes/activity/components/YearTabsStyle';
 
-export default function YearTabs({
-  years,
-  value,
-  defaultValue,
-  onChange,
-  gap = 32,
-  size = 'lg',
-  disabledYears = [],
-  className,
-}) {
+export default function YearTabs({ years, value, defaultValue, gap = 32, size = 'lg', disabledYears = [], className }) {
   const fallbackYears = React.useMemo(() => {
     const y = new Date().getFullYear();
     return [y, y + 1, y + 2];
   }, []);
   const list = years && years.length ? years : fallbackYears;
 
-  const [internal, setInternal] = React.useState(defaultValue ?? list[0]);
-  const selected = value ?? internal;
-
-  const setSelected = (yr) => {
-    if (value === undefined) setInternal(yr);
-    onChange?.(yr);
-  };
-
-  const onKeyDown = (e) => {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    e.preventDefault();
-    const idx = list.findIndex((y) => String(y) === String(selected));
-    const dir = e.key === 'ArrowRight' ? 1 : -1;
-    const nextIdx = Math.min(list.length - 1, Math.max(0, idx + dir));
-    const next = list[nextIdx];
-    if (!disabledYears.includes(next)) setSelected(next);
-  };
+  // 강조(밑줄)할 연도 계산: value > defaultValue > 현재연도(없으면 첫 항목)
+  const selected = React.useMemo(() => {
+    if (value != null) return value;
+    if (defaultValue != null) return defaultValue;
+    const now = new Date().getFullYear();
+    return list.includes(now) ? now : list[0];
+  }, [value, defaultValue, list]);
 
   return (
-    <S.Wrap role="tablist" aria-label="연도 선택" $gap={gap} className={className} onKeyDown={onKeyDown}>
+    // role/키보드 핸들러 제거 (완전 표시 전용)
+    <S.Wrap $gap={gap} className={className}>
       {list.map((y) => {
-        const disabled = disabledYears.includes(y);
         const active = String(selected) === String(y);
+        const disabled = disabledYears.includes(y);
         return (
+          // 버튼 의미 제거: as="div", 포커스/클릭 비활성
           <S.YearBtn
+            as="div"
             key={y}
-            role="tab"
-            aria-selected={active}
-            aria-disabled={disabled}
-            tabIndex={active ? 0 : -1}
+            tabIndex={-1}
             data-active={active || undefined}
             data-size={size}
-            data-disabled={disabled || undefined}
-            onClick={() => !disabled && setSelected(y)}>
+            data-disabled={disabled || undefined}>
             {y}
           </S.YearBtn>
         );
