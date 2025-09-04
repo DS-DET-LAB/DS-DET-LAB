@@ -34,7 +34,7 @@ function Business() {
   const [openProgram, setOpenProgram] = useState(null);
 
   const isMobile = useMediaQuery('(max-width: 767px)');
-  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -44,9 +44,18 @@ function Business() {
       setOpenProgram(program);
 
       setTimeout(() => {
-        refs.current.businessProjects.scrollIntoView({
+        const el = refs.current.businessProjects;
+
+        let headerHeight = 86;
+        if (isMobile) headerHeight = 45 + 38;
+        else if (isTablet) headerHeight = 74 + 64;
+
+        const rect = el.getBoundingClientRect();
+        const scrollTop = window.scrollY + rect.top - headerHeight - 10;
+
+        window.scrollTo({
+          top: scrollTop,
           behavior: 'smooth',
-          block: 'start',
         });
       }, 100);
     }

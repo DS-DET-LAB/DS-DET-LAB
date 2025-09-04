@@ -23,8 +23,8 @@ function Info() {
   const [openNotice, setOpenNotice] = useState(null);
   const cardRefs = useRef({});
 
-  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1279px)');
 
   const inputRef = useRef(null);
 
@@ -99,8 +99,16 @@ function Info() {
   useEffect(() => {
     if (openNotice) {
       const el = cardRefs.current[openNotice];
+
+      let headerHeight = 86;
+      if (isMobile) headerHeight = 45 + 38;
+      else if (isTablet) headerHeight = 74 + 64;
+
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.scrollY + rect.top - headerHeight - 10;
+
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.scrollTo({ top: scrollTop, behavior: 'smooth' });
       }
     }
   }, [openNotice]);
