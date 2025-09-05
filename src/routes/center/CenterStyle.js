@@ -211,6 +211,10 @@ export const OrganizationImg = styled.img`
   width: 450px;
   height: 252px;
 
+  @media (min-width: 900px) and (max-width: 1300px) {
+    width: 100%;
+  }
+
   @media (max-width: 767px) {
     width: 70%;
     height: auto;
@@ -280,6 +284,15 @@ export const Card = styled.div`
   border-radius: 20px;
   background: ${palette.background.white};
   box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
+
+  @media (min-width: 900px) and (max-width: 1300px) {
+    ${({ $lessPadding }) =>
+      $lessPadding &&
+      `
+        box-sizing: border-box;
+        padding: 60px;
+    `}
+  }
 
   @media (max-width: 767px) {
     width: 100%;
