@@ -22,8 +22,6 @@ import OrganizationIcon from '@assets/center/org_chart-450w.png';
 import PhoneOrganizationIcon from '@assets/center/org_chart-268w.png';
 import LineIcon from '@assets/center/line.svg';
 import MailIcon from '@assets/center/ic-mail-filled-24.svg';
-// import menuIcon from '@assets/center/menuToggle.svg';
-// import slashIcon from '@assets/center/slash.svg';
 import sectionLineIcon from '@assets/center/SectionLine.svg';
 
 import ParkImg from '@assets/center/Park.png';
@@ -42,7 +40,6 @@ function Center() {
     refs.current[key] = el;
   };
   const isMobile = useMediaQuery('(max-width: 767px)');
-  // const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 899px)');
 
   return (
     <>
@@ -118,8 +115,8 @@ function Center() {
           </C.IconWrapper>
 
           <C.OrganiCardWrapper>
-            <C.Card>
-              <C.OrganizationImg src={isMobile ? PhoneOrganizationIcon : OrganizationIcon} alt="디지털 아이콘" />
+            <C.Card $lessPadding={true}>
+              <C.OrganizationImg src={isMobile ? PhoneOrganizationIcon : OrganizationIcon} alt="조직도" />
             </C.Card>
           </C.OrganiCardWrapper>
 
@@ -174,7 +171,6 @@ function Center() {
             <PersonalCard photoSrc={KimImg} name={'김세진'} role={'팀장'} phone={'02-901-8810'} />
             <PersonalCard photoSrc={BaeImg} name={'배초롱'} role={'책임연구원'} phone={'02-901-8853'} />
             <PersonalCard photoSrc={LeeImg} name={'이 정'} role={'연구원'} phone={'02-901-8635'} />
-
             <PersonalCard photoSrc={NamImg} name={'남정연'} role={'연구원'} phone={'02-901-8494'} />
             <PersonalCard photoSrc={SonImg} name={'손승우'} role={'연구원'} phone={'02-901-8495'} />
           </C.PersonalCardWrapper>
