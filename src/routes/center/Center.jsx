@@ -156,12 +156,9 @@ function Center() {
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>
-            <PersonalCard photoSrc={KimImg} name={'김세진'} role={'팀장'} phone={'02-901-8810'} />
-            <PersonalCard photoSrc={BaeImg} name={'배초롱'} role={'책임연구원'} phone={'02-901-8853'} />
-            <PersonalCard photoSrc={LeeImg} name={'이 정'} role={'연구원'} phone={'02-901-8635'} />
-
-            <PersonalCard photoSrc={NamImg} name={'남정연'} role={'연구원'} phone={'02-901-8494'} />
-            <PersonalCard photoSrc={SonImg} name={'손승우'} role={'연구원'} phone={'02-901-8495'} />
+            <PersonalCard photoSrc={ChoiImg} name={'최예영'} role={'연구원'} phone={'02-901-8224'} />
+            <PersonalCard photoSrc={HwangImg} name={'황고운'} role={'연구원'} phone={''} />
+            <PersonalCard photoSrc={LimImg} name={'임해랑'} role={'연구원'} phone={''} />
           </C.PersonalCardWrapper>
 
           <C.LabelDiv>
@@ -174,9 +171,12 @@ function Center() {
           </C.IconWrapper>
 
           <C.PersonalCardWrapper>
-            <PersonalCard photoSrc={ChoiImg} name={'최예영'} role={'연구원'} phone={'02-901-8224'} />
-            <PersonalCard photoSrc={HwangImg} name={'황고운'} role={'연구원'} phone={''} />
-            <PersonalCard photoSrc={LimImg} name={'임해랑'} role={'연구원'} phone={''} />
+            <PersonalCard photoSrc={KimImg} name={'김세진'} role={'팀장'} phone={'02-901-8810'} />
+            <PersonalCard photoSrc={BaeImg} name={'배초롱'} role={'책임연구원'} phone={'02-901-8853'} />
+            <PersonalCard photoSrc={LeeImg} name={'이 정'} role={'연구원'} phone={'02-901-8635'} />
+
+            <PersonalCard photoSrc={NamImg} name={'남정연'} role={'연구원'} phone={'02-901-8494'} />
+            <PersonalCard photoSrc={SonImg} name={'손승우'} role={'연구원'} phone={'02-901-8495'} />
           </C.PersonalCardWrapper>
         </C.SectionWrapper>
       </C.Wrapper>

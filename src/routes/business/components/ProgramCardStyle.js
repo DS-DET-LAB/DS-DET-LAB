@@ -14,7 +14,7 @@ export const Card = styled.div`
 
   &:hover {
     box-shadow: 0 0 15px 0 ${palette.mainNavy.navy10};
-    transition: transform 0.3s ease;
+    transition: box-shadow 0.3s ease;
   }
 
   @media (max-width: 767px) {
