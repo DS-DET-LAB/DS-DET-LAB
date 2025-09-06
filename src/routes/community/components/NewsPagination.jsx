@@ -80,7 +80,7 @@ export default function NewsPagination({
           viewport={viewport}
           onClick={handlePrev}
           style={{
-            cursor: hasPrev ? 'pointer' : 'default',
+            cursor: hasPrev ? 'pointer' : 'not-allowed',
             backgroundColor: hasPrev ? palette.mainNavy.navy80 : palette.text.secondary50,
           }}>
           <N.PagingIcon src={isMobile ? prev_s : prev} />
@@ -89,7 +89,7 @@ export default function NewsPagination({
           viewport={viewport}
           onClick={handleNext}
           style={{
-            cursor: hasNext ? 'pointer' : 'default',
+            cursor: hasNext ? 'pointer' : 'not-allowed',
             backgroundColor: hasNext ? palette.mainNavy.navy80 : palette.text.secondary50,
           }}>
           <N.PagingIcon src={isMobile ? next_s : next} />
