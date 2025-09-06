@@ -63,12 +63,7 @@ function Activity() {
             <img src={ToggleIcon} alt="toggle" width={24} height={24} />
             주요 일정
           </A.ToggleName>
-          <MajorScheduleCalendar
-            schedules={schedules}
-            initialMonth="2025-06-01"
-            onDateSelect={(d) => console.log('선택 날짜:', d)}
-            onScheduleClick={(item) => console.log('선택 일정:', item)}
-          />
+          <MajorScheduleCalendar schedules={schedules} initialMonth="2025-06-01" />
         </A.ToggleBox>
 
         {/* 향후 예정 사업 소개 */}

@@ -30,7 +30,7 @@ function FutureActivity() {
         <F.AboutBox>
           <F.Line />
           <F.About>
-            차세대 AI 기반 교육 관리 시스템 개발을 목표로 <br />
+            차세대 AI 기반 교육 관리 시스템 개발을 목표로 <br className="line-break" />
             연구 및 기획을 진행할 예정입니다.
           </F.About>
         </F.AboutBox>
@@ -43,7 +43,7 @@ function FutureActivity() {
         <F.AboutBox>
           <F.Line />
           <F.About>
-            지역 초·중·고 대상 디지털 교육 지원 사업을 통해 <br />
+            지역 초·중·고 대상 디지털 교육 지원 사업을 통해 <br className="line-break" />
             실질적인 교육 기회를 확대하고자 합니다.
           </F.About>
         </F.AboutBox>

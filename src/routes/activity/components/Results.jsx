@@ -34,7 +34,7 @@ function Results() {
         <S.AboutBox>
           <S.Line />
           <S.About>
-            학습자 데이터 기반 맞춤형 피드백 시스템 <br />
+            학습자 데이터 기반 맞춤형 피드백 시스템 <br className="line-break" />
             1차 개발 완료했습니다.
           </S.About>
         </S.AboutBox>
