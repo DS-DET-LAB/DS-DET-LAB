@@ -131,10 +131,13 @@ export const IconBtn = styled.button`
   &:not(:disabled):active {
     transform: scale(0.96);
   }
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     width: 40px;
     height: 40px;
     border-radius: 15px;
+  }
+  @media (min-width: 768px) {
+    background-color: ${palette.text.secondary50};
   }
 `;
 
