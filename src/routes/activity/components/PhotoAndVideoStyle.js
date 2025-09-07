@@ -9,7 +9,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  justify-content: center; /* 가운데 정렬 */
+  justify-content: center;
   padding: 0 100px;
   @media (max-width: 960px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -120,24 +120,24 @@ export const IconBtn = styled.button`
   height: 20px;
   border-radius: 7px;
   border: none;
-  background: ${palette.mainNavy?.navy100 || '#1f2d64'};
+  background: ${palette.mainNavy.navy80 || palette.text?.secondary50};
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition:
-    transform 120ms ease,
-    opacity 120ms ease;
+  transition: transform 120ms ease;
   &:disabled {
-    opacity: 0.4;
     cursor: not-allowed;
   }
   &:not(:disabled):active {
     transform: scale(0.96);
   }
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     width: 40px;
     height: 40px;
     border-radius: 15px;
+  }
+  @media (min-width: 768px) {
+    background-color: ${palette.text.secondary50};
   }
 `;
 

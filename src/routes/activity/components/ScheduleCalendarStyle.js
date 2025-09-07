@@ -58,7 +58,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   box-sizing: border-box;
-  gap: 8px;
+  gap: 3px;
   padding: 0 0 12px;
   min-width: 0;
 `;
@@ -75,12 +75,12 @@ export const DayCell = styled.button`
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 10px;
-  background: #ffffff;
+  background: ${palette.background.white};
   position: relative;
   display: grid;
   place-items: normal;
   line-height: 130%;
-  padding: clamp(6px, 1.2vw, 10px) clamp(8px, 1.8vw, 15px) clamp(10px, 2.4vw, 20px) clamp(8px, 1.8vw, 15px);
+  padding: clamp(6px, 2.5vw, 15px) clamp(8px, 1.8vw, 15px) clamp(10px, 2.4vw, 20px) clamp(8px, 1.8vw, 15px);
   color: ${palette.text.secondary};
   font-weight: 400;
   cursor: pointer;
@@ -99,6 +99,7 @@ export const DayCell = styled.button`
   }
   &:hover {
     background: ${palette.hover.back2};
+    transition: 300ms ease;
   }
   &&:not([data-selected]):hover {
     background: ${palette.hover.back1};
@@ -117,6 +118,17 @@ export const Dot = styled.span`
   border-radius: 50%;
   background: ${palette.mainNavy.navy100};
   transform: translateX(-50%);
+
+  @media (max-width: 900px) {
+    bottom: 19%;
+  }
+
+  @media (max-width: 730px) {
+    bottom: 18%;
+  }
+  @media (max-width: 360px) {
+    bottom: 16%;
+  }
 `;
 
 export const Divider = styled.hr`
@@ -133,6 +145,10 @@ export const EmptyList = styled.div`
   background: var(--Background-White, #fff);
   gap: 12px;
   padding: 20px 105px;
+  transition: box-shadow 300ms ease;
+  &:hover {
+    box-shadow: 0 0 15px rgba(17, 34, 6, 0.1);
+  }
   @media (max-width: 900px) {
     padding: 20px;
   }
@@ -149,7 +165,7 @@ export const EmptyText = styled.div`
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #c7cbe0;
+    background: ${palette.mainNavy.navy10};
     flex: 0 0 6px;
     display: inline-block;
   }
@@ -165,7 +181,6 @@ export const DateBadge = styled.span`
   padding: 4px 10px;
   font-size: 12px;
   line-height: 1;
-
   .ymd {
     color: ${palette?.text?.primary || '#1f2937'};
     font-weight: 600;
@@ -226,7 +241,7 @@ export const ListItem = styled.li`
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #c7cbe0;
+    background: ${palette.mainNavy.navy10};
     flex: 0 0 6px;
   }
   .title {

@@ -6,6 +6,8 @@
  * - 데스크톱/태블릿(≥768px): 그리드 카드, 카드 클릭 시 바로 아래 행에 큰 플레이어가 인라인 확장
  * - 모바일(360~767px): 가로 슬라이드(180×101 고정 카드), 클릭 시 슬라이드 하단에 큰 플레이어 표시
  * - 선택(재생 중) 카드에 오버레이/디밍 효과(data-active)
+ * - 확대 후 컴포넌트 외부 클릭(또는 ESC) 시 축소
+ * - 모바일: 아이템이 2개 이상이면 오른쪽 이동 버튼 배경 navy80, 좌/우 버튼으로 슬라이드 이동
  *
  * Props
  * - playlist {string} 플레이리스트 URL 또는 playlistId
@@ -18,16 +20,13 @@
  * - 자동재생 안정화를 위한 origin 파라미터 사용
  * - 페이지 전환 시 확장 상태 초기화
  * - 로딩/에러 상태 표시
- *
- * 사용 예시
- * <PhotoAndVideo playlist="https://www.youtube.com/watch?v=...&list=PLAYLIST_ID" pageSize={9} />
  */
 
 import React, { useEffect, useMemo, useState, useRef } from 'react';
 import * as S from '@routes/activity/components/PhotoAndVideoStyle';
 import Right20 from '@assets/activity/ic-right-20.svg';
 import Left20 from '@assets/activity/ic-left-20.svg';
-import useMediaQuery from '@hooks/useMediaQuery'; // 경로 프로젝트에 맞게
+import useMediaQuery from '@hooks/useMediaQuery';
 
 const API_KEY = import.meta.env.VITE_YT_API_KEY || '';
 
@@ -47,6 +46,9 @@ export default function PhotoAndVideo({
   playlist = 'https://www.youtube.com/watch?v=xnotNij9Qqc&list=PLaE7AG_TSWwsu4zmf7UBLuJWaruvr91Nn',
   pageSize = 9,
 }) {
+  const rootRef = useRef(null);
+  const scrollerRef = useRef(null);
+
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState('');
@@ -57,11 +59,14 @@ export default function PhotoAndVideo({
   const [expandedIdx, setExpandedIdx] = useState(null);
   const [expandedVid, setExpandedVid] = useState(null);
 
-  const playlistId = useMemo(() => getPlaylistId(playlist), [playlist]);
-
   // 모바일(360~767)
   const isMobile = useMediaQuery('(min-width: 0px) and (max-width: 767px)');
-  const scrollerRef = useRef(null);
+
+  // 모바일 슬라이드 제어(좌/우 이동 가능 여부)
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  const playlistId = useMemo(() => getPlaylistId(playlist), [playlist]);
 
   // 썸네일 데이터만 불러옴
   useEffect(() => {
@@ -106,14 +111,92 @@ export default function PhotoAndVideo({
     }
   };
 
+  // ▶ 바깥 클릭 / ESC 로 닫기
+  useEffect(() => {
+    if (!expandedVid) return; // 열린 상태에서만 감시
+    const onPointerDown = (e) => {
+      const root = rootRef.current;
+      if (!root) return;
+      const target = e.target;
+      // 1) 컴포넌트 밖 클릭 → 닫기
+      if (!root.contains(target)) {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+        return;
+      }
+      // 2) 컴포넌트 안이지만 카드/플레이어 내부가 아니면 → 닫기
+      const keep = target.closest?.('[data-click-keep]');
+      if (!keep) {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+      }
+    };
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setExpandedIdx(null);
+        setExpandedVid(null);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown, true); // capture로 먼저 감지
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown, true);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [expandedVid]);
+
+  // 로딩 중에는 skeleton 배열
   const source = loading ? Array.from({ length: pageSize }) : items;
+
+  // ===== 모바일 슬라이드 유틸 =====
+  const updateArrows = React.useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const { scrollLeft, clientWidth, scrollWidth } = el;
+    setCanLeft(scrollLeft > 0);
+    setCanRight(scrollLeft + clientWidth < scrollWidth - 1);
+  }, []);
+
+  const getStep = React.useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el) return 192; // fallback: 180 + 12(gap)
+    const first = el.querySelector('[data-card]');
+    const gapPx = parseFloat(getComputedStyle(el).gap || '0') || 0;
+    const w = first?.getBoundingClientRect?.().width || 180;
+    return w + gapPx;
+  }, []);
+
+  const slideRight = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({ left: getStep(), behavior: 'smooth' });
+  };
+  const slideLeft = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({ left: -getStep(), behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = scrollerRef.current;
+    if (!el) return;
+    updateArrows();
+    const onScroll = () => updateArrows();
+    el.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    return () => {
+      el.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', updateArrows);
+    };
+  }, [isMobile, source.length, updateArrows]);
 
   /* ===========================
      모바일 렌더 (슬라이드 + 하단 큰 플레이어)
      =========================== */
   if (isMobile) {
     return (
-      <S.Wrap>
+      <S.Wrap ref={rootRef}>
         <S.MobileScroller ref={scrollerRef}>
           {source.map((it, idx) => {
             const sn = it?.snippet;
@@ -127,6 +210,8 @@ export default function PhotoAndVideo({
 
             return (
               <S.MobileCard
+                data-card
+                data-click-keep
                 key={vid}
                 onClick={() => onCardClick(idx, vid)}
                 title={title}
@@ -140,7 +225,7 @@ export default function PhotoAndVideo({
 
         {expandedVid && (
           <S.MobileExpanded>
-            <S.PlayerBox>
+            <S.PlayerBox data-click-keep>
               <iframe
                 src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
                 title="video"
@@ -153,10 +238,14 @@ export default function PhotoAndVideo({
         )}
 
         <S.Pager>
-          <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
+          <S.IconBtn onClick={slideLeft} disabled={!canLeft} aria-label="이전">
             <img src={Left20} alt="leftBtn" width={5} height={10} />
           </S.IconBtn>
-          <S.IconBtn onClick={() => setPageToken(nextToken || '')} disabled={!nextToken} aria-label="다음">
+          <S.IconBtn
+            onClick={slideRight}
+            disabled={!canRight || source.length < 2}
+            $bg={source.length >= 2 ? S.palette?.mainNavy?.navy80 || '#2b3a7a' : undefined}
+            aria-label="다음">
             <img src={Right20} alt="rightBtn" width={5} height={10} />
           </S.IconBtn>
         </S.Pager>
@@ -165,7 +254,9 @@ export default function PhotoAndVideo({
     );
   }
 
-  /* 데스크톱/태블릿 */
+  /* ===========================
+     데스크톱/태블릿
+     =========================== */
   const children = [];
   const expandedTitle = (expandedIdx != null && source[expandedIdx]?.snippet?.title) || 'video';
 
@@ -181,6 +272,7 @@ export default function PhotoAndVideo({
 
     children.push(
       <S.Card
+        data-click-keep
         key={vid}
         onClick={() => onCardClick(idx, vid)}
         title={title}
@@ -190,20 +282,20 @@ export default function PhotoAndVideo({
       </S.Card>,
     );
 
-    // ✅ 이 줄의 마지막 카드라면(3개 단위 or 마지막 아이템)
+    // 이 줄의 마지막 카드라면(3개 단위 or 마지막 아이템)
     const isRowEnd = idx % 3 === 2 || idx === source.length - 1;
     if (isRowEnd) {
       const rowStart = idx - (idx % 3);
       const rowEnd = idx;
 
-      // ✅ 확장된 카드가 이 줄 안에 있다면, 이 줄 바로 아래 확장 플레이어 삽입
+      // 확장된 카드가 이 줄 안에 있다면, 이 줄 바로 아래 확장 플레이어 삽입
       const isExpandedInThisRow =
         expandedIdx != null && expandedIdx >= rowStart && expandedIdx <= rowEnd && !!expandedVid;
 
       if (isExpandedInThisRow) {
         children.push(
           <S.Expanded key={`exp-row-${rowStart}`}>
-            <S.PlayerBox>
+            <S.PlayerBox data-click-keep>
               <iframe
                 src={`https://www.youtube.com/embed/${expandedVid}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1${ORIGIN}`}
                 title={expandedTitle}
@@ -217,10 +309,12 @@ export default function PhotoAndVideo({
       }
     }
   });
+
   return (
-    <S.Wrap>
+    <S.Wrap ref={rootRef}>
       <S.Grid>{children}</S.Grid>
       <S.Pager>
+        {/* 데스크톱 페이징은 기존 API 페이지 전환 유지 */}
         <S.IconBtn onClick={() => setPageToken('')} disabled={!pageToken} aria-label="이전">
           <img src={Left20} alt="leftBtn" width={10} height={20} />
         </S.IconBtn>

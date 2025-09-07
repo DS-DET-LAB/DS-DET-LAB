@@ -39,24 +39,25 @@ export const FlexBox = styled.div`
 
 export const Year = styled.div`
   color: ${palette.text.secondary};
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
   font-weight: 400;
-
   @media (max-width: 767px) {
-    font-size: 14px;
     margin-right: 3px;
   }
 `;
 
 export const HeadLine = styled.h3`
   color: ${palette.text.primary};
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
   margin: 0;
 
   @media (max-width: 767px) {
-    font-size: 16px;
     font-weight: 500;
+  }
+
+  @media (max-width: 357px) {
+    font-size: clamp(15px, 1.8vw, 15.5px);
   }
 `;
 
@@ -80,10 +81,17 @@ export const Line = styled.div`
 
 export const About = styled.div`
   color: ${palette.text.body};
-  font-size: 18px;
+  font-size: clamp(14px, 1.8vw, 18px);
   font-weight: 400;
   line-height: 150%;
-  @media (max-width: 767px) {
-    font-size: 14px;
+
+  .line-break {
+    display: inline;
+  }
+
+  @media (max-width: 355px) {
+    .line-break {
+      display: none;
+    }
   }
 `;
