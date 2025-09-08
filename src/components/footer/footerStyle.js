@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
   flex-direction: column;
   gap: 34px;
   @media (max-width: 767px) {
-    gap: 20px;
+    gap: 25px;
     --horizontal-padding: 20px;
     --vertical-padding: 30px;
   }
@@ -26,6 +26,15 @@ export const FooterInner = styled.div`
   gap: 7px;
   @media (max-width: 767px) {
     gap: 5px;
+  }
+`;
+
+export const FooterBigInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: 767px) {
+    gap: 15px;
   }
 `;
 
@@ -46,6 +55,18 @@ export const FooterSubTitle = styled.div`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.45px;
+  @media (max-width: 767px) {
+    font-size: 14px;
+    letter-spacing: -0.35px;
+  }
+`;
+
+export const FooterDetailTitle = styled.div`
+  color: ${palette.background.white80};
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -0.4px;
   @media (max-width: 767px) {
     font-size: 14px;
     letter-spacing: -0.35px;

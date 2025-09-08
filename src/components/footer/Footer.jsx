@@ -17,6 +17,7 @@ import logoInsta12 from '@assets/footer/logo-insta-12.svg';
 import logoInsta24 from '@assets/footer/logo-insta-24.svg';
 import logoYoutube12 from '@assets/footer/logo-youtube-12.svg';
 import logoYoutube24 from '@assets/footer/logo-youtube-24.svg';
+import departmentInform from '@db/departmentInform.json';
 import socialAccount from '@db/socialAccount.json';
 import centerTime from '@db/centerTime.json';
 
@@ -32,13 +33,22 @@ const Footer = () => {
           Digital Educational Technology Lab
         </F.FooterSubTitle>
       </F.FooterInner>
-      <F.FooterInner>
-        <F.FooterTitle>문의</F.FooterTitle>
-        <F.InfoText>시간 | 평일 {centerTime.time} (주말 및 공휴일 휴무)</F.InfoText>
-        <F.InfoText>전화 | {socialAccount.phone}</F.InfoText>
-        <F.InfoText>메일 | {socialAccount.mail}</F.InfoText>
-        <F.InfoText>주소 | 덕성여자대학교, 01369, 서울 도봉구 삼양로144길 33 (쌍문동, 덕성여자대학교)</F.InfoText>
-      </F.FooterInner>
+      <F.FooterBigInner>
+        <F.FooterInner>
+          <F.FooterTitle>문의</F.FooterTitle>
+          <F.InfoText>시간 | 평일 {centerTime.time} (주말 및 공휴일 휴무)</F.InfoText>
+        </F.FooterInner>
+        {departmentInform.부서.map((dept, idx) => (
+          <F.FooterInner key={idx}>
+            <F.FooterDetailTitle>{dept.title}</F.FooterDetailTitle>
+            <F.InfoText>전화 | {dept.phone}</F.InfoText>
+            <F.InfoText>메일 | {dept.email}</F.InfoText>
+            <F.InfoText>
+              주소 | 덕성여자대학교 {dept.address}, 01369, 서울 도봉구 삼양로144길 33 (쌍문동, 덕성여자대학교)
+            </F.InfoText>
+          </F.FooterInner>
+        ))}
+      </F.FooterBigInner>
       <LinkToggle />
       <F.FooterInner>
         <F.Copyright>Copyright © 2025. likelion_ds all rights reserved.</F.Copyright>
