@@ -30,10 +30,9 @@ function NewsItem({ url, img, title, date, isInsta, isYoutube }) {
       {isYoutube ? (
         <N.Youtube
           src={img}
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></N.Youtube>
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen></N.Youtube>
       ) : (
         <N.ImgWrapper style={isInsta ? { aspectRatio: 1, height: 'auto' } : undefined}>
           <N.Img src={img} />
