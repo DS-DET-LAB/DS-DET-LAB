@@ -14,7 +14,7 @@ export const NewsPage = styled.div`
     width: calc(100% - 40px);
     padding: 0 20px;
   }
-  padding-top: ${({ viewport }) => (viewport === 'mobile' ? '30px' : '0')};
+  padding-top: ${({ $viewport }) => ($viewport === 'mobile' ? '30px' : '0')};
 `;
 
 export const News = styled.div`
@@ -37,9 +37,9 @@ export const Title = styled.div`
 
   margin-bottom: 30px;
 
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '36px')};
-  line-height: ${({ viewport }) => (viewport === 'mobile' ? '130%' : '150%')};
-  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.4px' : '-0.9px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '16px' : '36px')};
+  line-height: ${({ $viewport }) => ($viewport === 'mobile' ? '130%' : '150%')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.4px' : '-0.9px')};
 `;
 
 export const Group = styled.div`
@@ -60,17 +60,17 @@ export const SocialBox = styled.a`
   width: fit-content;
   color: ${palette.mainNavy.navy100};
 
-  gap: ${({ viewport }) => (viewport === 'mobile' ? '3px' : '10px')};
-  padding: ${({ viewport }) => (viewport === 'mobile' ? '10px' : '10px 20px')};
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '12px' : '20px')};
-  font-weight: ${({ viewport }) => (viewport === 'mobile' ? '400' : '500')};
-  line-height: ${({ viewport }) => (viewport === 'mobile' ? '150%' : '130%')};
-  letter-spacing: ${({ viewport }) => (viewport === 'mobile' ? '-0.3px' : '-0.5px')};
-  margin-bottom: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '30px')};
+  gap: ${({ $viewport }) => ($viewport === 'mobile' ? '3px' : '10px')};
+  padding: ${({ $viewport }) => ($viewport === 'mobile' ? '10px' : '10px 20px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '12px' : '20px')};
+  font-weight: ${({ $viewport }) => ($viewport === 'mobile' ? '400' : '500')};
+  line-height: ${({ $viewport }) => ($viewport === 'mobile' ? '150%' : '130%')};
+  letter-spacing: ${({ $viewport }) => ($viewport === 'mobile' ? '-0.3px' : '-0.5px')};
+  margin-bottom: ${({ $viewport }) => ($viewport === 'mobile' ? '20px' : '30px')};
 `;
 
 export const SocialIcon = styled.img`
-  width: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '45px')};
+  width: ${({ $viewport }) => ($viewport === 'mobile' ? '16px' : '45px')};
 `;
 
 export const External = styled.img`
@@ -85,9 +85,9 @@ export const Playlist = styled.div`
   letter-spacing: -0.5px;
   align-self: stretch;
 
-  font-size: ${({ viewport }) => (viewport === 'mobile' ? '16px' : '24px')};
-  font-weight: ${({ viewport }) => (viewport === 'mobile' ? '500' : '600')};
-  margin-bottom: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '25px')};
+  font-size: ${({ $viewport }) => ($viewport === 'mobile' ? '16px' : '24px')};
+  font-weight: ${({ $viewport }) => ($viewport === 'mobile' ? '500' : '600')};
+  margin-bottom: ${({ $viewport }) => ($viewport === 'mobile' ? '20px' : '25px')};
 `;
 
 export const PageControll = styled.div`
@@ -103,12 +103,12 @@ export const PageControll = styled.div`
 `;
 
 export const PagingBtn = styled.div`
-  width: ${({ viewport }) => (viewport === 'mobile' ? '20px' : '40px')};
+  width: ${({ $viewport }) => ($viewport === 'mobile' ? '20px' : '40px')};
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${({ viewport }) => (viewport === 'mobile' ? '7px' : '15px')};
+  border-radius: ${({ $viewport }) => ($viewport === 'mobile' ? '7px' : '15px')};
 `;
 
 export const PagingIcon = styled.img`
