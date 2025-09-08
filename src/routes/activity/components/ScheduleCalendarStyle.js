@@ -38,6 +38,7 @@ export const ArrowButton = styled.button`
   background: ${palette.hover.back1};
   display: grid;
   place-items: center;
+  transition: 300ms ease;
   cursor: pointer;
   &:hover {
     background: rgb(231, 232, 239);
@@ -83,6 +84,7 @@ export const DayCell = styled.button`
   padding: clamp(6px, 2.5vw, 15px) clamp(8px, 1.8vw, 15px) clamp(10px, 2.4vw, 20px) clamp(8px, 1.8vw, 15px);
   color: ${palette.text.secondary};
   font-weight: 400;
+  transition: 300ms ease;
   cursor: pointer;
 
   .num {
