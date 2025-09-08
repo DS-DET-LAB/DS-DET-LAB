@@ -77,7 +77,7 @@ export default function NewsPagination({
 
       <N.PageControll>
         <N.PagingBtn
-          viewport={viewport}
+          $viewport={viewport}
           onClick={handlePrev}
           style={{
             cursor: hasPrev ? 'pointer' : 'not-allowed',
@@ -86,7 +86,7 @@ export default function NewsPagination({
           <N.PagingIcon src={isMobile ? prev_s : prev} />
         </N.PagingBtn>
         <N.PagingBtn
-          viewport={viewport}
+          $viewport={viewport}
           onClick={handleNext}
           style={{
             cursor: hasNext ? 'pointer' : 'not-allowed',

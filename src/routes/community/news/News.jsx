@@ -30,17 +30,17 @@ function News() {
   }, [Have1Item, Have2Item]);
 
   return (
-    <N.NewsPage viewport={viewport}>
+    <N.NewsPage $viewport={viewport}>
       <N.News>
-        <N.Title viewport={viewport}>센터 소식</N.Title>
+        <N.Title $viewport={viewport}>센터 소식</N.Title>
         <NewsPagination data={newsData} visibleItem={visibleItem} />
         <N.Group>
           <NewsPagination
             data={instaData}
             visibleItem={visibleItem}
             socialBox={
-              <N.SocialBox href={AccountData.instagram} target="_blank" viewport={viewport}>
-                <N.SocialIcon src={isMobile ? smallInsta : insta} viewport={viewport} />
+              <N.SocialBox href={AccountData.instagram} target="_blank" $viewport={viewport}>
+                <N.SocialIcon src={isMobile ? smallInsta : insta} $viewport={viewport} />
                 @ds.digitaledu
                 {!isMobile && <N.External src={external} />}
               </N.SocialBox>
@@ -54,12 +54,12 @@ function News() {
             visibleItem={visibleItem}
             socialBox={
               <>
-                <N.SocialBox href={AccountData.youtube} target="_blank" viewport={viewport}>
-                  <N.SocialIcon src={isMobile ? smallYoutube : youtube} viewport={viewport} />
+                <N.SocialBox href={AccountData.youtube} target="_blank" $viewport={viewport}>
+                  <N.SocialIcon src={isMobile ? smallYoutube : youtube} $viewport={viewport} />
                   @DS디지털교육공학센터
                   {!isMobile && <N.External src={external} />}
                 </N.SocialBox>
-                <N.Playlist viewport={viewport}>2025 디지털새싹</N.Playlist>
+                <N.Playlist $viewport={viewport}>2025 디지털새싹</N.Playlist>
               </>
             }
             isYoutube={true}
@@ -68,7 +68,7 @@ function News() {
           <NewsPagination
             data={playlist2Data}
             visibleItem={visibleItem}
-            socialBox={<N.Playlist viewport={viewport}>2025 찾아가는 학교 컨설팅</N.Playlist>}
+            socialBox={<N.Playlist $viewport={viewport}>2025 찾아가는 학교 컨설팅</N.Playlist>}
             isYoutube={true}
           />
         </N.Group>
