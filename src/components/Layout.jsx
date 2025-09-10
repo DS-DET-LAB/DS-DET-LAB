@@ -25,6 +25,8 @@ import DesktopMenu from '@components/menu/DesktopMenu';
 import { Outlet, useLocation } from 'react-router-dom';
 import useMediaQuery from '@hooks/useMediaQuery';
 
+const VALID_PATHS = ['/', '/activity', '/business', '/center', '/community/data', '/community/info', '/community/news'];
+
 const Layout = () => {
   const location = useLocation();
   const showDesktopMenu = location.pathname !== '/';
@@ -34,6 +36,7 @@ const Layout = () => {
   const headerRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [activeSectionId, setActiveSectionId] = useState('');
+  const isErrorPath = !VALID_PATHS.includes(location.pathname);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -81,7 +84,11 @@ const Layout = () => {
       elements.forEach((el) => observer.unobserve(el));
       observer.disconnect();
     };
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash, isErrorPath]);
+
+  if (isErrorPath) {
+    return <Outlet />;
+  }
 
   return (
     <>
