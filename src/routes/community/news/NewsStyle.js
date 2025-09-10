@@ -4,8 +4,6 @@ import palette from '@styles/theme';
 export const NewsPage = styled.div`
   display: flex;
   gap: 125px;
-
-  justify-content: center;
   @media (min-width: 768px) and (max-width: 899px) {
     width: calc(100% - 80px);
     padding: 0 40px;
@@ -18,6 +16,7 @@ export const NewsPage = styled.div`
 `;
 
 export const News = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -26,6 +25,9 @@ export const ItemGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  @media (min-width: 420px) and (max-width: 567px) {
+    gap: 10px;
+  }
 `;
 
 export const Title = styled.div`

@@ -15,7 +15,9 @@ import useMediaQuery from '@hooks/useMediaQuery';
 
 function News() {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const Have2Item = useMediaQuery('((min-width: 767px) and (max-width: 1300px)) , (max-width: 620px)');
+  const Have5Item = useMediaQuery('(min-width: 1730px)');
+  const Have4Item = useMediaQuery('((min-width: 1600px) and (max-width: 1729px))');
+  const Have2Item = useMediaQuery('((min-width: 899px) and (max-width: 960px)), (max-width: 567px)');
   const Have1Item = useMediaQuery('(max-width: 420px)');
 
   let viewport = 'desktop';
@@ -26,8 +28,10 @@ function News() {
   useEffect(() => {
     if (Have1Item) setVisibleItem(1);
     else if (Have2Item) setVisibleItem(2);
+    else if (Have4Item) setVisibleItem(4);
+    else if (Have5Item) setVisibleItem(5);
     else setVisibleItem(3);
-  }, [Have1Item, Have2Item]);
+  }, [Have1Item, Have2Item, Have4Item, Have5Item]);
 
   return (
     <N.NewsPage $viewport={viewport}>

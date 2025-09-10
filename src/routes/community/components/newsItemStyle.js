@@ -2,17 +2,37 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const NewsItem = styled.a`
-  width: 295px;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   gap: 15px;
 
-  @media (max-width: 767px) {
-    width: 180px;
+  @media (min-width: 1360px) and (max-width: 1599px) {
+    width: calc(25vw - 9px);
+  }
+
+  @media (min-width: 1320px) and (max-width: 1359px) {
+    width: calc(23vw - 9px);
+  }
+
+  @media (min-width: 899px) and (max-width: 960px) {
+    width: calc(28vw - 11px);
+  }
+
+  @media (min-width: 768px) and (max-width: 899px) {
+    width: calc(30vw - 14px);
+  }
+
+  @media (min-width: 568px) and (max-width: 767px) {
+    width: calc(33vw - 24px);
+  }
+
+  @media (min-width: 420px) and (max-width: 567px) {
+    width: calc(50vw - 24px);
   }
 
   @media (max-width: 420px) {
-    width: 80vw;
+    width: calc(100vw - 40px);
   }
 `;
 
