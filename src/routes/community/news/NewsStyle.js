@@ -6,7 +6,7 @@ export const NewsPage = styled.div`
   gap: 125px;
   @media (min-width: 768px) and (max-width: 899px) {
     width: calc(100% - 80px);
-    padding: 0 40px;
+    padding: 40px 40px 0;
   }
   @media (max-width: 767px) {
     width: calc(100% - 40px);

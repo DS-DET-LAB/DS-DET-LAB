@@ -20,9 +20,9 @@ export const Container = styled.div`
   padding: 0 0 40px 0;
 
   /* ≤1279px (태블릿) */
-  @media (max-width: 900px) {
+  @media (min-width: 768px) and (max-width: 899px) {
     gap: 40px;
-    padding: 0 80px;
+    padding: 40px 40px;
   }
 
   /* ≤767px (모바일) */
