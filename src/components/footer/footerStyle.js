@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import palette from '@styles/theme';
 
 export const FooterContainer = styled.footer`
-  --horizontal-padding: clamp(20px, 18vw, 340px);
+  --horizontal-padding: clamp(20px, 6vw, 80px);
   --vertical-padding: 80px;
 
   background-color: #1a1f2b;
