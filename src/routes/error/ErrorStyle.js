@@ -19,12 +19,18 @@ export const Area = styled.div`
 
 export const Logo = styled.img`
   width: 118.726px;
-  height: 43.837px;
+  height: auto;
+  @media (max-width: 460px) {
+    width: 70px;
+  }
 `;
 
 export const Error = styled.img`
   width: 341.256px;
-  height: 131.055px;
+  height: auto;
+  @media (max-width: 460px) {
+    width: 280px;
+  }
 `;
 
 export const Btn = styled.div`
@@ -40,4 +46,8 @@ export const Btn = styled.div`
   line-height: 150%;
   letter-spacing: -0.72px;
   cursor: pointer;
+  @media (max-width: 460px) {
+    padding: 15px 120px;
+    font-size: 20px;
+  }
 `;
